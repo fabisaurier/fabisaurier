@@ -128,30 +128,30 @@ h2 {
     font-weight: 600; /* Make headings slightly bolder */
 }
 
-/* LED Clock Styles */
+/* Minimalistic Clock Styles */
 .led-clock {
-    font-family: 'Orbitron', sans-serif; /* Digital font */
-    font-size: 3.5em; /* Large font size */
+    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
+    font-size: 3em; /* Large font size */
     font-weight: 600; /* Bold */
-    color: #00ff00; /* Bright green for LED effect */
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Subtle glow effect */
+    color: var(--primary-color); /* Use the primary color from your theme */
     text-align: center;
     margin: 10px 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
-    padding: 10px;
-    border-radius: 10px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    padding: 15px;
+    border-radius: var(--border-radius); /* Rounded corners */
+    box-shadow: var(--box-shadow); /* Subtle shadow for depth */
 }
 
 .led-date {
-    font-family: 'Orbitron', sans-serif; /* Digital font */
-    font-size: 1.5em; /* Smaller font size */
-    color: #00ff00; /* Bright green for LED effect */
-    text-shadow: 0 0 3px #00ff00, 0 0 5px #00ff00; /* Subtle glow effect */
+    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
+    font-size: 1.2em; /* Smaller font size */
+    color: var(--secondary-color); /* Use the secondary color from your theme */
     text-align: center;
     margin-top: 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
     padding: 10px;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: var(--border-radius); /* Rounded corners */
+    box-shadow: var(--box-shadow); /* Subtle shadow for depth */
 }
 margin-top: 10px;
 }
