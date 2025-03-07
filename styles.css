@@ -76,7 +76,8 @@ h1.fancy-title .title-gif {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.7); /* Same as main container */
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
     backdrop-filter: blur(10px); /* Glass morphism effect */
     border-bottom: 1px solid rgba(234, 234, 234, 0.5); /* Fine border below */
     padding: 8px 20px;
