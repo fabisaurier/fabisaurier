@@ -28,32 +28,36 @@
         <div class="content-container">
             <main class="dashboard-container" id="dashboard">
                 <!-- Time Widget -->
-<div class="dashboard-item">
-    <div class="widget-content">
-        <!-- Location -->
-        <div id="location">
-            <i class="fas fa-location-dot"></i> <span id="city">Standort wird geladen...</span>
-        </div>
-        <!-- Main Clock -->
-        <div id="main-clock">00:00:00</div>
-    </div>
-</div>
+                <div class="dashboard-item">
+                    <div class="widget-content">
+                        <!-- Location -->
+                        <div id="location">
+                            <i class="fas fa-location-dot"></i> <span id="city">Standort wird geladen...</span>
+                        </div>
+                        <!-- Main Clock -->
+                        <div id="main-clock">00:00:00</div>
+                    </div>
+                </div>
 
-              <!-- Weather Widget -->
-<div class="dashboard-item">
-    <h2>Wetter</h2>
-    <div class="widget-content">
-        <div id="weather-widget">
-            <p>Wetter wird geladen...</p>
-        </div>
-    </div>
-</div>
+                <!-- Weather Widget -->
+                <div class="dashboard-item">
+                    <h2>Wetter</h2>
+                    <div class="widget-content">
+                        <div id="weather-widget">
+                            <p>Wetter wird geladen...</p>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Notes Widget -->
                 <div class="dashboard-item">
                     <h2>Notizen</h2>
                     <div class="widget-content">
-                        <p>Notizen werden geladen...</p>
+                        <div id="notes-widget">
+                            <h3>Meine Notizen</h3>
+                            <textarea id="notes-area" rows="4" placeholder="Notizen hier eingeben..."></textarea>
+                            <button id="save-notes">Speichern</button>
+                        </div>
                     </div>
                 </div>
 
