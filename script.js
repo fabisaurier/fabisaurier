@@ -115,12 +115,50 @@ document.getElementById('search-input').addEventListener('keypress', (e) => {
         document.getElementById('search-button').click();
     }
 });
-// Notes
-document.getElementById('save-notes').addEventListener('click', () => {
-    const notes = document.getElementById('notes-area').value;
-    localStorage.setItem('userNotes', notes);
-    alert('Notizen gespeichert!');
-});
+/* News Widget */
+#news-widget {
+    font-family: 'Poppins', sans-serif;
+}
+
+.news-list {
+    max-height: 300px; /* Limit height for scrollable list */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* Add space for scrollbar */
+}
+
+.news-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-3px);
+}
+
+.news-item h3 {
+    font-size: 1em;
+    margin: 0 0 5px 0;
+    color: var(--primary-color);
+}
+
+.news-item p {
+    font-size: 0.9em;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.news-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
 
 window.addEventListener('load', () => {
     const savedNotes = localStorage.getItem('userNotes');
