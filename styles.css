@@ -56,7 +56,7 @@ body {
     width: 140px; /* Adjust size as needed */
     height: 140px; /* Adjust size as needed */
     margin-left: 10px; /* Space between text and GIF */
-    border-radius: 10px; /* Optional: Rounded corners */
+    border-radius: 5px; /* Optional: Rounded corners */
     background-color: transparent; /* Ensure the background is transparent */
     border: none; /* Remove any borders */
     box-shadow: none; /* Remove any shadows */
