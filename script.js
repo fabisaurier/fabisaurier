@@ -1,4 +1,4 @@
-// Function to update the clock with flip animation
+// Function to update the clock
 function updateClock() {
     const now = new Date();
 
@@ -6,32 +6,70 @@ function updateClock() {
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds}`;
 
     // Update the DOM
-    const hoursElement = document.getElementById('hours');
-    const minutesElement = document.getElementById('minutes');
-    const secondsElement = document.getElementById('seconds');
-
-    if (hoursElement && minutesElement && secondsElement) {
-        // Add flip animation
-        flipDigit(hoursElement, hours);
-        flipDigit(minutesElement, minutes);
-        flipDigit(secondsElement, seconds);
+    const clockElement = document.getElementById('clock');
+    if (clockElement) {
+        clockElement.textContent = timeString;
     }
 }
 
-// Function to flip a single digit
-function flipDigit(element, newValue) {
-    if (element.textContent !== newValue) {
-        element.classList.add('flip');
-        element.setAttribute('data-value', newValue);
+// Function to create particle animation
+function createParticles() {
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
 
-        // Remove the flip class after the animation completes
-        setTimeout(() => {
-            element.textContent = newValue;
-            element.classList.remove('flip');
-        }, 500); // Match the duration of the flip animation
+    const particles = [];
+    const particleCount = 50;
+
+    // Particle class
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 2 - 1;
+            this.speedY = Math.random() * 2 - 1;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Reset particle position if it goes off-screen
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+            }
+        }
+
+        draw() {
+            ctx.fillStyle = '#ff6f61'; /* Coral color */
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
     }
+
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    // Animation loop
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+        requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
 }
 
 // Function to add the Time Widget
@@ -39,16 +77,16 @@ function addTimeWidget() {
     const firstWidget = document.querySelector('.dashboard-item:first-child .widget-content');
     if (firstWidget) {
         firstWidget.innerHTML = `
-            <div id="clock" class="led-clock">
-                <span id="hours" data-value="00">00</span>:
-                <span id="minutes" data-value="00">00</span>:
-                <span id="seconds" data-value="00">00</span>
-            </div>
+            <div id="clock" class="led-clock">00:00:00</div>
+            <canvas id="particles"></canvas>
         `;
 
         // Update the clock immediately and every second
         updateClock();
         setInterval(updateClock, 1000);
+
+        // Initialize particle animation
+        createParticles();
     } else {
         console.error("Time Widget konnte nicht gefunden werden");
     }
