@@ -53,8 +53,8 @@ body {
 
 /* Style for the GIF */
 .title-gif {
-    width: 80px; /* Adjust size as needed */
-    height: 80px; /* Adjust size as needed */
+    width: 120px; /* Adjust size as needed */
+    height: 120px; /* Adjust size as needed */
     margin-left: 15px; /* Space between text and GIF */
     border-radius: 10px; /* Optional: Rounded corners */
     background-color: transparent; /* Ensure the background is transparent */
