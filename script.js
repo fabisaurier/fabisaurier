@@ -27,29 +27,3 @@ function initDashboard() {
 
 // Wenn die Seite vollständig geladen ist
 document.addEventListener('DOMContentLoaded', initDashboard);
-
-// Wetter-Widget
-function addWeatherWidget() {
-    const secondWidget = document.querySelector('.dashboard-item:nth-child(2) .widget-content');
-    if (secondWidget) {
-        secondWidget.innerHTML = `
-            <div id="weather-widget">
-                <p>Wetter (Beispieldaten):</p>
-                <p>Berlin: 18°C, sonnig</p>
-                <p>München: 15°C, teilweise bewölkt</p>
-                <p>Hamburg: 14°C, Regen</p>
-            </div>
-        `;
-    }
-}
-
-// Füge diesen Aufruf in die initDashboard-Funktion ein
-function initDashboard() {
-    console.log('Dashboard wird initialisiert...');
-    
-    // Datum-Widget
-    updateDateWidget();
-    
-    // Wetter-Widget
-    addWeatherWidget();
-}
