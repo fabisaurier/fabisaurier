@@ -1,4 +1,4 @@
-// Function to update the clock with time zones
+// Function to update the clock
 function updateClock() {
     const now = new Date();
 
@@ -6,23 +6,10 @@ function updateClock() {
     const localOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
     const localTime = now.toLocaleTimeString('de-DE', localOptions);
 
-    // Format time for New York
-    const nyOptions = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    const nyTime = now.toLocaleTimeString('de-DE', nyOptions);
-
-    // Format time for Los Angeles
-    const laOptions = { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    const laTime = now.toLocaleTimeString('de-DE', laOptions);
-
     // Update the DOM
     const mainClockElement = document.getElementById('main-clock');
-    const nyTimeElement = document.getElementById('ny-time');
-    const laTimeElement = document.getElementById('la-time');
-
-    if (mainClockElement && nyTimeElement && laTimeElement) {
+    if (mainClockElement) {
         mainClockElement.textContent = localTime; // Local time (MEZ)
-        nyTimeElement.textContent = `New York: ${nyTime}`;
-        laTimeElement.textContent = `Los Angeles: ${laTime}`;
     }
 }
 
@@ -31,6 +18,7 @@ setInterval(updateClock, 1000);
 
 // Initialize the clock immediately
 updateClock();
+
 // Function to add the Weather Widget
 function addWeatherWidget() {
     const secondWidget = document.querySelector('.dashboard-item:nth-child(2) .widget-content');
@@ -85,7 +73,6 @@ function initDashboard() {
     console.log('Dashboard wird initialisiert...');
 
     // Add widgets
-    addTimeWidget();
     addWeatherWidget();
     addNotesWidget();
 
