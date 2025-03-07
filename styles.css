@@ -57,7 +57,9 @@ body {
     height: 80px; /* Adjust size as needed */
     margin-left: 15px; /* Space between text and GIF */
     border-radius: 10px; /* Optional: Rounded corners */
-    box-shadow: var(--box-shadow); /* Optional: Add shadow */
+    background-color: transparent; /* Ensure the background is transparent */
+    border: none; /* Remove any borders */
+    box-shadow: none; /* Remove any shadows */
 }
 
 .main-container {
