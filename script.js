@@ -2,9 +2,9 @@
 function updateClock() {
     const now = new Date();
 
-    // Format time for MEZ (your local time)
-    const mezOptions = { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    const mezTime = now.toLocaleTimeString('de-DE', mezOptions);
+    // Format time for your local time (MEZ)
+    const localOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const localTime = now.toLocaleTimeString('de-DE', localOptions);
 
     // Format time for New York
     const nyOptions = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
@@ -20,7 +20,7 @@ function updateClock() {
     const laTimeElement = document.getElementById('la-time');
 
     if (mainClockElement && nyTimeElement && laTimeElement) {
-        mainClockElement.textContent = `${mezTime} MEZ`;
+        mainClockElement.textContent = localTime; // Local time (MEZ)
         nyTimeElement.textContent = `New York: ${nyTime}`;
         laTimeElement.textContent = `Los Angeles: ${laTime}`;
     }
@@ -31,7 +31,6 @@ setInterval(updateClock, 1000);
 
 // Initialize the clock immediately
 updateClock();
-
 // Function to add the Weather Widget
 function addWeatherWidget() {
     const secondWidget = document.querySelector('.dashboard-item:nth-child(2) .widget-content');
