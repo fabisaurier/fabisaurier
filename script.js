@@ -72,8 +72,6 @@ function fetchWeather(latitude, longitude) {
         .then((data) => {
             if (data.cod === 200) {
                 const temperature = Math.round(data.main.temp);
-                const minTemp = Math.round(data.main.temp_min);
-                const maxTemp = Math.round(data.main.temp_max);
                 const weatherCondition = data.weather[0].description;
                 const icon = data.weather[0].icon;
 
@@ -84,8 +82,10 @@ function fetchWeather(latitude, longitude) {
                             <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${weatherCondition}">
                         </div>
                         <div class="weather-details">
-                            <p><span id="temperature">${temperature}°C</span> | <span id="weather-condition">${weatherCondition}</span></p>
-                            <p><span id="min-temp">Min: ${minTemp}°C</span> | <span id="max-temp">Max: ${maxTemp}°C</span></p>
+                            <p>
+                                <span id="temperature">${temperature}°C</span> |
+                                <span id="weather-condition">${weatherCondition}</span>
+                            </p>
                         </div>
                     </div>
                 `;
