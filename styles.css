@@ -120,9 +120,10 @@ body {
 
 .widget-content {
     margin-top: 10px;
+    position: relative; /* Ensure particles are contained within the widget */
 }
 
-/* Flip Clock Styles */
+/* Time Widget Styles */
 .led-clock {
     font-family: 'Poppins', sans-serif;
     font-size: 4em;
@@ -134,51 +135,19 @@ body {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    gap: 5px; /* Space between time units */
-}
-
-.led-clock span {
-    display: inline-block;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.2); /* Dark background for flip effect */
-    border-radius: 5px;
     position: relative;
-    perspective: 100px; /* Enable 3D perspective */
+    z-index: 1; /* Ensure the clock is above the particles */
 }
 
-.led-clock span::before,
-.led-clock span::after {
-    content: attr(data-value); /* Use data-value for dynamic content */
+/* Particle Animation Canvas */
+#particles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backface-visibility: hidden; /* Hide the back side of the flip */
-    transition: transform 0.5s ease;
-}
-
-.led-clock span::before {
-    background-color: rgba(0, 0, 0, 0.2); /* Front side */
-    transform: rotateX(0deg);
-}
-
-.led-clock span::after {
-    background-color: rgba(0, 0, 0, 0.2); /* Back side */
-    transform: rotateX(180deg);
-}
-
-.led-clock span.flip::before {
-    transform: rotateX(-180deg); /* Flip front side */
-}
-
-.led-clock span.flip::after {
-    transform: rotateX(0deg); /* Flip back side */
+    pointer-events: none; /* Allow interaction with the widget */
+    z-index: 0; /* Ensure particles are behind the clock */
 }
 
 h2 {
