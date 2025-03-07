@@ -3,38 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard für persönliche Widgets wie Wetter, Uhrzeit und Notizen.">
     <title>Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Title with GIF -->
-    <h1 class="fancy-title">
-        fabisaurier
-        <img src="images/saurierlogo.gif" alt="Fun GIF" class="title-gif">
-    </h1>
+    <!-- Header with Title and GIF -->
+    <header>
+        <h1 class="fancy-title">
+            fabisaurier
+            <img src="images/saurierlogo.gif" alt="Dinosaurier-Logo" class="title-gif">
+        </h1>
+    </header>
 
     <div class="main-container">
-        <nav class="sidebar">
+        <!-- Sidebar -->
+        <aside class="sidebar">
             <ul>
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#settings">Einstellungen</a></li>
-                <li><a href="#profile">Profil</a></li>
-                <li><a href="#help">Hilfe</a></li>
+                <li><a href="#dashboard"><i class="fas fa-home" aria-label="Dashboard"></i> Dashboard</a></li>
+                <li><a href="#settings"><i class="fas fa-cog" aria-label="Einstellungen"></i> Einstellungen</a></li>
+                <li><a href="#profile"><i class="fas fa-user" aria-label="Profil"></i> Profil</a></li>
+                <li><a href="#help"><i class="fas fa-question-circle" aria-label="Hilfe"></i> Hilfe</a></li>
             </ul>
-        </nav>
+        </aside>
 
+        <!-- Main Content -->
         <div class="content-container">
             <main class="dashboard-container" id="dashboard">
                 <!-- Time Widget -->
                 <div class="dashboard-item">
                     <div class="widget-content">
-                        <!-- Location -->
                         <div id="location">
-                            <i class="fas fa-location-dot"></i> <span id="city">Standort wird geladen...</span>
+                            <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Standort wird geladen...</span>
                         </div>
-                        <!-- Main Clock -->
                         <div id="main-clock">00:00:00</div>
                     </div>
                 </div>
@@ -45,16 +48,6 @@
                     <div class="widget-content">
                         <div id="weather-widget">
                             <p>Wetter wird geladen...</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Weather Forecast Widget -->
-                <div class="dashboard-item">
-                    <h2>5-Tage Vorhersage</h2>
-                    <div class="widget-content">
-                        <div id="forecast-widget">
-                            <p>Vorhersage wird geladen...</p>
                         </div>
                     </div>
                 </div>
@@ -72,33 +65,34 @@
                 </div>
 
                 <!-- Additional Widgets -->
-                <div class="dashboard-item">
+                <div class="dashboard-item" id="widget-4">
                     <h2>Widget 4</h2>
                     <div class="widget-content">
                         <p>Inhalt für Widget 4...</p>
                     </div>
                 </div>
 
-                <div class="dashboard-item">
+                <div class="dashboard-item" id="widget-5">
                     <h2>Widget 5</h2>
                     <div class="widget-content">
                         <p>Inhalt für Widget 5...</p>
                     </div>
                 </div>
 
-                <div class="dashboard-item">
+                <div class="dashboard-item" id="widget-6">
                     <h2>Widget 6</h2>
                     <div class="widget-content">
                         <p>Inhalt für Widget 6...</p>
                     </div>
                 </div>
             </main>
-
-            <footer>
-                <p>Seite ist aktuell noch im Aufbau</p>
-            </footer>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Seite ist aktuell noch im Aufbau</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
