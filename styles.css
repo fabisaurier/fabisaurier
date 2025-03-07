@@ -17,7 +17,7 @@
 
 body {
     background-color: #f5f5f7; /* Fallback-Farbe, falls das Bild nicht geladen wird */
-    background-image: url('images/wallpaper.jpg'); /* Pfad zum Bild */
+    background-image: url('images/Pink Abstract Wallpaper.png'); /* Pfad zum Bild */
     background-size: cover; /* Deckt den gesamten Hintergrund ab */
     background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
     background-position: center; /* Zentriert das Bild */
