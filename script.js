@@ -13,11 +13,43 @@ function updateClock() {
     }
 }
 
+// Function to get the user's location
+function getLocation() {
+    const locationElement = document.getElementById('location');
+
+    if (navigator.geolocation) {
+        // Fetch the user's location
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                // Reverse geocoding to get the city name
+                fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=de`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const city = data.city || data.locality || "Unbekannter Ort";
+                        locationElement.textContent = `Standort: ${city}`;
+                    })
+                    .catch(() => {
+                        locationElement.textContent = "Standort: Unbekannt";
+                    });
+            },
+            () => {
+                locationElement.textContent = "Standort: Zugriff verweigert";
+            }
+        );
+    } else {
+        locationElement.textContent = "Standort: Nicht unterstützt";
+    }
+}
+
 // Update the clock every second
 setInterval(updateClock, 1000);
 
-// Initialize the clock immediately
+// Initialize the clock and location immediately
 updateClock();
+getLocation();
 
 // Function to add the Weather Widget
 function addWeatherWidget() {
