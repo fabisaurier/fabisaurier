@@ -148,21 +148,9 @@ h1.fancy-title .title-gif {
 
 /* Weather Widget */
 #weather-widget {
-    font-size: 1.1em;
-    font-weight: 500;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.weather-info {
-    display: flex;
-    align-items: center;/* Weather Widget */
-#weather-widget {
     font-size: 1em; /* Slightly smaller font for compact layout */
     font-weight: 500;
-    color: var(--text-color);
+    color: var(--primary-color); /* Use the same blue as the location */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -180,21 +168,14 @@ h1.fancy-title .title-gif {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Subtle shadow */
 }
 
-.weather-details {
-    display: flex;
-    flex-direction: column;
-    gap: 2px; /* Space between lines */
-}
-
 .weather-details p {
     margin: 0;
     font-size: 0.9em; /* Smaller font for details */
-    color: var(--text-color);
+    color: var(--primary-color); /* Same blue as the location */
 }
 
 #temperature {
     font-weight: 600; /* Bold temperature */
-    color: var(--primary-color);
 }
 
 #weather-condition {
@@ -202,10 +183,8 @@ h1.fancy-title .title-gif {
 }
 
 #min-temp, #max-temp {
-    font-size: 0.85em; /* Smaller font for min/max temps */
-    color: var(--secondary-color);
+    font-weight: 500; /* Normal weight for min/max temps */
 }
-
 /* Time and Date */
 .time-date {
     display: flex;
