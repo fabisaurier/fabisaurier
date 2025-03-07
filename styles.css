@@ -56,31 +56,19 @@ h1.fancy-title .title-gif {
     border-radius: 5px;
 }
 
-/* Layout Container */
-.layout-container {
+/* Main Container */
+.main-container {
     display: flex;
     width: 95%;
     max-width: 1600px;
-    margin: 0 auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.7); /* Glass morphism effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Fine border around main container */
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-/* Top Bar */
-.top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
-    backdrop-filter: blur(10px); /* Glass morphism effect */
-    border-bottom: 1px solid rgba(234, 234, 234, 0.5); /* Fine border below */
-    padding: 8px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: 50px;
-    width: 100%; /* Full width */
 }
 
 /* Sidebar */
@@ -90,7 +78,7 @@ h1.fancy-title .title-gif {
     padding: 20px;
     border-right: 1px solid rgba(234, 234, 234, 0.5); /* Fine border on the right */
     position: fixed;
-    height: calc(100vh - 70px); /* Adjust height to account for top bar */
+    height: calc(100vh - 70px); /* Adjust height to account for header */
     z-index: 1000;
 }
 
@@ -117,21 +105,81 @@ h1.fancy-title .title-gif {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Main Container */
-.main-container {
-    flex: 1;
-    margin-left: 200px; /* Offset for the sidebar */
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.7); /* Glass morphism effect */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Fine border around main container */
-}
-
 /* Content Container */
 .content-container {
+    flex: 1;
+    margin-left: 200px; /* Offset for the sidebar */
     padding: 20px;
+}
+
+/* Top Bar */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    border-bottom: 1px solid rgba(234, 234, 234, 0.5); /* Fine border below */
+    margin-bottom: 20px; /* Space between top bar and dashboard */
+}
+
+/* Location */
+#location {
+    font-size: 1.1em; /* Same size as weather */
+    font-weight: 500;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#location i {
+    color: red; /* Red location icon */
+}
+
+/* Weather Widget */
+#weather-widget {
+    font-size: 1.1em; /* Same size as location */
+    font-weight: 500;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-icon img {
+    width: 25px; /* Smaller icon */
+    height: 25px;
+}
+
+.weather-details p {
+    margin: 0;
+    font-size: 1em; /* Same size as location and weather */
+    color: var(--text-color);
+}
+
+/* Time and Date */
+#time-date {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between time and date */
+}
+
+#main-clock {
+    font-size: 1.1em; /* Same size as date */
+    font-weight: 600;
+    color: #ff6f61; /* Coral color */
+}
+
+#current-date {
+    font-size: 1.1em; /* Same size as time */
+    font-weight: 600; /* Match the clock's font weight */
+    color: #ff6f61; /* Same color as the clock */
 }
 
 /* Dashboard Container */
@@ -199,7 +247,7 @@ footer {
         position: static;
         height: auto;
     }
-    .main-container {
+    .content-container {
         margin-left: 0;
     }
     .top-bar {
