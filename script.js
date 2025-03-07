@@ -6,7 +6,11 @@ let clockInterval;
 
 function startClock() {
     updateClock(); // Run immediately
-    clockInterval = setInterval(updateClock, 1000); // Update every second
+    updateDate(); // Run immediately
+    clockInterval = setInterval(() => {
+        updateClock();
+        updateDate(); // Update date every second (optional)
+    }, 1000); // Update every second
 }
 
 function updateClock() {
@@ -15,6 +19,17 @@ function updateClock() {
     const mainClockElement = document.getElementById('main-clock');
     if (mainClockElement) {
         mainClockElement.textContent = localTime;
+    }
+}
+
+// Date
+function updateDate() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateString = now.toLocaleDateString('de-DE', options);
+    const dateElement = document.getElementById('current-date');
+    if (dateElement) {
+        dateElement.textContent = dateString;
     }
 }
 
