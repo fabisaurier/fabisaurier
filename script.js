@@ -69,6 +69,67 @@ function addWeatherWidget() {
     }
 }
 
+// OpenWeatherMap API Key
+const API_KEY = 'd1ce329d16cbfd561e667f32bbafbe5a'; // Replace with your API key
+
+// Function to fetch weather data
+function fetchWeather(latitude, longitude) {
+    const weatherWidget = document.getElementById('weather-widget');
+
+    // Fetch weather data from OpenWeatherMap API
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=de&appid=${API_KEY}`)
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.cod === 200) { // Check if the request was successful
+                const city = data.name;
+                const temperature = Math.round(data.main.temp);
+                const weatherDescription = data.weather[0].description;
+                const icon = data.weather[0].icon;
+
+                // Update the weather widget
+                weatherWidget.innerHTML = `
+                    <div class="weather-info">
+                        <div class="weather-icon">
+                            <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${weatherDescription}">
+                        </div>
+                        <div class="weather-details">
+                            <p><strong>${city}</strong></p>
+                            <p>${temperature}°C, ${weatherDescription}</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                weatherWidget.innerHTML = `<p>Wetterdaten konnten nicht geladen werden.</p>`;
+            }
+        })
+        .catch(() => {
+            weatherWidget.innerHTML = `<p>Wetterdaten konnten nicht geladen werden.</p>`;
+        });
+}
+
+// Function to get the user's location and fetch weather
+function getWeather() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                fetchWeather(latitude, longitude); // Fetch weather for the user's location
+            },
+            () => {
+                const weatherWidget = document.getElementById('weather-widget');
+                weatherWidget.innerHTML = `<p>Standortzugriff verweigert. Wetterdaten können nicht geladen werden.</p>`;
+            }
+        );
+    } else {
+        const weatherWidget = document.getElementById('weather-widget');
+        weatherWidget.innerHTML = `<p>Standortzugriff wird nicht unterstützt. Wetterdaten können nicht geladen werden.</p>`;
+    }
+}
+
+// Initialize the weather widget
+getWeather();
+
 // Function to add the Notes Widget
 function addNotesWidget() {
     const thirdWidget = document.querySelector('.dashboard-item:nth-child(3) .widget-content');
