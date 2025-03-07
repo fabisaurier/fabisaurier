@@ -45,17 +45,17 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 10px 0;
+    padding: 0; /* Remove padding to reduce gap */
     display: flex; /* Flexbox for text and GIF */
     align-items: center; /* Vertically center */
     justify-content: center; /* Horizontally center */
+    gap: 5px; /* Add gap between text and GIF */
 }
 
 /* Style for the GIF */
 .title-gif {
-    width: 160px; /* Adjust size as needed */
-    height: 160px; /* Adjust size as needed */
-    margin-left: 5px; /* Space between text and GIF */
+    width: 160px; /* Increased size */
+    height: 160px; /* Increased size */
     border-radius: 5px; /* Optional: Rounded corners */
     background-color: transparent; /* Ensure the background is transparent */
     border: none; /* Remove any borders */
