@@ -31,10 +31,27 @@ body {
     min-height: 100vh;
 }
 
+/* Header */
 header {
     width: 100%;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0; /* Reduced padding */
+    margin-bottom: 10px; /* Reduced margin to bring top bar closer */
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    width: 95%;
+    max-width: 1600px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.7); /* Glass morphism effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Fine border around main container */
+    margin-top: 10px; /* Reduced margin to bring top bar closer */
+    margin-bottom: 20px;
 }
 
 h1.fancy-title {
