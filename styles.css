@@ -11,7 +11,7 @@
 
 :root {
     --background-color: #f5f5f7;
-    --primary-color: #6366f1;
+    --primary-color: #6366f1; /* Blue color */
     --secondary-color: #86868b;
     --text-color: #333;
     --border-radius: 15px;
@@ -110,6 +110,8 @@ h1.fancy-title .title-gif {
     flex: 1;
     margin-left: 200px; /* Offset for the sidebar */
     padding: 20px;
+    display: flex;
+    flex-direction: column; /* Ensure top bar and widgets stack vertically */
 }
 
 /* Top Bar */
@@ -117,9 +119,9 @@ h1.fancy-title .title-gif {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px; /* Increased padding for more space */
+    padding: 15px 20px;
     border-bottom: 2px solid rgba(234, 234, 234, 0.8); /* Thicker border */
-    margin-bottom: 30px; /* Increased margin to separate from the dashboard */
+    margin-bottom: 20px; /* Space between top bar and widgets */
     background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
     backdrop-filter: blur(5px); /* Adds a subtle blur effect */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a shadow for depth */
@@ -203,6 +205,14 @@ h1.fancy-title .title-gif {
     font-size: 1.1em; /* Same size as time */
     font-weight: 600; /* Match the clock's font weight */
     color: #ff6f61; /* Same color as the clock */
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    width: 100%;
 }
 
 /* Widgets */
