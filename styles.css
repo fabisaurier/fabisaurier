@@ -34,13 +34,13 @@ body {
 }
 
 .fancy-title {
-    font-family: 'Bubblegum Sans', cursive; /* Use the custom font for the title */
-    font-size: 4em; /* Increase the font size */
-    color: #00ffff; /* Elektrisches Blau */
+    font-family: 'Bubblegum Sans', cursive; /* Custom font for the title */
+    font-size: 4em; /* Large font size */
+    color: #0077ff; /* A nice blue tone */
     margin-top: 20px;
     text-align: center;
     width: 100%;
-    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2); /* Optional: Schatten für mehr Tiefe */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2); /* Optional: Shadow for depth */
     letter-spacing: 2px;
     position: sticky;
     top: 0;
