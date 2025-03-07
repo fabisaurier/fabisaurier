@@ -184,10 +184,6 @@ h1.fancy-title .title-gif {
     font-style: italic; /* Italicize condition */
 }
 
-#min-temp, #max-temp {
-    font-weight: 500; /* Normal weight for min/max temps */
-}
-
 /* Time and Date */
 .time-date {
     display: flex;
