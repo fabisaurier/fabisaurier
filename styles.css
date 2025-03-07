@@ -213,4 +213,56 @@ footer {
     header h1 {
         font-size: 24px;
     }
+    /* Stile für die Navigationsleiste */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--widget-bg);
+    padding: 20px;
+    box-shadow: var(--shadow-light);
+    border-right: 1px solid var(--widget-border);
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Anpassungen für den Hauptinhalt */
+body {
+    padding-left: 220px; /* Platz für die Navigationsleiste */
+}
+
+header, footer {
+    width: calc(100% - 220px); /* Anpassung der Breite */
+    margin-left: auto;
+}
+
+.dashboard-container {
+    width: calc(100% - 220px); /* Anpassung der Breite */
+    margin-left: auto;
+}
+
 }
