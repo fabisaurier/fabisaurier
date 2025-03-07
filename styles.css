@@ -1,12 +1,12 @@
-/* Import the custom font */
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+/* Import the custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&display=swap');
 
 /* Grundlegende Stile */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Set Poppins as the default font */
 }
 
 :root {
@@ -26,7 +26,6 @@ body {
     background-position: center; /* Zentriert das Bild */
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
     color: #333;
     display: flex;
     flex-direction: column; /* Stack children vertically */
@@ -35,7 +34,7 @@ body {
 }
 
 .fancy-title {
-    font-family: 'Bubblegum Sans', cursive; /* Use the custom font */
+    font-family: 'Bubblegum Sans', cursive; /* Use the custom font for the title */
     font-size: 4em; /* Increase the font size */
     color: var(--primary-color);
     margin-top: 20px;
@@ -125,6 +124,7 @@ body {
 h2 {
     color: var(--primary-color);
     font-size: 1.2em;
+    font-weight: 600; /* Make headings slightly bolder */
 }
 
 footer {
