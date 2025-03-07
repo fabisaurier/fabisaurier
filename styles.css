@@ -162,9 +162,17 @@ h1.fancy-title .title-gif {
     gap: 10px;
 }
 
+.weather-icon {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background */
+    border-radius: 50%; /* Circular background */
+    padding: 5px; /* Spacing around the icon */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
 .weather-icon img {
-    width: 25px;
-    height: 25px;
+    width: 40px; /* Larger size */
+    height: 40px; /* Larger size */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Shadow effect */
 }
 
 .weather-details p {
