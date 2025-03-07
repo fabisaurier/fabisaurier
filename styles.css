@@ -1,5 +1,5 @@
 /* Import the custom fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&family=Orbitron:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&display=swap');
 
 /* Grundlegende Stile */
 * {
@@ -122,45 +122,30 @@ body {
     margin-top: 10px;
 }
 
+/* Minimalistic Time Widget Styles */
+.led-clock {
+    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
+    font-size: 4em; /* Large font size */
+    font-weight: 600; /* Bold */
+    color: #ff6f61; /* Coral color */
+    text-align: center;
+    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: var(--border-radius); /* Rounded corners */
+    box-shadow: var(--box-shadow); /* Subtle shadow for depth */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.led-clock:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly more opaque on hover */
+    transform: translateY(-2px); /* Lift the widget slightly */
+}
+
 h2 {
     color: var(--primary-color);
     font-size: 1.2em;
     font-weight: 600; /* Make headings slightly bolder */
-}
-
-/* Minimalistic Clock Styles */
-.led-clock {
-    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
-    font-size: 3em; /* Large font size */
-    font-weight: 600; /* Bold */
-    color: var(--primary-color); /* Use the primary color from your theme */
-    text-align: center;
-    margin: 10px 0;
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
-    padding: 15px;
-    border-radius: var(--border-radius); /* Rounded corners */
-    box-shadow: var(--box-shadow); /* Subtle shadow for depth */
-}
-
-.led-date {
-    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
-    font-size: 1.2em; /* Smaller font size */
-    color: var(--secondary-color); /* Use the secondary color from your theme */
-    text-align: center;
-    margin-top: 10px;
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
-    padding: 10px;
-    border-radius: var(--border-radius); /* Rounded corners */
-    box-shadow: var(--box-shadow); /* Subtle shadow for depth */
-}
-
-.led-clock:hover, .led-date:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Slightly more opaque on hover */
-    transform: translateY(-2px); /* Lift the widget slightly */
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-margin-top: 10px;
 }
 
 footer {
