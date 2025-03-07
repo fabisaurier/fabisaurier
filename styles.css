@@ -64,22 +64,37 @@ h1.fancy-title .title-gif {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7); /* Glass morphism effect */
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Fine border around main container */
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+/* Top Bar */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.7); /* Same as main container */
+    backdrop-filter: blur(10px); /* Glass morphism effect */
+    border-bottom: 1px solid rgba(234, 234, 234, 0.5); /* Fine border below */
+    padding: 8px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 50px;
 }
 
 /* Sidebar */
 .sidebar {
     width: 200px;
-    background-color: rgba(232, 218, 239, 0.8);
+    background-color: rgba(232, 218, 239, 0.9); /* Light lavender with slight transparency */
     padding: 20px;
-    border-right: 1px solid rgba(234, 234, 234, 0.5);
-    position: fixed; /* Fix the sidebar */
-    height: 100%; /* Full height */
-    z-index: 1000; /* Ensure it's above other content */
+    border-right: 1px solid rgba(234, 234, 234, 0.5); /* Fine border on the right */
+    position: fixed;
+    height: 100%;
+    z-index: 1000;
 }
 
 .sidebar ul {
@@ -111,21 +126,6 @@ h1.fancy-title .title-gif {
     flex: 1;
     display: flex;
     flex-direction: column;
-}
-
-/* Top Bar */
-.top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 8px 20px; /* Smaller padding */
-    border-bottom: 1px solid rgba(234, 234, 234, 0.5);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: 50px; /* Smaller height */
 }
 
 /* Location and Weather */
