@@ -59,7 +59,6 @@ h1.fancy-title .title-gif {
 /* Main Container */
 .main-container {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
     width: 95%;
     max-width: 1600px;
     border-radius: var(--border-radius);
@@ -72,32 +71,15 @@ h1.fancy-title .title-gif {
     margin-bottom: 20px;
 }
 
-/* Top Bar */
-.top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px 20px;
-    border-bottom: 1px solid rgba(234, 234, 234, 0.5);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* Sidebar and Content Container */
-.sidebar-and-content {
-    display: flex;
-    flex: 1; /* Fill remaining space */
-}
-
 /* Sidebar */
 .sidebar {
     width: 200px;
     background-color: rgba(232, 218, 239, 0.8);
     padding: 20px;
     border-right: 1px solid rgba(234, 234, 234, 0.5);
+    position: fixed; /* Fix the sidebar */
+    height: 100%; /* Full height */
+    z-index: 1000; /* Ensure it's above other content */
 }
 
 .sidebar ul {
@@ -121,6 +103,73 @@ h1.fancy-title .title-gif {
 
 .sidebar ul li a:hover {
     background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Top Bar and Content Container */
+.topbar-and-content {
+    margin-left: 200px; /* Offset for the sidebar */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Bar */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 8px 20px; /* Smaller padding */
+    border-bottom: 1px solid rgba(234, 234, 234, 0.5);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 50px; /* Smaller height */
+}
+
+/* Location */
+#location {
+    font-size: 1em; /* Smaller font */
+    font-weight: 500;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Clock */
+#main-clock {
+    font-size: 1.2em; /* Smaller font */
+    font-weight: 600;
+    color: #ff6f61;
+}
+
+/* Weather Widget */
+#weather-widget {
+    font-size: 1em; /* Smaller font */
+    font-weight: 500;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-icon img {
+    width: 25px; /* Smaller icon */
+    height: 25px;
+}
+
+.weather-details p {
+    margin: 0;
+    font-size: 0.9em; /* Smaller font */
+    color: var(--text-color);
 }
 
 /* Content Container */
@@ -148,50 +197,6 @@ h1.fancy-title .title-gif {
 
 .dashboard-item:hover {
     transform: translateY(-5px);
-}
-
-/* Location */
-#location {
-    font-size: 1.1em;
-    font-weight: 500;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Clock */
-#main-clock {
-    font-size: 1.5em;
-    font-weight: 600;
-    color: #ff6f61;
-}
-
-/* Weather Widget */
-#weather-widget {
-    font-size: 1.1em;
-    font-weight: 500;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.weather-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.weather-icon img {
-    width: 30px;
-    height: 30px;
-}
-
-.weather-details p {
-    margin: 0;
-    font-size: 1em;
-    color: var(--text-color);
 }
 
 /* Notes Widget */
@@ -233,12 +238,16 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .sidebar-and-content {
-        flex-direction: column;
-    }
     .sidebar {
         width: 100%;
-        border-right: none;
-        border-bottom: 1px solid rgba(234, 234, 234, 0.5);
+        position: static;
+        height: auto;
+    }
+    .topbar-and-content {
+        margin-left: 0;
+    }
+    .top-bar {
+        height: auto;
+        padding: 10px;
     }
 }
