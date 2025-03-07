@@ -144,12 +144,16 @@ body {
 
 #time-zones {
     font-size: 0.6em; /* Smaller font for the time zones */
-    color: var(--secondary-color); /* Use the secondary color for less prominence */
+    color: #ff6f61; /* Same color as the main clock */
     text-align: left; /* Align text to the left */
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+}
+
+#ny-time, #la-time {
+    font-weight: 600; /* Bold font for time zones */
 }
 
 h2 {
