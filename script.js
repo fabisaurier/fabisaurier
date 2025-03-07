@@ -1,4 +1,40 @@
-// Function to update the clock
+// Function to update the clock with flip animation
+function updateClock() {
+    const now = new Date();
+
+    // Format time (HH:MM:SS)
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    // Update the DOM
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+    const secondsElement = document.getElementById('seconds');
+
+    if (hoursElement && minutesElement && secondsElement) {
+        // Add flip animation
+        hoursElement.classList.add('flip');
+        minutesElement.classList.add('flip');
+        secondsElement.classList.add('flip');
+
+        // Update text after animation
+        setTimeout(() => {
+            hoursElement.textContent = hours;
+            minutesElement.textContent = minutes;
+            secondsElement.textContent = seconds;
+            hoursElement.classList.remove('flip');
+            minutesElement.classList.remove('flip');
+            secondsElement.classList.remove('flip');
+        }, 250); // Match the duration of the flip animation
+    }
+}
+
+// Update the clock every second
+setInterval(updateClock, 1000);
+
+// Initialize the clock immediately
+updateClock();// Function to update the clock
 function updateClock() {
     const now = new Date();
 
