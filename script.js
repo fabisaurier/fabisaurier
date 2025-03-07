@@ -14,40 +14,23 @@ function updateClock() {
 
     if (hoursElement && minutesElement && secondsElement) {
         // Add flip animation
-        hoursElement.classList.add('flip');
-        minutesElement.classList.add('flip');
-        secondsElement.classList.add('flip');
-
-        // Update text after animation
-        setTimeout(() => {
-            hoursElement.textContent = hours;
-            minutesElement.textContent = minutes;
-            secondsElement.textContent = seconds;
-            hoursElement.classList.remove('flip');
-            minutesElement.classList.remove('flip');
-            secondsElement.classList.remove('flip');
-        }, 250); // Match the duration of the flip animation
+        flipDigit(hoursElement, hours);
+        flipDigit(minutesElement, minutes);
+        flipDigit(secondsElement, seconds);
     }
 }
 
-// Update the clock every second
-setInterval(updateClock, 1000);
+// Function to flip a single digit
+function flipDigit(element, newValue) {
+    if (element.textContent !== newValue) {
+        element.classList.add('flip');
+        element.setAttribute('data-value', newValue);
 
-// Initialize the clock immediately
-updateClock();// Function to update the clock
-function updateClock() {
-    const now = new Date();
-
-    // Format time (HH:MM:SS)
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    const timeString = `${hours}:${minutes}:${seconds}`;
-
-    // Update the DOM
-    const clockElement = document.getElementById('clock');
-    if (clockElement) {
-        clockElement.textContent = timeString;
+        // Remove the flip class after the animation completes
+        setTimeout(() => {
+            element.textContent = newValue;
+            element.classList.remove('flip');
+        }, 500); // Match the duration of the flip animation
     }
 }
 
@@ -56,7 +39,11 @@ function addTimeWidget() {
     const firstWidget = document.querySelector('.dashboard-item:first-child .widget-content');
     if (firstWidget) {
         firstWidget.innerHTML = `
-            <div id="clock" class="led-clock">00:00:00</div>
+            <div id="clock" class="led-clock">
+                <span id="hours" data-value="00">00</span>:
+                <span id="minutes" data-value="00">00</span>:
+                <span id="seconds" data-value="00">00</span>
+            </div>
         `;
 
         // Update the clock immediately and every second
