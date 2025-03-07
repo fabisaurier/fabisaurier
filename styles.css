@@ -202,6 +202,34 @@ h1.fancy-title .title-gif {
     color: var(--primary-color);
 }
 
+/* Notes Widget Styles */
+#notes-widget {
+    font-family: 'Poppins', sans-serif;
+}
+
+#notes-area {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--secondary-color);
+    resize: vertical;
+}
+
+#save-notes {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#save-notes:hover {
+    background-color: #4f46e5; /* Darker shade of primary color */
+}
+
 h2 {
     color: var(--primary-color);
     font-size: 1.2em;
