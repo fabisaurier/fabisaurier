@@ -136,89 +136,80 @@ h1.fancy-title .title-gif {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px; /* Reduced padding for a thinner bar */
-    border-bottom: 2px solid rgba(234, 234, 234, 0.8); /* Thicker border */
-    margin-bottom: 15px; /* Reduced margin to move it closer to the upper edge */
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
-    backdrop-filter: blur(5px); /* Adds a subtle blur effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a shadow for depth */
-    border-radius: var(--border-radius); /* Rounded corners */
-    height: 50px; /* Fixed height for a thinner bar */
+    padding: 10px 20px;
+    border-bottom: 2px solid rgba(234, 234, 234, 0.8);
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    height: 50px;
 }
 
-/* Location and Weather */
-.location-weather {
+/* Left Section */
+.left-section {
     display: flex;
     align-items: center;
-    gap: 20px; /* Space between location and weather */
+    gap: 20px;
 }
 
-#location {
-    font-size: 1em; /* Same size as other text */
-    font-weight: 500;
-    color: var(--primary-color); /* Blue color */
+/* Middle Section: Google Search */
+.middle-section {
+    flex: 1; /* Take up remaining space */
     display: flex;
+    justify-content: center; /* Center the search container */
     align-items: center;
-    gap: 8px;
+    margin: 0 20px; /* Add some margin for spacing */
 }
 
-#location i {
-    color: red; /* Red location icon */
-}
-
-/* Weather Widget */
-#weather-widget {
-    font-size: 1em; /* Same size as other text */
-    font-weight: 500;
-    color: var(--primary-color); /* Blue color */
+/* Search Container */
+.search-container {
     display: flex;
     align-items: center;
     gap: 10px;
+    max-width: 400px; /* Limit the width of the search container */
+    width: 100%;
 }
 
-.weather-info {
+#search-input {
+    flex: 1; /* Take up remaining space */
+    padding: 8px 12px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-size: 0.9em;
+    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.8);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#search-input:focus {
+    border-color: var(--primary-color);
+}
+
+#search-button {
+    padding: 8px 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#search-button:hover {
+    background-color: #4f46e5;
+}
+
+#search-button i {
+    font-size: 1em;
+}
+
+/* Right Section: Time and Date */
+.right-section {
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-.weather-icon img {
-    width: 30px; /* Slightly smaller icon */
-    height: 30px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Subtle shadow */
-}
-
-.weather-details p {
-    margin: 0;
-    font-size: 1em; /* Same size as other text */
-    color: var(--primary-color); /* Blue color */
-}
-
-#temperature {
-    font-weight: 600; /* Bold temperature */
-}
-
-#weather-condition {
-    font-style: italic; /* Italicize condition */
-}
-
-/* Time and Date */
-.time-date {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Space between time and date */
-}
-
-#main-clock {
-    font-size: 1em; /* Same size as other text */
-    font-weight: 600;
-    color: #ff6f61; /* Coral color */
-}
-
-#current-date {
-    font-size: 1em; /* Same size as other text */
-    font-weight: 600; /* Match the clock's font weight */
-    color: #ff6f61; /* Same color as the clock */
+    gap: 15px;
 }
 /* Dashboard Container */
 .dashboard-container {
