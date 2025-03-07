@@ -123,34 +123,34 @@ h1.fancy-title .title-gif {
     background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
     backdrop-filter: blur(5px); /* Adds a subtle blur effect */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a shadow for depth */
-    border-radius: var(--border-radius); /* Rounded corners on all sides */
+    border-radius: var(--border-radius); /* Rounded corners */
 }
 
 /* Location and Weather */
 .location-weather {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 20px; /* Space between location and weather */
 }
 
 #location {
     font-size: 1.1em;
     font-weight: 500;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Blue color */
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
 #location i {
-    color: red;
+    color: red; /* Red location icon */
 }
 
 /* Weather Widget */
 #weather-widget {
     font-size: 1em; /* Slightly smaller font for compact layout */
     font-weight: 500;
-    color: var(--primary-color); /* Use the same blue as the location */
+    color: var(--primary-color); /* Blue color */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -171,7 +171,7 @@ h1.fancy-title .title-gif {
 .weather-details p {
     margin: 0;
     font-size: 0.9em; /* Smaller font for details */
-    color: var(--primary-color); /* Same blue as the location */
+    color: var(--primary-color); /* Blue color */
 }
 
 #temperature {
@@ -185,23 +185,24 @@ h1.fancy-title .title-gif {
 #min-temp, #max-temp {
     font-weight: 500; /* Normal weight for min/max temps */
 }
+
 /* Time and Date */
 .time-date {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 15px; /* Space between time and date */
 }
 
 #main-clock {
-    font-size: 1.1em;
+    font-size: 1.1em; /* Same size as date */
     font-weight: 600;
-    color: #ff6f61;
+    color: #ff6f61; /* Coral color */
 }
 
 #current-date {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: #ff6f61;
+    font-size: 1.1em; /* Same size as time */
+    font-weight: 600; /* Match the clock's font weight */
+    color: #ff6f61; /* Same color as the clock */
 }
 
 /* Widgets */
