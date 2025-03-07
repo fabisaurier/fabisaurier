@@ -6,7 +6,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif; /* Set Poppins as the default font */
+    font-family: 'Poppins', sans-serif;
 }
 
 :root {
@@ -19,70 +19,62 @@
 }
 
 body {
-    background-color: #f5f5f7; /* Fallback-Farbe, falls das Bild nicht geladen wird */
-    background-image: url('images/Pink Abstract Wallpaper.png'); /* Pfad zum Bild */
-    background-size: cover; /* Deckt den gesamten Hintergrund ab */
-    background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
-    background-position: center; /* Zentriert das Bild */
-    margin: 0;
-    padding: 0;
-    color: #333;
+    background-color: var(--background-color);
+    background-image: url('images/Pink Abstract Wallpaper.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--text-color);
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center children horizontally */
+    flex-direction: column;
+    align-items: center;
     min-height: 100vh;
 }
 
-/* Make .fancy-title more specific */
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
 h1.fancy-title {
     font-family: 'Bubblegum Sans', cursive;
     font-size: 4em;
     color: #0077ff;
-    margin-top: 20px;
-    text-align: center;
-    width: 100%;
+    margin: 0;
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
     letter-spacing: 2px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 0 !important; /* Remove padding to reduce gap */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px !important; /* Add gap between text and GIF */
+    gap: 5px;
 }
 
-/* Make .title-gif more specific */
 h1.fancy-title .title-gif {
-    width: 160px !important;
-    height: 160px !important;
+    width: 160px;
+    height: 160px;
     border-radius: 5px;
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    margin-left: 0 !important; /* Remove any leftover margin */
 }
 
 .main-container {
     display: flex;
-    width: 95%; /* Use 95% of the screen width */
-    max-width: 1600px; /* Increase max-width for a wider container */
+    width: 95%;
+    max-width: 1600px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.7); /* Glass morphism effect */
-    backdrop-filter: blur(10px); /* Adds a blur effect */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for definition */
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     margin-top: 20px;
-    margin-bottom: 20px; /* Add some space at the bottom */
+    margin-bottom: 20px;
 }
 
 .sidebar {
     width: 200px;
-    background-color: rgba(232, 218, 239, 0.8); /* Light lavender with transparency */
+    background-color: rgba(232, 218, 239, 0.8);
     padding: 20px;
-    border-right: 1px solid rgba(234, 234, 234, 0.5); /* Light border */
+    border-right: 1px solid rgba(234, 234, 234, 0.5);
 }
 
 .sidebar ul {
@@ -115,13 +107,13 @@ h1.fancy-title .title-gif {
 
 .dashboard-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Wider widgets */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 20px;
-    width: 100%; /* Ensure it uses the full width */
+    width: 100%;
 }
 
 .dashboard-item {
-    background-color: rgba(255, 245, 250, 0.8); /* Very light pink with transparency */
+    background-color: rgba(255, 245, 250, 0.8);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: 20px;
@@ -130,50 +122,39 @@ h1.fancy-title .title-gif {
 
 .dashboard-item:hover {
     transform: translateY(-5px);
-    background-color: rgba(255, 245, 250, 0.9); /* Slightly less transparent on hover */
 }
 
 .widget-content {
     margin-top: 10px;
 }
 
-/* Location Styles */
 #location {
-    font-family: 'Poppins', sans-serif;
     font-size: 1.2em;
     font-weight: 500;
     color: var(--primary-color);
     text-align: center;
-    margin-bottom: 10px; /* Space between location and clock */
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Space between icon and text */
+    gap: 8px;
 }
 
 #location i {
-    color: #ff6f61; /* Coral color to match the clock */
+    color: #ff6f61;
 }
 
-/* Time Widget Styles */
 #main-clock {
-    font-family: 'Poppins', sans-serif;
-    font-size: 4em; /* Larger font for the main clock */
+    font-size: 4em;
     font-weight: 600;
-    color: #ff6f61; /* Coral color */
+    color: #ff6f61;
     text-align: center;
-    padding: 20px; /* Add some padding */
-    margin: 0 auto; /* Center the clock */
-    background-color: transparent; /* Remove background */
-    border: none; /* Remove border */
-    box-shadow: none; /* Remove shadow */
+    padding: 20px;
+    margin: 0 auto;
 }
 
-/* Weather Widget Styles */
 #weather-widget {
-    font-family: 'Poppins', sans-serif;
     text-align: center;
-    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Default gradient */
     border-radius: var(--border-radius);
     padding: 20px;
     color: white;
@@ -190,7 +171,7 @@ h1.fancy-title .title-gif {
 .weather-icon img {
     width: 50px;
     height: 50px;
-    animation: sunAnimation 10s linear infinite; /* Sun animation */
+    animation: sunAnimation 10s linear infinite;
 }
 
 @keyframes sunAnimation {
@@ -210,31 +191,8 @@ h1.fancy-title .title-gif {
 
 .weather-details p strong {
     font-weight: 600;
-    color: white;
 }
 
-/* Forecast Widget Styles */
-#forecast-widget {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-    text-align: center;
-}
-
-.forecast-item {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: var(--border-radius);
-    padding: 10px;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.forecast-item img {
-    width: 40px;
-    height: 40px;
-}
-
-/* Notes Widget Styles */
 #notes-widget {
     font-family: 'Poppins', sans-serif;
 }
@@ -259,13 +217,7 @@ h1.fancy-title .title-gif {
 }
 
 #save-notes:hover {
-    background-color: #4f46e5; /* Darker shade of primary color */
-}
-
-h2 {
-    color: var(--primary-color);
-    font-size: 1.2em;
-    font-weight: 600; /* Make headings slightly bolder */
+    background-color: #4f46e5;
 }
 
 footer {
@@ -273,4 +225,17 @@ footer {
     color: var(--secondary-color);
     text-align: center;
     padding: 10px 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(234, 234, 234, 0.5);
+    }
 }
