@@ -36,17 +36,16 @@ body {
 .fancy-title {
     font-family: 'Bubblegum Sans', cursive; /* Use the custom font for the title */
     font-size: 4em; /* Increase the font size */
-    color: var(--primary-color);
+    color: #00ffff; /* Elektrisches Blau */
     margin-top: 20px;
     text-align: center;
     width: 100%;
-    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2), 
-                 6px 6px 0px rgba(0, 0, 0, 0.1); /* Add 3D effect */
-    letter-spacing: 2px; /* Add some letter spacing for better readability */
-    position: sticky; /* Make the title stick to the top */
-    top: 0; /* Stick to the top of the viewport */
-    z-index: 1000; /* Ensure the title stays above other content */
-    padding: 10px 0; /* Add some padding */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2); /* Optional: Schatten für mehr Tiefe */
+    letter-spacing: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
 }
 
 .main-container {
@@ -141,7 +140,7 @@ body {
 }
 
 #time-zones {
-    font-size: 0.8em; /* Smaller font for the time zones */
+    font-size: 0.5em; /* Much smaller font for the time zones */
     color: var(--secondary-color); /* Use the secondary color for less prominence */
     margin-top: 10px;
 }
