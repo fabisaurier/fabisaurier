@@ -34,32 +34,42 @@
         <div class="content-container">
             <!-- Top Bar -->
             <div class="top-bar">
-                <!-- Location and Weather -->
-                <div class="location-weather">
-                    <div id="location">
-                        <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Standort wird geladen...</span>
-                    </div>
-                    <div id="weather-widget">
-                        <div class="weather-info">
-                            <div class="weather-icon">
-                                <img src="https://openweathermap.org/img/wn/10d.png" alt="Weather Icon">
-                            </div>
-                            <div class="weather-details">
-                                <p>
-                                    <span id="temperature">18°C</span> |
-                                    <span id="weather-condition">Sunny</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Left Side: Location and Weather -->
+    <div class="left-section">
+        <div id="location">
+            <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Berlin</span>
+        </div>
+        <div id="weather-widget">
+            <div class="weather-info">
+                <div class="weather-icon">
+                    <img src="https://openweathermap.org/img/wn/10d.png" alt="Weather Icon">
                 </div>
-
-                <!-- Time and Date -->
-                <div class="time-date">
-                    <div id="main-clock">00:00:00</div>
-                    <div id="current-date"></div>
+                <div class="weather-details">
+                    <p>
+                        <span id="temperature">18°C</span> |
+                        <span id="weather-condition">Sunny</span>
+                    </p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Middle Section: Google Search -->
+    <div class="middle-section">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Google-Suche...">
+            <button id="search-button">
+                <i class="fas fa-search" aria-label="Suchen"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Right Side: Time and Date -->
+    <div class="right-section">
+        <div id="main-clock">14:35:07</div>
+        <div id="current-date">Montag, 23. Oktober 2023</div>
+    </div>
+</div>
 
             <!-- Dashboard Content -->
             <main class="dashboard-container" id="dashboard">
