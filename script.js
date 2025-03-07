@@ -98,6 +98,23 @@ function fetchWeather(latitude, longitude) {
         });
 }
 
+// Google Search Functionality
+document.getElementById('search-button').addEventListener('click', () => {
+    const searchQuery = document.getElementById('search-input').value.trim();
+    if (searchQuery) {
+        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+        window.open(googleSearchUrl, '_blank'); // Open in a new tab
+    } else {
+        alert('Bitte geben Sie einen Suchbegriff ein.');
+    }
+});
+
+// Optional: Allow pressing "Enter" to trigger search
+document.getElementById('search-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        document.getElementById('search-button').click();
+    }
+});
 // Notes
 document.getElementById('save-notes').addEventListener('click', () => {
     const notes = document.getElementById('notes-area').value;
