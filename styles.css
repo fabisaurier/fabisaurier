@@ -121,10 +121,16 @@ h1.fancy-title .title-gif {
 }
 
 .dashboard-item {
-    background-color: transparent; /* Remove background */
-    border: none; /* Remove border */
-    box-shadow: none; /* Remove shadow */
-    padding: 0; /* Remove padding */
+    background-color: rgba(255, 245, 250, 0.8); /* Very light pink with transparency */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    transition: transform 0.2s ease;
+}
+
+.dashboard-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 245, 250, 0.9); /* Slightly less transparent on hover */
 }
 
 .widget-content {
