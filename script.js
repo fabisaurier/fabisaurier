@@ -1,4 +1,4 @@
-// Function to update the clock and date with LED effect
+// Function to update the clock
 function updateClock() {
     const now = new Date();
 
@@ -8,38 +8,30 @@ function updateClock() {
     const seconds = String(now.getSeconds()).padStart(2, '0');
     const timeString = `${hours}:${minutes}:${seconds}`;
 
-    // Format date (e.g., "Montag, 1. Januar 2024")
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const dateString = now.toLocaleDateString('de-DE', options);
-
     // Update the DOM
     const clockElement = document.getElementById('clock');
-    const dateElement = document.getElementById('date');
-
-    if (clockElement && dateElement) {
+    if (clockElement) {
         clockElement.textContent = timeString;
-        dateElement.textContent = dateString;
     }
 }
 
-// Function to add the Time & Date widget
-function addDateWidget() {
+// Function to add the Time Widget
+function addTimeWidget() {
     const firstWidget = document.querySelector('.dashboard-item:first-child .widget-content');
     if (firstWidget) {
         firstWidget.innerHTML = `
             <div id="clock" class="led-clock">00:00:00</div>
-            <div id="date" class="led-date">Datum wird geladen...</div>
         `;
 
         // Update the clock immediately and every second
         updateClock();
         setInterval(updateClock, 1000);
     } else {
-        console.error("Datum-Widget konnte nicht gefunden werden");
+        console.error("Time Widget konnte nicht gefunden werden");
     }
 }
 
-// Function to add the Weather widget
+// Function to add the Weather Widget
 function addWeatherWidget() {
     const secondWidget = document.querySelector('.dashboard-item:nth-child(2) .widget-content');
     if (secondWidget) {
@@ -57,7 +49,7 @@ function addWeatherWidget() {
     }
 }
 
-// Function to add the Notes widget
+// Function to add the Notes Widget
 function addNotesWidget() {
     const thirdWidget = document.querySelector('.dashboard-item:nth-child(3) .widget-content');
     if (thirdWidget) {
@@ -93,7 +85,7 @@ function initDashboard() {
     console.log('Dashboard wird initialisiert...');
 
     // Add widgets
-    addDateWidget();
+    addTimeWidget();
     addWeatherWidget();
     addNotesWidget();
 
