@@ -53,3 +53,36 @@ function initDashboard() {
     // Wetter-Widget
     addWeatherWidget();
 }
+
+// Notizen-Widget
+function addNotesWidget() {
+    const thirdWidget = document.querySelector('.dashboard-item:nth-child(3) .widget-content');
+    if (thirdWidget) {
+        thirdWidget.innerHTML = `
+            <div id="notes-widget">
+                <h3>Meine Notizen</h3>
+                <textarea id="notes-area" rows="4" placeholder="Notizen hier eingeben..."></textarea>
+                <button id="save-notes">Speichern</button>
+            </div>
+        `;
+        
+        // Lade gespeicherte Notizen
+        const savedNotes = localStorage.getItem('dashboard-notes');
+        if (savedNotes) {
+            document.getElementById('notes-area').value = savedNotes;
+        }
+        
+        // Speichern-Button
+        document.getElementById('save-notes').addEventListener('click', function() {
+            const notes = document.getElementById('notes-area').value;
+            localStorage.setItem('dashboard-notes', notes);
+            alert('Notizen gespeichert!');
+        });
+    }
+}
+
+// Füge diesen Aufruf in die initDashboard-Funktion ein
+function initDashboard() {
+    // ... andere Widget-Initialisierungen
+    addNotesWidget();
+}
