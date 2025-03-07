@@ -15,7 +15,7 @@ function updateClock() {
 
 // Function to get the user's location
 function getLocation() {
-    const locationElement = document.getElementById('location');
+    const cityElement = document.getElementById('city');
 
     if (navigator.geolocation) {
         // Fetch the user's location
@@ -29,18 +29,18 @@ function getLocation() {
                     .then((response) => response.json())
                     .then((data) => {
                         const city = data.city || data.locality || "Unbekannter Ort";
-                        locationElement.textContent = `Standort: ${city}`;
+                        cityElement.textContent = city; // Update the city name
                     })
                     .catch(() => {
-                        locationElement.textContent = "Standort: Unbekannt";
+                        cityElement.textContent = "Unbekannt";
                     });
             },
             () => {
-                locationElement.textContent = "Standort: Zugriff verweigert";
+                cityElement.textContent = "Zugriff verweigert";
             }
         );
     } else {
-        locationElement.textContent = "Standort: Nicht unterstützt";
+        cityElement.textContent = "Nicht unterstützt";
     }
 }
 
