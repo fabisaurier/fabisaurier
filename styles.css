@@ -1,3 +1,6 @@
+/* Import the custom font */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
 /* Grundlegende Stile */
 * {
     box-sizing: border-box;
@@ -32,12 +35,15 @@ body {
 }
 
 .fancy-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
+    font-family: 'Bubblegum Sans', cursive; /* Use the custom font */
+    font-size: 4em; /* Increase the font size */
     color: var(--primary-color);
     margin-top: 20px;
     text-align: center;
     width: 100%;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2), 
+                 6px 6px 0px rgba(0, 0, 0, 0.1); /* Add 3D effect */
+    letter-spacing: 2px; /* Add some letter spacing for better readability */
 }
 
 .main-container {
