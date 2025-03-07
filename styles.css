@@ -50,7 +50,7 @@ header {
     background-color: rgba(255, 255, 255, 0.7); /* Glass morphism effect */
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3); /* Fine border around main container */
-    margin-top: 5px; /* Reduced margin to bring top bar closer */
+    margin-top: 2px; /* Reduced margin to bring top bar closer */
     margin-bottom: 20px;
 }
 
