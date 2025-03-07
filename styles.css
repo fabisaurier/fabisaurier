@@ -235,4 +235,59 @@ footer {
         width: 100%; /* Vollbreite auf kleinen Bildschirmen */
         margin-left: 0;
     }
+/* Stile für den Hauptinhalts-Container */
+.main-content {
+    background-color: var(--widget-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 20px;
+    margin-left: 220px; /* Platz für die Navigationsleiste */
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    padding: 20px 0; /* Entferne das linke Padding */
+    background-image: linear-gradient(120deg, #e6e6fa 0%, #d3d3d3 100%); /* Lavendel-Gradient */
+    min-height: 100vh;
+}
+
+header, footer {
+    width: 100%; /* Vollbreite innerhalb des Containers */
+    margin-left: 0;
+}
+
+.dashboard-container {
+    width: 100%; /* Vollbreite innerhalb des Containers */
+    margin-left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 15px 0; /* Entferne das linke Padding auf kleinen Bildschirmen */
+    }
+
+    .main-content {
+        margin-left: 0; /* Kein Platz für die Navigationsleiste auf kleinen Bildschirmen */
+        margin-right: 0;
+        border-radius: 0; /* Keine abgerundeten Ecken auf kleinen Bildschirmen */
+    }
+
+    header, footer {
+        width: 100%; /* Vollbreite auf kleinen Bildschirmen */
+    }
+
+    .dashboard-container {
+        width: 100%; /* Vollbreite auf kleinen Bildschirmen */
+    }
+}
+
 }
