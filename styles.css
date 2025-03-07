@@ -1,91 +1,214 @@
-// Datum aktualisieren
-function updateDateTime() {
-    const now = new Date();
-    const dateTimeElement = document.getElementById('current-date-time');
-    if (dateTimeElement) {
-        dateTimeElement.textContent = now.toLocaleString();
+/* macOS-inspiriertes Design für das Dashboard */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --background-color: #f5f5f7;
+    --widget-bg: rgba(255, 255, 255, 0.85);
+    --widget-border: rgba(0, 0, 0, 0.05);
+    --accent-color: #0071e3;
+    --text-color: #1d1d1f;
+    --text-secondary: #86868b;
+    --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --shadow-strong: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --border-radius: 12px;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    padding: 20px;
+    background-image: linear-gradient(120deg, #f5f5f7 0%, #e5e5e7 100%);
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: var(--widget-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--widget-border);
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+    font-size: 28px;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.dashboard-item {
+    background-color: var(--widget-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--widget-border);
+    overflow: hidden;
+}
+
+.dashboard-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-strong);
+}
+
+.dashboard-item h2 {
+    padding: 16px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.widget-content {
+    padding: 24px;
+    min-height: 160px;
+}
+
+.widget-content p {
+    color: var(--text-color);
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+#current-date-time {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-top: 10px;
+}
+
+#weather-widget p {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#weather-widget p:first-child {
+    font-weight: 500;
+    border-bottom: none;
+    margin-bottom: 10px;
+}
+
+#weather-widget p:last-child {
+    border-bottom: none;
+}
+
+#notes-widget h3 {
+    margin-bottom: 12px;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+#notes-area {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--widget-border);
+    background-color: rgba(255, 255, 255, 0.5);
+    font-family: inherit;
+    font-size: 14px;
+    resize: none;
+    margin-bottom: 12px;
+    transition: border-color 0.2s ease;
+}
+
+#notes-area:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.25);
+}
+
+#save-notes {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#save-notes:hover {
+    background-color: #0062cc;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    background-color: var(--widget-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--widget-border);
+}
+
+/* macOS Big Sur-ähnliche Elemente */
+.mac-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.mac-close {
+    background-color: #ff5f57;
+}
+
+.mac-minimize {
+    background-color: #ffbd2e;
+}
+
+.mac-expand {
+    background-color: #28c940;
+}
+
+.mac-window-controls {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    
+    body {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 24px;
     }
 }
-
-// Datum-Widget hinzufügen
-function addDateWidget() {
-    const firstWidget = document.querySelector('.dashboard-item:first-child .widget-content');
-    if (firstWidget) {
-        firstWidget.innerHTML = `
-            <p>Aktuelle Zeit:</p>
-            <p id="current-date-time"></p>
-        `;
-        
-        // Aktualisiere das Datum jede Sekunde
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
-    } else {
-        console.error("Datum-Widget konnte nicht gefunden werden");
-    }
-}
-
-// Wetter-Widget hinzufügen
-function addWeatherWidget() {
-    const secondWidget = document.querySelector('.dashboard-item:nth-child(2) .widget-content');
-    
-    if (secondWidget) {
-        secondWidget.innerHTML = `
-            <div id="weather-widget">
-                <p>Wetter (Beispieldaten):</p>
-                <p>Berlin: 18°C, sonnig</p>
-                <p>München: 15°C, teilweise bewölkt</p>
-                <p>Hamburg: 14°C, Regen</p>
-            </div>
-        `;
-        console.log("Wetter-Widget wurde hinzugefügt");
-    } else {
-        console.error("Wetter-Widget konnte nicht gefunden werden");
-    }
-}
-
-// Notizen-Widget hinzufügen
-function addNotesWidget() {
-    const thirdWidget = document.querySelector('.dashboard-item:nth-child(3) .widget-content');
-    
-    if (thirdWidget) {
-        thirdWidget.innerHTML = `
-            <div id="notes-widget">
-                <h3>Meine Notizen</h3>
-                <textarea id="notes-area" rows="4" placeholder="Notizen hier eingeben..."></textarea>
-                <button id="save-notes">Speichern</button>
-            </div>
-        `;
-        
-        // Lade gespeicherte Notizen
-        const savedNotes = localStorage.getItem('dashboard-notes');
-        if (savedNotes) {
-            document.getElementById('notes-area').value = savedNotes;
-        }
-        
-        // Speichern-Button
-        document.getElementById('save-notes').addEventListener('click', function() {
-            const notes = document.getElementById('notes-area').value;
-            localStorage.setItem('dashboard-notes', notes);
-            alert('Notizen gespeichert!');
-        });
-        
-        console.log("Notizen-Widget wurde hinzugefügt");
-    } else {
-        console.error("Notizen-Widget konnte nicht gefunden werden");
-    }
-}
-
-// Dashboard initialisieren - Hauptfunktion
-function initDashboard() {
-    console.log('Dashboard wird initialisiert...');
-    
-    // Widgets hinzufügen
-    addDateWidget();
-    addWeatherWidget();
-    addNotesWidget();
-    
-    console.log('Dashboard-Initialisierung abgeschlossen');
-}
-
-// Wenn die Seite vollständig geladen ist, Dashboard initialisieren
-document.addEventListener('DOMContentLoaded', initDashboard);
