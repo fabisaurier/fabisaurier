@@ -130,6 +130,12 @@ function getWeather() {
 // Initialize the weather widget
 getWeather();
 
+// Initialize the dashboard when the page is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initDashboard(); // Existing function
+    getWeather(); // Initialize the weather widget
+});
+
 // Function to add the Notes Widget
 function addNotesWidget() {
     const thirdWidget = document.querySelector('.dashboard-item:nth-child(3) .widget-content');
