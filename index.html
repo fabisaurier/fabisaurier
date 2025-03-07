@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>macOS Dashboard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,38 +16,40 @@
         </ul>
     </nav>
 
-    <header>
-        <h1>fabisaurier</h1>
-    </header>
-    
-    <main class="dashboard-container">
-        <div class="dashboard-item">
-            <h2>Zeit & Datum</h2>
-            <div class="widget-content">
-                <p>Aktuelle Zeit:</p>
-                <p id="current-date-time"></p>
+    <div class="main-content">
+        <header>
+            <h1>fabisaurier</h1>
+        </header>
+
+        <main class="dashboard-container" id="dashboard">
+            <div class="dashboard-item">
+                <h2>Zeit & Datum</h2>
+                <div class="widget-content">
+                    <p>Aktuelle Zeit:</p>
+                    <p id="current-date-time"></p>
+                </div>
             </div>
-        </div>
-        
-        <div class="dashboard-item">
-            <h2>Wetter</h2>
-            <div class="widget-content">
-                <p>Wetter wird geladen...</p>
+
+            <div class="dashboard-item">
+                <h2>Wetter</h2>
+                <div class="widget-content">
+                    <p>Wetter wird geladen...</p>
+                </div>
             </div>
-        </div>
-        
-        <div class="dashboard-item">
-            <h2>Notizen</h2>
-            <div class="widget-content">
-                <p>Notizen werden geladen...</p>
+
+            <div class="dashboard-item">
+                <h2>Notizen</h2>
+                <div class="widget-content">
+                    <p>Notizen werden geladen...</p>
+                </div>
             </div>
-        </div>
-    </main>
-    
-    <footer>
-        <p>Gestaltet im macOS-Stil • Mit GitHub Pages</p>
-    </footer>
-    
+        </main>
+
+        <footer>
+            <p>Gestaltet im macOS-Stil • Mit GitHub Pages</p>
+        </footer>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
