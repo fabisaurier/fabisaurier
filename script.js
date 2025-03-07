@@ -47,6 +47,24 @@ function getLocation() {
     }
 }
 
+// Function to set weather background based on condition
+function setWeatherBackground(weatherCondition) {
+    const weatherWidget = document.getElementById('weather-widget');
+    switch (weatherCondition) {
+        case 'Clear':
+            weatherWidget.style.background = 'linear-gradient(135deg, #6dd5ed, #2193b0)'; // Sunny
+            break;
+        case 'Clouds':
+            weatherWidget.style.background = 'linear-gradient(135deg, #bdc3c7, #2c3e50)'; // Cloudy
+            break;
+        case 'Rain':
+            weatherWidget.style.background = 'linear-gradient(135deg, #4ca1af, #2c3e50)'; // Rainy
+            break;
+        default:
+            weatherWidget.style.background = 'linear-gradient(135deg, #f5f7fa, #c3cfe2)'; // Default
+    }
+}
+
 // Function to fetch weather data
 function fetchWeather(latitude, longitude) {
     const weatherWidget = document.getElementById('weather-widget');
@@ -73,6 +91,9 @@ function fetchWeather(latitude, longitude) {
                         </div>
                     </div>
                 `;
+
+                // Set background based on weather condition
+                setWeatherBackground(data.weather[0].main);
             } else {
                 weatherWidget.innerHTML = `<p>Wetterdaten konnten nicht geladen werden.</p>`;
             }
@@ -82,52 +103,17 @@ function fetchWeather(latitude, longitude) {
         });
 }
 
-// Function to get the user's location and fetch weather
-function getWeather() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                fetchWeather(latitude, longitude); // Fetch weather for the user's location
-            },
-            () => {
-                const weatherWidget = document.getElementById('weather-widget');
-                weatherWidget.innerHTML = `<p>Standortzugriff verweigert. Wetterdaten können nicht geladen werden.</p>`;
-            }
-        );
-    } else {
-        const weatherWidget = document.getElementById('weather-widget');
-        weatherWidget.innerHTML = `<p>Standortzugriff wird nicht unterstützt. Wetterdaten können nicht geladen werden.</p>`;
-    }
-}
+// Function to fetch weather forecast
+function fetchWeatherForecast(latitude, longitude) {
+    const forecastWidget = document.getElementById('forecast-widget');
 
-// Function to initialize the Notes Widget
-function initNotesWidget() {
-    const notesArea = document.getElementById('notes-area');
-    const saveNotesButton = document.getElementById('save-notes');
-
-    // Load saved notes from localStorage
-    const savedNotes = localStorage.getItem('dashboard-notes');
-    if (savedNotes) {
-        notesArea.value = savedNotes;
-    }
-
-    // Save notes when the button is clicked
-    saveNotesButton.addEventListener('click', () => {
-        const notes = notesArea.value;
-        localStorage.setItem('dashboard-notes', notes);
-        alert('Notizen gespeichert!');
-    });
-}
-
-// Initialize the dashboard when the page is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-    updateClock(); // Initialize the clock
-    getLocation(); // Initialize the location
-    getWeather(); // Initialize the weather widget
-    initNotesWidget(); // Initialize the notes widget
-
-    // Update the clock every second
-    setInterval(updateClock, 1000);
-});
+    // Fetch weather forecast data from OpenWeatherMap API
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&lang=de&appid=${API_KEY}`)
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.cod === '200') { // Check if the request was successful
+                forecastWidget.innerHTML = data.list.slice(0, 5).map((forecast) => `
+                    <div class="forecast-item">
+                        <p>${new Date(forecast.dt * 1000).toLocaleDateString('de-DE', { weekday: 'short' })}</p>
+                        <p>${Math.round(forecast.main.temp)}°C</p>
+                        <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" alt="${
