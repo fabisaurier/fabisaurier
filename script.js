@@ -133,25 +133,30 @@ function fetchGoogleNews() {
             const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
             const items = xmlDoc.querySelectorAll('item');
 
+            const uniqueTitles = new Set(); // Track unique titles to avoid duplicates
             newsWidget.innerHTML = ''; // Clear existing content
-            items.forEach((item, index) => {
-                if (index >= 5) return; // Show only top 5 news items
 
+            items.forEach((item) => {
                 const title = item.querySelector('title').textContent;
                 const link = item.querySelector('link').textContent;
                 const description = item.querySelector('description').textContent;
 
-                const newsItem = document.createElement('div');
-                newsItem.classList.add('news-item');
+                // Filter out alternative articles (e.g., those with " - " in the title)
+                if (!title.includes(' - ') && !uniqueTitles.has(title)) {
+                    uniqueTitles.add(title); // Add title to the set to avoid duplicates
 
-                newsItem.innerHTML = `
-                    <a href="${link}" target="_blank">
-                        <h3>${title}</h3>
-                        <p>${description}</p>
-                    </a>
-                `;
+                    const newsItem = document.createElement('div');
+                    newsItem.classList.add('news-item');
 
-                newsWidget.appendChild(newsItem);
+                    newsItem.innerHTML = `
+                        <a href="${link}" target="_blank">
+                            <h3>${title}</h3>
+                            <p>${description}</p>
+                        </a>
+                    `;
+
+                    newsWidget.appendChild(newsItem);
+                }
             });
         })
         .catch(() => {
