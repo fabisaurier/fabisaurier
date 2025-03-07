@@ -19,31 +19,31 @@
     </header>
 
     <div class="main-container">
-        <!-- Top Bar -->
-        <div class="top-bar">
-            <!-- Location -->
-            <div id="location">
-                <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Standort wird geladen...</span>
-            </div>
-            <!-- Time -->
-            <div id="main-clock">00:00:00</div>
-            <!-- Weather -->
-            <div id="weather-widget">
-                <p>Wetter wird geladen...</p>
-            </div>
-        </div>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#dashboard"><i class="fas fa-home" aria-label="Dashboard"></i> Dashboard</a></li>
+                <li><a href="#settings"><i class="fas fa-cog" aria-label="Einstellungen"></i> Einstellungen</a></li>
+                <li><a href="#profile"><i class="fas fa-user" aria-label="Profil"></i> Profil</a></li>
+                <li><a href="#help"><i class="fas fa-question-circle" aria-label="Hilfe"></i> Hilfe</a></li>
+            </ul>
+        </aside>
 
-        <!-- Sidebar and Content Container -->
-        <div class="sidebar-and-content">
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <ul>
-                    <li><a href="#dashboard"><i class="fas fa-home" aria-label="Dashboard"></i> Dashboard</a></li>
-                    <li><a href="#settings"><i class="fas fa-cog" aria-label="Einstellungen"></i> Einstellungen</a></li>
-                    <li><a href="#profile"><i class="fas fa-user" aria-label="Profil"></i> Profil</a></li>
-                    <li><a href="#help"><i class="fas fa-question-circle" aria-label="Hilfe"></i> Hilfe</a></li>
-                </ul>
-            </aside>
+        <!-- Top Bar and Content Container -->
+        <div class="topbar-and-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <!-- Location -->
+                <div id="location">
+                    <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Standort wird geladen...</span>
+                </div>
+                <!-- Time -->
+                <div id="main-clock">00:00:00</div>
+                <!-- Weather -->
+                <div id="weather-widget">
+                    <p>Wetter wird geladen...</p>
+                </div>
+            </div>
 
             <!-- Main Content -->
             <div class="content-container">
