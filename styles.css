@@ -86,6 +86,70 @@ h1.fancy-title .title-gif {
     z-index: 1000;
 }
 
+/* Sidebar and Content Container */
+.sidebar-and-content {
+    display: flex;
+    flex: 1; /* Fill remaining space */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background-color: rgba(232, 218, 239, 0.8);
+    padding: 20px;
+    border-right: 1px solid rgba(234, 234, 234, 0.5);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Content Container */
+.content-container {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Widgets */
+.dashboard-item {
+    background-color: rgba(255, 245, 250, 0.8);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    transition: transform 0.2s ease;
+}
+
+.dashboard-item:hover {
+    transform: translateY(-5px);
+}
+
 /* Location */
 #location {
     font-size: 1.1em;
@@ -130,66 +194,6 @@ h1.fancy-title .title-gif {
     color: var(--text-color);
 }
 
-/* Sidebar */
-.sidebar {
-    width: 200px;
-    background-color: rgba(232, 218, 239, 0.8);
-    padding: 20px;
-    border-right: 1px solid rgba(234, 234, 234, 0.5);
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 15px;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    display: block;
-    padding: 10px;
-    border-radius: var(--border-radius);
-    transition: background-color 0.2s ease;
-}
-
-.sidebar ul li a:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Content Container */
-.content-container {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Dashboard Container */
-.dashboard-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
-    width: 100%;
-}
-
-/* Widgets */
-.dashboard-item {
-    background-color: rgba(255, 245, 250, 0.8);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: 20px;
-    transition: transform 0.2s ease;
-}
-
-.dashboard-item:hover {
-    transform: translateY(-5px);
-}
-
 /* Notes Widget */
 #notes-widget {
     font-family: 'Poppins', sans-serif;
@@ -229,7 +233,7 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .main-container {
+    .sidebar-and-content {
         flex-direction: column;
     }
     .sidebar {
