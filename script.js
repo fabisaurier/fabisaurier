@@ -7,11 +7,8 @@ function updateDateTime() {
     }
 }
 
-// Dashboard initialisieren
-function initDashboard() {
-    console.log('Dashboard wird initialisiert...');
-    
-    // Füge ein Datums-Widget hinzu
+// Datum-Widget hinzufügen
+function addDateWidget() {
     const firstWidget = document.querySelector('.dashboard-item:first-child .widget-content');
     if (firstWidget) {
         firstWidget.innerHTML = `
@@ -22,15 +19,15 @@ function initDashboard() {
         // Aktualisiere das Datum jede Sekunde
         updateDateTime();
         setInterval(updateDateTime, 1000);
+    } else {
+        console.error("Datum-Widget konnte nicht gefunden werden");
     }
 }
 
-// Wenn die Seite vollständig geladen ist
-document.addEventListener('DOMContentLoaded', initDashboard);
-
-// Wetter-Widget
+// Wetter-Widget hinzufügen
 function addWeatherWidget() {
     const secondWidget = document.querySelector('.dashboard-item:nth-child(2) .widget-content');
+    
     if (secondWidget) {
         secondWidget.innerHTML = `
             <div id="weather-widget">
@@ -40,23 +37,16 @@ function addWeatherWidget() {
                 <p>Hamburg: 14°C, Regen</p>
             </div>
         `;
+        console.log("Wetter-Widget wurde hinzugefügt");
+    } else {
+        console.error("Wetter-Widget konnte nicht gefunden werden");
     }
 }
 
-// Füge diesen Aufruf in die initDashboard-Funktion ein
-function initDashboard() {
-    console.log('Dashboard wird initialisiert...');
-    
-    // Datum-Widget
-    updateDateWidget();
-    
-    // Wetter-Widget
-    addWeatherWidget();
-}
-
-// Notizen-Widget
+// Notizen-Widget hinzufügen
 function addNotesWidget() {
     const thirdWidget = document.querySelector('.dashboard-item:nth-child(3) .widget-content');
+    
     if (thirdWidget) {
         thirdWidget.innerHTML = `
             <div id="notes-widget">
@@ -78,11 +68,24 @@ function addNotesWidget() {
             localStorage.setItem('dashboard-notes', notes);
             alert('Notizen gespeichert!');
         });
+        
+        console.log("Notizen-Widget wurde hinzugefügt");
+    } else {
+        console.error("Notizen-Widget konnte nicht gefunden werden");
     }
 }
 
-// Füge diesen Aufruf in die initDashboard-Funktion ein
+// Dashboard initialisieren - Hauptfunktion
 function initDashboard() {
-    // ... andere Widget-Initialisierungen
+    console.log('Dashboard wird initialisiert...');
+    
+    // Widgets hinzufügen
+    addDateWidget();
+    addWeatherWidget();
     addNotesWidget();
+    
+    console.log('Dashboard-Initialisierung abgeschlossen');
 }
+
+// Wenn die Seite vollständig geladen ist, Dashboard initialisieren
+document.addEventListener('DOMContentLoaded', initDashboard);
