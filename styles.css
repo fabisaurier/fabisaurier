@@ -33,33 +33,35 @@ body {
     min-height: 100vh;
 }
 
-.fancy-title {
-    font-family: 'Bubblegum Sans', cursive; /* Custom font for the title */
-    font-size: 4em; /* Large font size */
-    color: #0077ff; /* A nice blue tone */
+/* Make .fancy-title more specific */
+h1.fancy-title {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 4em;
+    color: #0077ff;
     margin-top: 20px;
     text-align: center;
     width: 100%;
-    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2); /* Optional: Shadow for depth */
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
     letter-spacing: 2px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 0; /* Remove padding to reduce gap */
-    display: flex; /* Flexbox for text and GIF */
-    align-items: center; /* Vertically center */
-    justify-content: center; /* Horizontally center */
-    gap: 5px; /* Add gap between text and GIF */
+    padding: 0 !important; /* Remove padding to reduce gap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px !important; /* Add gap between text and GIF */
 }
 
-/* Style for the GIF */
-.title-gif {
-    width: 160px; /* Increased size */
-    height: 160px; /* Increased size */
-    border-radius: 5px; /* Optional: Rounded corners */
-    background-color: transparent; /* Ensure the background is transparent */
-    border: none; /* Remove any borders */
-    box-shadow: none; /* Remove any shadows */
+/* Make .title-gif more specific */
+h1.fancy-title .title-gif {
+    width: 160px !important;
+    height: 160px !important;
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    margin-left: 0 !important; /* Remove any leftover margin */
 }
 
 .main-container {
