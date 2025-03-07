@@ -115,56 +115,53 @@ document.getElementById('search-input').addEventListener('keypress', (e) => {
         document.getElementById('search-button').click();
     }
 });
-/* News Widget */
-#news-widget {
-    font-family: 'Poppins', sans-serif;
+// Google News RSS Feed URL
+const GOOGLE_NEWS_RSS_URL = 'https://news.google.com/rss?hl=de&gl=DE&ceid=DE:de';
+
+// Fetch and Parse RSS Feed
+function fetchGoogleNews() {
+    const newsWidget = document.querySelector('.news-list');
+
+    // Use a proxy to avoid CORS issues
+    const proxyUrl = 'https://api.allorigins.win/get?url=';
+    const url = `${proxyUrl}${encodeURIComponent(GOOGLE_NEWS_RSS_URL)}`;
+
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+            const items = xmlDoc.querySelectorAll('item');
+
+            newsWidget.innerHTML = ''; // Clear existing content
+            items.forEach((item, index) => {
+                if (index >= 5) return; // Show only top 5 news items
+
+                const title = item.querySelector('title').textContent;
+                const link = item.querySelector('link').textContent;
+                const description = item.querySelector('description').textContent;
+
+                const newsItem = document.createElement('div');
+                newsItem.classList.add('news-item');
+
+                newsItem.innerHTML = `
+                    <a href="${link}" target="_blank">
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                    </a>
+                `;
+
+                newsWidget.appendChild(newsItem);
+            });
+        })
+        .catch(() => {
+            newsWidget.innerHTML = `<p>Nachrichten konnten nicht geladen werden.</p>`;
+        });
 }
 
-.news-list {
-    max-height: 300px; /* Limit height for scrollable list */
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding-right: 10px; /* Add space for scrollbar */
-}
-
-.news-item {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: transform 0.2s ease;
-}
-
-.news-item:hover {
-    transform: translateY(-3px);
-}
-
-.news-item h3 {
-    font-size: 1em;
-    margin: 0 0 5px 0;
-    color: var(--primary-color);
-}
-
-.news-item p {
-    font-size: 0.9em;
-    margin: 0;
-    color: var(--text-color);
-}
-
-.news-item a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.news-item a:hover {
-    text-decoration: underline;
-}
-
+// Initialize News Widget
 window.addEventListener('load', () => {
-    const savedNotes = localStorage.getItem('userNotes');
-    if (savedNotes) {
-        document.getElementById('notes-area').value = savedNotes;
-    }
+    fetchGoogleNews();
 });
 
 // Initialize
