@@ -184,13 +184,13 @@ h1.fancy-title .title-gif {
 #main-clock {
     font-size: 1.2em; /* Smaller font */
     font-weight: 600;
-    color: #ff6f61;
+    color: #ff6f61; /* Coral color */
 }
 
 #current-date {
     font-size: 1em; /* Smaller font */
-    font-weight: 500;
-    color: var(--primary-color);
+    font-weight: 600; /* Match the clock's font weight */
+    color: #ff6f61; /* Same color as the clock */
 }
 
 /* Content Container */
