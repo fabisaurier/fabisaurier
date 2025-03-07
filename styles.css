@@ -153,6 +153,13 @@ h2 {
     border-radius: var(--border-radius); /* Rounded corners */
     box-shadow: var(--box-shadow); /* Subtle shadow for depth */
 }
+
+.led-clock:hover, .led-date:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly more opaque on hover */
+    transform: translateY(-2px); /* Lift the widget slightly */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
 margin-top: 10px;
 }
 
