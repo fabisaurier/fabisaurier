@@ -1,3 +1,6 @@
+// OpenWeatherMap API Key
+const API_KEY = 'd1ce329d16cbfd561e667f32bbafbe5a'; // Replace with your API key
+
 // Function to update the clock
 function updateClock() {
     const now = new Date();
@@ -43,34 +46,6 @@ function getLocation() {
         cityElement.textContent = "Nicht unterstützt";
     }
 }
-
-// Update the clock every second
-setInterval(updateClock, 1000);
-
-// Initialize the clock and location immediately
-updateClock();
-getLocation();
-
-// Function to add the Weather Widget
-function addWeatherWidget() {
-    const secondWidget = document.querySelector('.dashboard-item:nth-child(2) .widget-content');
-    if (secondWidget) {
-        secondWidget.innerHTML = `
-            <div id="weather-widget">
-                <p>Wetter (Beispieldaten):</p>
-                <p>Berlin: 18°C, sonnig</p>
-                <p>München: 15°C, teilweise bewölkt</p>
-                <p>Hamburg: 14°C, Regen</p>
-            </div>
-        `;
-        console.log("Wetter-Widget wurde hinzugefügt");
-    } else {
-        console.error("Wetter-Widget konnte nicht gefunden werden");
-    }
-}
-
-// OpenWeatherMap API Key
-const API_KEY = 'd1ce329d16cbfd561e667f32bbafbe5a'; // Replace with your API key
 
 // Function to fetch weather data
 function fetchWeather(latitude, longitude) {
@@ -127,56 +102,32 @@ function getWeather() {
     }
 }
 
-// Initialize the weather widget
-getWeather();
+// Function to initialize the Notes Widget
+function initNotesWidget() {
+    const notesArea = document.getElementById('notes-area');
+    const saveNotesButton = document.getElementById('save-notes');
+
+    // Load saved notes from localStorage
+    const savedNotes = localStorage.getItem('dashboard-notes');
+    if (savedNotes) {
+        notesArea.value = savedNotes;
+    }
+
+    // Save notes when the button is clicked
+    saveNotesButton.addEventListener('click', () => {
+        const notes = notesArea.value;
+        localStorage.setItem('dashboard-notes', notes);
+        alert('Notizen gespeichert!');
+    });
+}
 
 // Initialize the dashboard when the page is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    initDashboard(); // Existing function
+    updateClock(); // Initialize the clock
+    getLocation(); // Initialize the location
     getWeather(); // Initialize the weather widget
+    initNotesWidget(); // Initialize the notes widget
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
 });
-
-// Function to add the Notes Widget
-function addNotesWidget() {
-    const thirdWidget = document.querySelector('.dashboard-item:nth-child(3) .widget-content');
-    if (thirdWidget) {
-        thirdWidget.innerHTML = `
-            <div id="notes-widget">
-                <h3>Meine Notizen</h3>
-                <textarea id="notes-area" rows="4" placeholder="Notizen hier eingeben..."></textarea>
-                <button id="save-notes">Speichern</button>
-            </div>
-        `;
-
-        // Load saved notes from localStorage
-        const savedNotes = localStorage.getItem('dashboard-notes');
-        if (savedNotes) {
-            document.getElementById('notes-area').value = savedNotes;
-        }
-
-        // Save notes when the button is clicked
-        document.getElementById('save-notes').addEventListener('click', function () {
-            const notes = document.getElementById('notes-area').value;
-            localStorage.setItem('dashboard-notes', notes);
-            alert('Notizen gespeichert!');
-        });
-
-        console.log("Notizen-Widget wurde hinzugefügt");
-    } else {
-        console.error("Notizen-Widget konnte nicht gefunden werden");
-    }
-}
-
-// Function to initialize the dashboard
-function initDashboard() {
-    console.log('Dashboard wird initialisiert...');
-
-    // Add widgets
-    addWeatherWidget();
-    addNotesWidget();
-
-    console.log('Dashboard-Initialisierung abgeschlossen');
-}
-
-// Initialize the dashboard when the page is fully loaded
-document.addEventListener('DOMContentLoaded', initDashboard);
