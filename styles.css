@@ -192,7 +192,62 @@ h1.fancy-title .title-gif {
 .weather-details p strong {
     font-weight: 600;
 }
+/* Combined Time and Weather Widget */
+#main-clock {
+    font-size: 3.5em; /* Slightly smaller for better fit */
+    font-weight: 600;
+    color: #ff6f61;
+    text-align: center;
+    margin-bottom: 10px; /* Space between clock and location */
+}
 
+#location {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 15px; /* Space between location and weather */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#weather-widget {
+    text-align: center;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Default gradient */
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.weather-icon img {
+    width: 50px;
+    height: 50px;
+    animation: sunAnimation 10s linear infinite;
+}
+
+.weather-details {
+    text-align: left;
+}
+
+.weather-details p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: white;
+}
+
+.weather-details p strong {
+    font-weight: 600;
+}
 #notes-widget {
     font-family: 'Poppins', sans-serif;
 }
