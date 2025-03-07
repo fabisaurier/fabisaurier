@@ -1,96 +1,36 @@
-// Function to update the clock
+// Function to update the clock with time zones
 function updateClock() {
     const now = new Date();
 
-    // Format time (HH:MM:SS)
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    const timeString = `${hours}:${minutes}:${seconds}`;
+    // Format time for MEZ (your local time)
+    const mezOptions = { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const mezTime = now.toLocaleTimeString('de-DE', mezOptions);
+
+    // Format time for New York
+    const nyOptions = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const nyTime = now.toLocaleTimeString('de-DE', nyOptions);
+
+    // Format time for Los Angeles
+    const laOptions = { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const laTime = now.toLocaleTimeString('de-DE', laOptions);
 
     // Update the DOM
-    const clockElement = document.getElementById('clock');
-    if (clockElement) {
-        clockElement.textContent = timeString;
+    const mainClockElement = document.getElementById('main-clock');
+    const nyTimeElement = document.getElementById('ny-time');
+    const laTimeElement = document.getElementById('la-time');
+
+    if (mainClockElement && nyTimeElement && laTimeElement) {
+        mainClockElement.textContent = `${mezTime} MEZ`;
+        nyTimeElement.textContent = `New York: ${nyTime}`;
+        laTimeElement.textContent = `Los Angeles: ${laTime}`;
     }
 }
 
-// Function to create particle animation
-function createParticles() {
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+// Update the clock every second
+setInterval(updateClock, 1000);
 
-    const particles = [];
-    const particleCount = 50;
-
-    // Particle class
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 3 + 1;
-            this.speedX = Math.random() * 2 - 1;
-            this.speedY = Math.random() * 2 - 1;
-        }
-
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-
-            // Reset particle position if it goes off-screen
-            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-            }
-        }
-
-        draw() {
-            ctx.fillStyle = '#ff6f61'; /* Coral color */
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    // Create particles
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-
-    // Animation loop
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        });
-        requestAnimationFrame(animateParticles);
-    }
-
-    animateParticles();
-}
-
-// Function to add the Time Widget
-function addTimeWidget() {
-    const firstWidget = document.querySelector('.dashboard-item:first-child .widget-content');
-    if (firstWidget) {
-        firstWidget.innerHTML = `
-            <div id="clock" class="led-clock">00:00:00</div>
-            <canvas id="particles"></canvas>
-        `;
-
-        // Update the clock immediately and every second
-        updateClock();
-        setInterval(updateClock, 1000);
-
-        // Initialize particle animation
-        createParticles();
-    } else {
-        console.error("Time Widget konnte nicht gefunden werden");
-    }
-}
+// Initialize the clock immediately
+updateClock();
 
 // Function to add the Weather Widget
 function addWeatherWidget() {
