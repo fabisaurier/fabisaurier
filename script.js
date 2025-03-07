@@ -56,24 +56,21 @@ function fetchWeather(latitude, longitude) {
         .then((response) => response.json())
         .then((data) => {
             if (data.cod === 200) {
-                const city = data.name;
                 const temperature = Math.round(data.main.temp);
                 const weatherDescription = data.weather[0].description;
                 const icon = data.weather[0].icon;
 
+                // Update the weather widget in the top bar
                 weatherWidget.innerHTML = `
                     <div class="weather-info">
                         <div class="weather-icon">
-                            <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${weatherDescription}">
+                            <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${weatherDescription}">
                         </div>
                         <div class="weather-details">
-                            <p><strong>${city}</strong></p>
-                            <p>${temperature}°C, ${weatherDescription}</p>
+                            <p>${temperature}°C</p>
                         </div>
                     </div>
                 `;
-
-                setWeatherBackground(data.weather[0].main);
             } else {
                 weatherWidget.innerHTML = `<p>Wetterdaten konnten nicht geladen werden.</p>`;
             }
@@ -81,23 +78,6 @@ function fetchWeather(latitude, longitude) {
         .catch(() => {
             weatherWidget.innerHTML = `<p>Wetterdaten konnten nicht geladen werden.</p>`;
         });
-}
-
-function setWeatherBackground(weatherCondition) {
-    const weatherWidget = document.getElementById('weather-widget');
-    switch (weatherCondition) {
-        case 'Clear':
-            weatherWidget.style.background = 'linear-gradient(135deg, #6dd5ed, #2193b0)';
-            break;
-        case 'Clouds':
-            weatherWidget.style.background = 'linear-gradient(135deg, #bdc3c7, #2c3e50)';
-            break;
-        case 'Rain':
-            weatherWidget.style.background = 'linear-gradient(135deg, #4ca1af, #2c3e50)';
-            break;
-        default:
-            weatherWidget.style.background = 'linear-gradient(135deg, #f5f7fa, #c3cfe2)';
-    }
 }
 
 // Notes
