@@ -128,7 +128,13 @@ h1.fancy-title .title-gif {
     height: 50px; /* Smaller height */
 }
 
-/* Location */
+/* Location and Weather */
+.location-weather {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between location and weather */
+}
+
 #location {
     font-size: 1em; /* Smaller font */
     font-weight: 500;
@@ -138,14 +144,10 @@ h1.fancy-title .title-gif {
     gap: 8px;
 }
 
-/* Clock */
-#main-clock {
-    font-size: 1.2em; /* Smaller font */
-    font-weight: 600;
-    color: #ff6f61;
+#location i {
+    color: red; /* Red location icon */
 }
 
-/* Weather Widget */
 #weather-widget {
     font-size: 1em; /* Smaller font */
     font-weight: 500;
@@ -170,6 +172,25 @@ h1.fancy-title .title-gif {
     margin: 0;
     font-size: 0.9em; /* Smaller font */
     color: var(--text-color);
+}
+
+/* Time and Date */
+#time-date {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between time and date */
+}
+
+#main-clock {
+    font-size: 1.2em; /* Smaller font */
+    font-weight: 600;
+    color: #ff6f61;
+}
+
+#current-date {
+    font-size: 1em; /* Smaller font */
+    font-weight: 500;
+    color: var(--primary-color);
 }
 
 /* Content Container */
