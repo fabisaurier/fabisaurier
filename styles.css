@@ -51,8 +51,8 @@ body {
 
 .main-container {
     display: flex;
-    width: 100%;
-    max-width: 1200px;
+    width: 95%; /* Use 95% of the screen width */
+    max-width: 1600px; /* Increase max-width for a wider container */
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     overflow: hidden;
