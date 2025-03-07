@@ -34,15 +34,20 @@
         <div class="content-container">
             <!-- Top Bar -->
             <div class="top-bar">
-                <!-- Location -->
-                <div id="location">
-                    <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Standort wird geladen...</span>
+                <!-- Location and Weather -->
+                <div class="location-weather">
+                    <div id="location">
+                        <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Standort wird geladen...</span>
+                    </div>
+                    <div id="weather-widget">
+                        <p>Wetter wird geladen...</p>
+                    </div>
                 </div>
-                <!-- Time -->
-                <div id="main-clock">00:00:00</div>
-                <!-- Weather -->
-                <div id="weather-widget">
-                    <p>Wetter wird geladen...</p>
+
+                <!-- Time and Date -->
+                <div class="time-date">
+                    <div id="main-clock">00:00:00</div>
+                    <div id="current-date"></div>
                 </div>
             </div>
 
