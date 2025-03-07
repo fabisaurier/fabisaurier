@@ -122,7 +122,13 @@ h1.fancy-title .title-gif {
     margin-bottom: 20px; /* Space between top bar and dashboard */
 }
 
-/* Location */
+/* Location and Weather */
+.location-weather {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 #location {
     font-size: 1.1em; /* Same size as weather */
     font-weight: 500;
@@ -164,7 +170,7 @@ h1.fancy-title .title-gif {
 }
 
 /* Time and Date */
-#time-date {
+.time-date {
     display: flex;
     align-items: center;
     gap: 15px; /* Space between time and date */
@@ -253,5 +259,15 @@ footer {
     .top-bar {
         height: auto;
         padding: 10px;
+    }
+    .location-weather {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .time-date {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
     }
 }
