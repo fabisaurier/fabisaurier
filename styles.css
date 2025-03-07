@@ -46,6 +46,9 @@ body {
     top: 0;
     z-index: 1000;
     padding: 10px 0;
+    display: flex; /* Flexbox for logo and text */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
 }
 
 .main-container {
