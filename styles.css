@@ -1,5 +1,5 @@
 /* Import the custom fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&family=Orbitron:wght@400;500;600&display=swap');
 
 /* Grundlegende Stile */
 * {
@@ -126,6 +126,26 @@ h2 {
     color: var(--primary-color);
     font-size: 1.2em;
     font-weight: 600; /* Make headings slightly bolder */
+}
+
+/* LED Clock Styles */
+.led-clock {
+    font-family: 'Orbitron', sans-serif; /* Digital font */
+    font-size: 3.5em; /* Large font size */
+    font-weight: 600; /* Bold */
+    color: #00ff00; /* Bright green for LED effect */
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; /* Glow effect */
+    text-align: center;
+    margin: 10px 0;
+}
+
+.led-date {
+    font-family: 'Orbitron', sans-serif; /* Digital font */
+    font-size: 1.5em; /* Smaller font size */
+    color: #00ff00; /* Bright green for LED effect */
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00; /* Subtle glow effect */
+    text-align: center;
+    margin-top: 10px;
 }
 
 footer {
