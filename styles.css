@@ -158,20 +158,52 @@ h1.fancy-title .title-gif {
 
 .weather-info {
     display: flex;
+    align-items: center;/* Weather Widget */
+#weather-widget {
+    font-size: 1em; /* Slightly smaller font for compact layout */
+    font-weight: 500;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-info {
+    display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .weather-icon img {
-    width: 40px; /* Larger size for better visibility */
-    height: 40px; /* Larger size for better visibility */
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Subtle shadow for contrast */
+    width: 40px; /* Larger icon */
+    height: 40px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Subtle shadow */
+}
+
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Space between lines */
 }
 
 .weather-details p {
     margin: 0;
-    font-size: 1em;
+    font-size: 0.9em; /* Smaller font for details */
     color: var(--text-color);
+}
+
+#temperature {
+    font-weight: 600; /* Bold temperature */
+    color: var(--primary-color);
+}
+
+#weather-condition {
+    font-style: italic; /* Italicize condition */
+}
+
+#min-temp, #max-temp {
+    font-size: 0.85em; /* Smaller font for min/max temps */
+    color: var(--secondary-color);
 }
 
 /* Time and Date */
