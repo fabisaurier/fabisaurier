@@ -139,7 +139,32 @@ h1.fancy-title .title-gif {
     font-weight: 600;
     color: #ff6f61;
 }
+/* Weather Widget in Top Bar */
+#weather-widget {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.weather-details p {
+    margin: 0;
+    font-size: 1em;
+    color: var(--text-color);
+}
 #weather-widget {
     font-size: 1.1em;
     font-weight: 500;
