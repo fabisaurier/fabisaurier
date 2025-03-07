@@ -8,7 +8,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="fancy-title">fabisaurier</h1>
+    <!-- Title with Canva Animation -->
+    <h1 class="fancy-title">
+        <div style="position: relative; width: 80px; height: 80px; margin-right: 15px; display: inline-block;">
+            <iframe 
+                loading="lazy" 
+                style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+                src="https://www.canva.com/design/DAGhEXVaJRY/cQdR5tq-ygZ-Xd4qPPlcxw/watch?embed" 
+                allowfullscreen="allowfullscreen" 
+                allow="fullscreen">
+            </iframe>
+        </div>
+        fabisaurier
+    </h1>
+
     <div class="main-container">
         <nav class="sidebar">
             <ul>
@@ -22,20 +35,20 @@
         <div class="content-container">
             <main class="dashboard-container" id="dashboard">
                 <!-- Time Widget -->
-               <div class="dashboard-item">
-    <div class="widget-content">
-        <!-- Main Clock (takes up the entire inner container) -->
-        <div id="main-clock-container">
-            <div id="main-clock">00:00:00</div>
-        </div>
+                <div class="dashboard-item">
+                    <div class="widget-content">
+                        <!-- Main Clock (takes up the entire inner container) -->
+                        <div id="main-clock-container">
+                            <div id="main-clock">00:00:00</div>
+                        </div>
 
-        <!-- Time Zones (placed beneath the main clock) -->
-        <div id="time-zones">
-            <div id="ny-time">New York City: 00:00:00</div>
-            <div id="la-time">Los Angeles: 00:00:00</div>
-        </div>
-    </div>
-</div>
+                        <!-- Time Zones (placed beneath the main clock) -->
+                        <div id="time-zones">
+                            <div id="ny-time">New York City: 00:00:00</div>
+                            <div id="la-time">Los Angeles: 00:00:00</div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Weather Widget -->
                 <div class="dashboard-item">
