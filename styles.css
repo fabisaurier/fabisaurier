@@ -249,6 +249,84 @@ h1.fancy-title .title-gif {
     transform: translateY(-5px);
 }
 
+.news-widget {
+    flex: 2;
+    min-height: 400px;
+}
+
+.news-tabs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tab-button {
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9em;
+    color: var(--text-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.tab-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.newspaper-logo {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.newspaper-logo img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.news-list {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.news-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-3px);
+}
+
+.news-item h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: var(--primary-color);
+}
+
+.news-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
+
 /* ===== Footer ===== */
 footer {
     font-size: 0.9em;
