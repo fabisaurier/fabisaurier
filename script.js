@@ -98,28 +98,23 @@ function fetchWeather(latitude, longitude) {
         });
 }
 
-// UPDATED: Google Search Functionality using form
-// This code ensures the form behaves consistently, even though native form behavior
-// would handle most of this functionality
-document.getElementById('search-form').addEventListener('submit', (event) => {
+// Google Search Functionality
+document.getElementById('search-button').addEventListener('click', () => {
     const searchQuery = document.getElementById('search-input').value.trim();
-    
-    // We have 'required' on the input, but this is a backup validation
-    if (!searchQuery) {
-        event.preventDefault(); // Prevents form submission if empty
+    if (searchQuery) {
+        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+        window.open(googleSearchUrl, '_blank'); // Open in a new tab
+    } else {
         alert('Bitte geben Sie einen Suchbegriff ein.');
     }
-    // If searchQuery is not empty, the form will submit normally to Google
 });
 
-// Cleanup function to remove event listeners and intervals if needed
-function cleanup() {
-    // Clear the clock interval when the page is unloaded
-    if (clockInterval) {
-        clearInterval(clockInterval);
+// Optional: Allow pressing "Enter" to trigger search
+document.getElementById('search-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        document.getElementById('search-button').click();
     }
-}
-
+});
 // Google News RSS Feed URL
 const GOOGLE_NEWS_RSS_URL = 'https://news.google.com/rss?hl=de&gl=DE&ceid=DE:de';
 
@@ -138,30 +133,25 @@ function fetchGoogleNews() {
             const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
             const items = xmlDoc.querySelectorAll('item');
 
-            const uniqueTitles = new Set(); // Track unique titles to avoid duplicates
             newsWidget.innerHTML = ''; // Clear existing content
+            items.forEach((item, index) => {
+                if (index >= 5) return; // Show only top 5 news items
 
-            items.forEach((item) => {
                 const title = item.querySelector('title').textContent;
                 const link = item.querySelector('link').textContent;
                 const description = item.querySelector('description').textContent;
 
-                // Filter out alternative articles (e.g., those with " - " in the title)
-                if (!title.includes(' - ') && !uniqueTitles.has(title)) {
-                    uniqueTitles.add(title); // Add title to the set to avoid duplicates
+                const newsItem = document.createElement('div');
+                newsItem.classList.add('news-item');
 
-                    const newsItem = document.createElement('div');
-                    newsItem.classList.add('news-item');
+                newsItem.innerHTML = `
+                    <a href="${link}" target="_blank">
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                    </a>
+                `;
 
-                    newsItem.innerHTML = `
-                        <a href="${link}" target="_blank">
-                            <h3>${title}</h3>
-                            <p>${description}</p>
-                        </a>
-                    `;
-
-                    newsWidget.appendChild(newsItem);
-                }
+                newsWidget.appendChild(newsItem);
             });
         })
         .catch(() => {
@@ -179,6 +169,3 @@ window.addEventListener('load', () => {
     startClock();
     getLocation();
 });
-
-// Add cleanup on page unload to prevent memory leaks
-window.addEventListener('unload', cleanup);
