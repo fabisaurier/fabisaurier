@@ -284,7 +284,14 @@ async function fetchNews(source) {
             if (!thumbnailUrl) {
                 const descriptionContent = description.replace(/<!\[CDATA\[|\]\]>/g, '');
                 thumbnailMatch = descriptionContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
-                thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : 'https://via.placeholder.com/120x80'; // Fallback image
+                thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : '';
+            }
+
+            // If no thumbnail found in <content:encoded> or <description>, check for <media:thumbnail> or <enclosure>
+            if (!thumbnailUrl) {
+                const mediaThumbnail = item.querySelector('media\\:thumbnail, thumbnail')?.getAttribute('url');
+                const enclosure = item.querySelector('enclosure')?.getAttribute('url');
+                thumbnailUrl = mediaThumbnail || enclosure || 'https://via.placeholder.com/120x80'; // Fallback image
             }
 
             console.log('Thumbnail Match:', thumbnailMatch); // Debugging
