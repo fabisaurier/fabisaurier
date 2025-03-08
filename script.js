@@ -28,11 +28,21 @@ async function fetchGoogleNews() {
         const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
         const items = xmlDoc.querySelectorAll('item');
 
-        const newsData = Array.from(items).slice(0, 5).map((item) => ({
-            title: item.querySelector('title').textContent,
-            link: item.querySelector('link').textContent,
-            description: item.querySelector('description').textContent,
-        }));
+        // Filter and process news items
+        const newsData = Array.from(items)
+            .filter((item) => {
+                const title = item.querySelector('title').textContent;
+                const description = item.querySelector('description').textContent;
+
+                // Exclude alternative or related articles
+                return !title.includes('Related:') && !description.includes('See also:');
+            })
+            .slice(0, 5) // Show only top 5 main articles
+            .map((item) => ({
+                title: item.querySelector('title').textContent,
+                link: item.querySelector('link').textContent,
+                description: item.querySelector('description').textContent,
+            }));
 
         // Cache the news data
         cacheNews(newsData);
