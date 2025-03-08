@@ -178,6 +178,8 @@ async function fetchNews(source) {
         }
 
         const data = await response.json();
+        console.log(data.contents); // Log the raw RSS feed data
+
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
         const items = xmlDoc.querySelectorAll('item');
@@ -201,21 +203,6 @@ async function fetchNews(source) {
         console.error('Error fetching or parsing RSS feed:', error);
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
-}
-
-function renderNews(newsData) {
-    newsWidget.innerHTML = ''; // Clear loading indicator
-    newsData.forEach((item) => {
-        const newsItem = document.createElement('div');
-        newsItem.classList.add('news-item');
-        newsItem.innerHTML = `
-            <a href="${item.link}" target="_blank">
-                <h3>${item.title}</h3>
-                <div>${item.description}</div>
-            </a>
-        `;
-        newsWidget.appendChild(newsItem);
-    });
 }
 
 // ===== Utility Functions =====
