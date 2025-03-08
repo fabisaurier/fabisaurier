@@ -65,15 +65,30 @@
 
             <main class="dashboard-container" id="dashboard">
                 <section class="dashboard-row" aria-labelledby="first-row-heading">
-                    <h2 id="first-row-heading" class="visually-hidden">Erste Reihe: Widget 4</h2>
+                    <h2 id="first-row-heading" class="visually-hidden">Erste Reihe: Nachrichten-Widget</h2>
 
-                    <!-- Widget 4 -->
-                    <article class="dashboard-item" id="widget-4" aria-labelledby="widget4-heading">
+                    <!-- News Widget -->
+                    <article class="dashboard-item news-widget" aria-labelledby="news-heading">
                         <header>
-                            <h2 id="widget4-heading">Widget 4</h2>
+                            <h2 id="news-heading">
+                                <i class="fas fa-newspaper" aria-hidden="true"></i> <!-- Newspaper Icon -->
+                                Nachrichten
+                            </h2>
+                            <div class="news-tabs">
+                                <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
+                                <button class="tab-button" data-source="zeit">Zeit</button>
+                                <button class="tab-button" data-source="spiegel">Spiegel</button>
+                                <button class="tab-button" data-source="sueddeutsche">Süddeutsche</button>
+                            </div>
+                            <!-- Newspaper Logo Container -->
+                            <div class="newspaper-logo">
+                                <img id="newspaper-logo" src="images/tagesschau-logo.png" alt="Tagesschau Logo">
+                            </div>
                         </header>
                         <div class="widget-content">
-                            <p>Inhalt für Widget 4...</p>
+                            <div id="news-widget" lang="de">
+                                <div class="news-list"></div>
+                            </div>
                         </div>
                     </article>
                 </section>
