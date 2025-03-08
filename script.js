@@ -196,6 +196,7 @@ async function fetchNews(source) {
         if (data.contents && data.contents.startsWith('data:application/rss+xml; charset=utf-8;base64,')) {
             // Handle base64-encoded data
             try {
+                // Extract the base64 data
                 const base64Data = data.contents.split('base64,')[1];
                 console.log('Base64 data:', base64Data); // Debugging
 
@@ -203,10 +204,14 @@ async function fetchNews(source) {
                 const decodedData = atob(base64Data);
                 console.log('Decoded data:', decodedData); // Debugging
 
-                // Convert the decoded data to a UTF-8 string
-                const utf8Decoder = new TextDecoder('utf-8');
-                const xmlContent = utf8Decoder.decode(new Uint8Array([...decodedData].map((char) => char.charCodeAt(0))));
-                console.log('UTF-8 XML content:', xmlContent); // Debugging
+                // Check if the decoded data starts with '<' (valid XML)
+                if (!decodedData.startsWith('<')) {
+                    throw new Error('Invalid XML content: Start tag expected');
+                }
+
+                // Use the decoded data as XML content
+                xmlContent = decodedData;
+                console.log('XML content:', xmlContent); // Debugging
             } catch (error) {
                 console.error('Error decoding base64 data:', error);
                 showError(newsWidget, 'Fehler beim Dekodieren der Nachrichten.');
@@ -216,6 +221,11 @@ async function fetchNews(source) {
             // Handle non-encoded (plain XML) data
             xmlContent = data.contents;
             console.log('Plain XML data:', xmlContent); // Debugging
+
+            // Check if the content starts with '<' (valid XML)
+            if (!xmlContent.startsWith('<')) {
+                throw new Error('Invalid XML content: Start tag expected');
+            }
         } else {
             console.error('Invalid or missing data in response:', data);
             showError(newsWidget, 'Ungültiges Nachrichtenformat.');
@@ -257,7 +267,6 @@ async function fetchNews(source) {
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
-
 // ===== Utility Functions =====
 function showError(element, message) {
     element.innerHTML = `<p>${message}</p>`;
