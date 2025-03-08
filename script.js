@@ -143,7 +143,6 @@ function handleSearch() {
 
 // ===== News Widget =====
 tabButtons.forEach((button) => {
-    tabButtons.forEach((button) => {
     button.addEventListener('click', () => {
         console.log('Button clicked:', button.getAttribute('data-source')); // Debugging
         // Remove active class from all buttons
@@ -245,6 +244,7 @@ async function fetchNews(source) {
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
+
 // ===== Utility Functions =====
 function showError(element, message) {
     element.innerHTML = `<p>${message}</p>`;
