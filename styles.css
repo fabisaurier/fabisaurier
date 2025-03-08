@@ -297,8 +297,6 @@ h1.fancy-title .title-gif {
     width: auto; /* Maintain aspect ratio */
     height: auto; /* Maintain aspect ratio */
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Optional: Add a subtle border */
 }
 
 .news-list {
