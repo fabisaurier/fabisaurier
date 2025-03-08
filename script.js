@@ -178,62 +178,50 @@ async function fetchNews(source) {
         }
 
         const data = await response.json();
+        console.log('Raw response:', data); // Debugging
 
-        // Check if the response contains base64-encoded data
-        if (data.contents && data.contents.startsWith('data:application/rss+xml;base64,')) {
-            // Extract and decode the base64 data
+        if (data.contents && data.contents.startsWith('data:application/rss+xml; charset=utf-8;base64,')) {
+            // Extract the base64 data
             const base64Data = data.contents.split('base64,')[1];
-            const decodedData = atob(base64Data); // Decode the base64 data
-            console.log(decodedData); // Log the decoded XML data for debugging
+            console.log('Base64 data:', base64Data); // Debugging
 
-            // Parse the decoded XML data
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(decodedData, 'text/xml');
-            const items = xmlDoc.querySelectorAll('item');
+            try {
+                // Decode the base64 data
+                const decodedData = atob(base64Data);
+                console.log('Decoded data:', decodedData); // Debugging
 
-            const newsData = [];
-            items.forEach((item) => {
-                const title = item.querySelector('title').textContent;
-                const link = item.querySelector('link').textContent;
+                // Parse the decoded XML data
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(decodedData, 'text/xml');
+                console.log('Parsed XML:', xmlDoc); // Debugging
 
-                // Use <content:encoded> if <description> is empty
-                let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent;
+                // Process the XML document
+                const items = xmlDoc.querySelectorAll('item');
+                const newsData = [];
+                items.forEach((item) => {
+                    const title = item.querySelector('title')?.textContent || 'No title';
+                    const link = item.querySelector('link')?.textContent || '#';
+                    let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent || 'No description';
 
-                // Remove images and other HTML tags from the description
-                description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
-                description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
+                    // Remove images and other HTML tags from the description
+                    description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
+                    description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
 
-                newsData.push({ title, link, description });
-            });
+                    newsData.push({ title, link, description });
+                });
 
-            // Render the news
-            renderNews(newsData);
+                // Render the news
+                renderNews(newsData);
+            } catch (error) {
+                console.error('Error decoding base64 data:', error);
+                showError(newsWidget, 'Fehler beim Dekodieren der Nachrichten.');
+            }
         } else {
-            // Handle non-base64 responses (e.g., direct XML)
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
-            const items = xmlDoc.querySelectorAll('item');
-
-            const newsData = [];
-            items.forEach((item) => {
-                const title = item.querySelector('title').textContent;
-                const link = item.querySelector('link').textContent;
-
-                // Use <content:encoded> if <description> is empty
-                let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent;
-
-                // Remove images and other HTML tags from the description
-                description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
-                description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
-
-                newsData.push({ title, link, description });
-            });
-
-            // Render the news
-            renderNews(newsData);
+            console.error('Invalid or missing base64 data in response:', data);
+            showError(newsWidget, 'Ungültiges Nachrichtenformat.');
         }
     } catch (error) {
-        console.error('Error fetching or parsing RSS feed:', error);
+        console.error('Error fetching RSS feed:', error);
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
