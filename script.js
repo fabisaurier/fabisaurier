@@ -126,7 +126,7 @@ function handleSearch() {
 
 // ===== News =====
 async function fetchGoogleNews() {
-    console.log('fetchGoogleNews called'); // Debugging: Confirm the function is called
+    console.log('fetchGoogleNews called');
 
     // Show loading indicator
     newsWidget.innerHTML = `<p>Lade Nachrichten...</p>`;
@@ -134,45 +134,36 @@ async function fetchGoogleNews() {
     // Check for cached news
     const cachedNews = getCachedNews();
     if (cachedNews) {
-        console.log('Using cached news data'); // Debugging: Log if cached data is used
+        console.log('Using cached news data');
         renderNews(cachedNews);
         return;
     }
 
     try {
         const url = `${PROXY_URL}${encodeURIComponent(GOOGLE_NEWS_RSS_URL)}`;
-        console.log('Fetching RSS feed from:', url); // Debugging: Log the fetch URL
+        console.log('Fetching RSS feed from:', url);
 
         const response = await fetch(url);
-        console.log('Fetch response:', response); // Debugging: Log the fetch response
+        console.log('Fetch response:', response);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const data = await response.json();
-        console.log('RSS feed data:', data); // Debugging: Log the parsed JSON data
-
-        // Log the raw RSS feed data
-        console.log('Raw RSS Feed Data:', data.contents);
+        console.log('RSS feed data:', data);
 
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
-        console.log('Parsed XML document:', xmlDoc); // Debugging: Log the parsed XML document
+        console.log('Parsed XML document:', xmlDoc);
 
         const items = xmlDoc.querySelectorAll('item');
-        console.log('Number of items found:', items.length); // Debugging: Log the number of items
+        console.log('Number of items found:', items.length);
 
-        // Log the first item to inspect its structure
-        if (items.length > 0) {
-            console.log('First Item:', items[0].querySelector('description').textContent);
-        }
-
-        // Filter and process news items
         const newsData = [];
-        const uniqueTitles = new Set(); // To avoid duplicates
+        const uniqueTitles = new Set();
 
-        Array.from(items).forEach((item, index) => {
+        Array.from(items).forEach((item) => {
             const title = item.querySelector('title').textContent;
             const description = item.querySelector('description').textContent;
             const link = item.querySelector('link').textContent;
@@ -180,7 +171,13 @@ async function fetchGoogleNews() {
             // Skip if the title is already in the set (duplicate)
             if (uniqueTitles.has(title)) return;
 
-            // Add the article to the list (no filtering by bold text)
+            // Filter out related articles (they usually contain <ol> or <li> in the description)
+            if (description.includes('<ol>') || description.includes('<li>')) {
+                console.log('Skipping related article:', title);
+                return;
+            }
+
+            // Add the main article to the list
             newsData.push({
                 title,
                 link,
@@ -189,7 +186,7 @@ async function fetchGoogleNews() {
 
             uniqueTitles.add(title); // Mark this title as seen
 
-            // Stop after collecting 5 articles
+            // Stop after collecting 5 main articles
             if (newsData.length >= 5) return;
         });
 
@@ -199,7 +196,7 @@ async function fetchGoogleNews() {
         // Render the news
         renderNews(newsData);
     } catch (error) {
-        console.error('Error fetching or parsing RSS feed:', error); // Debugging: Log any errors
+        console.error('Error fetching or parsing RSS feed:', error);
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
@@ -212,7 +209,7 @@ function renderNews(newsData) {
         newsItem.innerHTML = `
             <a href="${item.link}" target="_blank">
                 <h3>${item.title}</h3>
-                <p>${item.description}</p>
+                <div>${item.description}</div>
             </a>
         `;
         newsWidget.appendChild(newsItem);
