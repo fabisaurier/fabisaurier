@@ -292,10 +292,9 @@ h1.fancy-title .title-gif {
 }
 
 .newspaper-logo img {
-    max-width: 150px; /* Fixed maximum width */
-    max-height: 80px; /* Fixed maximum height */
-    width: auto; /* Maintain aspect ratio */
-    height: auto; /* Maintain aspect ratio */
+    width: 150px; /* Force width */
+    height: 80px; /* Force height */
+    object-fit: contain; /* Maintain aspect ratio */
     border-radius: 8px;
 }
 
