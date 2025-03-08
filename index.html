@@ -34,87 +34,87 @@
         <div class="content-container">
             <!-- Top Bar -->
             <div class="top-bar">
-    <!-- Left Side: Location and Weather -->
-    <div class="left-section">
-        <div id="location">
-            <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Berlin</span>
-        </div>
-        <div id="weather-widget">
-            <div class="weather-info">
-                <div class="weather-icon">
-                    <img src="https://openweathermap.org/img/wn/10d.png" alt="Weather Icon">
-                </div>
-                <div class="weather-details">
-                    <p>
-                        <span id="temperature">18°C</span> |
-                        <span id="weather-condition">Sunny</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Middle Section: Google Search -->
-    <div class="middle-section">
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Google-Suche...">
-            <button id="search-button">
-                <i class="fas fa-search" aria-label="Suchen"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Right Side: Time and Date -->
-    <div class="right-section">
-        <div id="main-clock">14:35:07</div>
-        <div id="current-date">Montag, 23. Oktober 2023</div>
-    </div>
-</div>
-
-           <!-- Dashboard Content -->
-<main class="dashboard-container" id="dashboard">
-    <!-- First Row: News Widget and Widget 4 -->
-    <div class="dashboard-row">
-        <!-- News Widget -->
-        <div class="dashboard-item news-widget">
-            <h2>Nachrichten</h2>
-            <div class="widget-content">
-                <div id="news-widget">
-                    <div class="news-list">
-                        <!-- News items will be dynamically added here -->
+                <!-- Left Side: Location and Weather -->
+                <div class="left-section">
+                    <div id="location">
+                        <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Berlin</span>
+                    </div>
+                    <div id="weather-widget">
+                        <div class="weather-info">
+                            <div class="weather-icon">
+                                <img src="https://openweathermap.org/img/wn/10d.png" alt="Weather Icon">
+                            </div>
+                            <div class="weather-details">
+                                <p>
+                                    <span id="temperature">18°C</span> |
+                                    <span id="weather-condition">Sunny</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Widget 4 -->
-        <div class="dashboard-item" id="widget-4">
-            <h2>Widget 4</h2>
-            <div class="widget-content">
-                <p>Inhalt für Widget 4...</p>
-            </div>
-        </div>
-    </div>
+                <!-- Middle Section: Google Search - UPDATED to use a form element -->
+                <div class="middle-section">
+                    <form class="search-container" id="search-form" action="https://www.google.com/search" method="get" target="_blank">
+                        <input type="text" id="search-input" name="q" placeholder="Google-Suche..." required>
+                        <button type="submit" id="search-button">
+                            <i class="fas fa-search" aria-label="Suchen"></i>
+                        </button>
+                    </form>
+                </div>
 
-    <!-- Second Row: Widget 5 and Widget 6 -->
-    <div class="dashboard-row">
-        <!-- Widget 5 -->
-        <div class="dashboard-item" id="widget-5">
-            <h2>Widget 5</h2>
-            <div class="widget-content">
-                <p>Inhalt für Widget 5...</p>
+                <!-- Right Side: Time and Date -->
+                <div class="right-section">
+                    <div id="main-clock">14:35:07</div>
+                    <div id="current-date">Montag, 23. Oktober 2023</div>
+                </div>
             </div>
-        </div>
 
-        <!-- Widget 6 -->
-        <div class="dashboard-item" id="widget-6">
-            <h2>Widget 6</h2>
-            <div class="widget-content">
-                <p>Inhalt für Widget 6...</p>
-            </div>
-        </div>
-    </div>
-</main>
+           <!-- Dashboard Content -->
+            <main class="dashboard-container" id="dashboard">
+                <!-- First Row: News Widget and Widget 4 -->
+                <div class="dashboard-row">
+                    <!-- News Widget -->
+                    <div class="dashboard-item news-widget">
+                        <h2>Nachrichten</h2>
+                        <div class="widget-content">
+                            <div id="news-widget">
+                                <div class="news-list">
+                                    <!-- News items will be dynamically added here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Widget 4 -->
+                    <div class="dashboard-item" id="widget-4">
+                        <h2>Widget 4</h2>
+                        <div class="widget-content">
+                            <p>Inhalt für Widget 4...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row: Widget 5 and Widget 6 -->
+                <div class="dashboard-row">
+                    <!-- Widget 5 -->
+                    <div class="dashboard-item" id="widget-5">
+                        <h2>Widget 5</h2>
+                        <div class="widget-content">
+                            <p>Inhalt für Widget 5...</p>
+                        </div>
+                    </div>
+
+                    <!-- Widget 6 -->
+                    <div class="dashboard-item" id="widget-6">
+                        <h2>Widget 6</h2>
+                        <div class="widget-content">
+                            <p>Inhalt für Widget 6...</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
 
