@@ -269,16 +269,17 @@ async function fetchNews(source) {
             const description = item.querySelector('description')?.textContent || '';
             const contentEncoded = item.querySelector('content\\:encoded')?.textContent || '';
 
-
             // Debugging: Log the contentEncoded field
             console.log('Content Encoded:', contentEncoded); // Debugging
 
-           // Extract the thumbnail from <content:encoded>
-const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, ''); // Remove CDATA tags
-const thumbnailMatch = cdataContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
-console.log('Thumbnail Match:', thumbnailMatch); // Debugging
-const thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : 'https://via.placeholder.com/120x80'; // Fallback image
-console.log('Thumbnail URL:', thumbnailUrl); // Debugging
+            // Handle CDATA sections
+            const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, ''); // Remove CDATA tags
+
+            // Extract the thumbnail from <content:encoded>
+            const thumbnailMatch = cdataContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
+            console.log('Thumbnail Match:', thumbnailMatch); // Debugging
+            const thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : 'https://via.placeholder.com/120x80'; // Fallback image
+            console.log('Thumbnail URL:', thumbnailUrl); // Debugging
 
             // Extract the publication date from <pubDate> or <dc:date>
             const pubDate = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
