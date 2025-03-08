@@ -143,7 +143,9 @@ function handleSearch() {
 
 // ===== News Widget =====
 tabButtons.forEach((button) => {
+    tabButtons.forEach((button) => {
     button.addEventListener('click', () => {
+        console.log('Button clicked:', button.getAttribute('data-source')); // Debugging
         // Remove active class from all buttons
         tabButtons.forEach((btn) => btn.classList.remove('active'));
         // Add active class to the clicked button
