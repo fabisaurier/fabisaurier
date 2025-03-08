@@ -266,12 +266,21 @@ async function fetchNews(source) {
         items.forEach((item) => {
             const title = item.querySelector('title')?.textContent || 'No title';
             const link = item.querySelector('link')?.textContent || '#';
-            let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent;
+            const description = item.querySelector('description')?.textContent || '';
+            const contentEncoded = item.querySelector('content\\:encoded')?.textContent || '';
 
-            
+            // Extract the thumbnail from <content:encoded>
+            const thumbnailMatch = contentEncoded.match(/<img[^>]+src="([^">]+)"/);
+            const thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : 'https://via.placeholder.com/120x80'; // Fallback image
 
-            // Only add the description if it exists
-            newsData.push({ title, link, description });
+            // Extract the publication date from <pubDate> or <dc:date>
+            const pubDate = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
+
+            // Clean up the description (remove HTML tags)
+            const cleanDescription = description.replace(/<[^>]+>/g, '');
+
+            // Add the news item to the array
+            newsData.push({ title, link, description: cleanDescription, thumbnailUrl, pubDate });
         });
 
         // Render the news
