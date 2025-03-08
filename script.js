@@ -158,11 +158,30 @@ function renderNews(newsData) {
         const newsItem = document.createElement('div');
         newsItem.classList.add('news-item');
 
+        // Extract the thumbnail URL from the description (if available)
+        const thumbnailMatch = item.description?.match(/<img[^>]+src="([^">]+)"/);
+        const thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : 'https://via.placeholder.com/120x80'; // Fallback image
+
+        // Extract the date and time from the pubDate field (if available)
+        const pubDate = item.pubDate ? new Date(item.pubDate).toLocaleDateString('de-DE', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+        }) : 'Datum nicht verfügbar';
+
         // Create the HTML structure for a news item
         newsItem.innerHTML = `
-            <a href="${item.link}" target="_blank">
-                <h3>${item.title}</h3>
-                ${item.description ? `<div>${item.description}</div>` : ''}
+            <a href="${item.link}" target="_blank" class="news-link">
+                <div class="news-thumbnail">
+                    <img src="${thumbnailUrl}" alt="${item.title}">
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">${item.title}</h3>
+                    <p class="news-date">${pubDate}</p>
+                    <p class="news-description">${item.description ? item.description.replace(/<[^>]+>/g, '') : ''}</p>
+                </div>
             </a>
         `;
 
