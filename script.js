@@ -277,7 +277,7 @@ const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, '');
 console.log('CDATA Removed:', cdataContent); // Debugging
 
 // Extract the thumbnail from <content:encoded>
-const thumbnailMatch = cdataContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
+const thumbnailMatch = cdataContent.match(/<img[^>]*src\s*=\s*(?:"([^">]*)"|'([^'>]*)')[^>]*>/i);
 console.log('Thumbnail Match:', thumbnailMatch); // Debugging
 
 if (!thumbnailMatch) {
