@@ -149,31 +149,24 @@ async function fetchGoogleNews() {
         const newsData = [];
         const uniqueTitles = new Set(); // To avoid duplicates
 
-        Array.from(items).forEach((item) => {
+        Array.from(items).forEach((item, index) => {
             const title = item.querySelector('title').textContent;
             const description = item.querySelector('description').textContent;
             const link = item.querySelector('link').textContent;
 
-            // Parse the description to check for bold text (main article)
-            const descriptionDoc = new DOMParser().parseFromString(description, 'text/html');
-            const boldText = descriptionDoc.querySelector('b'); // Main article is wrapped in <b> tags
-
-            // Skip if there's no bold text (not a main article)
-            if (!boldText) return;
-
             // Skip if the title is already in the set (duplicate)
             if (uniqueTitles.has(title)) return;
 
-            // Add the main article to the list
+            // Add the article to the list (no filtering by bold text)
             newsData.push({
-                title: boldText.textContent, // Use the bold text as the title
+                title,
                 link,
-                description: descriptionDoc.body.textContent, // Use the full description
+                description,
             });
 
             uniqueTitles.add(title); // Mark this title as seen
 
-            // Stop after collecting 5 main articles
+            // Stop after collecting 5 articles
             if (newsData.length >= 5) return;
         });
 
