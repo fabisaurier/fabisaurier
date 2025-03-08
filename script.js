@@ -164,27 +164,6 @@ function renderNews(newsData) {
     });
 }
 
-tabButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        console.log('Button clicked:', button.getAttribute('data-source')); // Debugging
-        // Remove active class from all buttons
-        tabButtons.forEach((btn) => btn.classList.remove('active'));
-        // Add active class to the clicked button
-        button.classList.add('active');
-        // Fetch news for the selected source
-        const source = button.getAttribute('data-source');
-        fetchNews(source);
-        // Update the newspaper logo
-        updateNewspaperLogo(source);
-    });
-});
-
-function updateNewspaperLogo(source) {
-    const logoPath = NEWS_SOURCES[source].logo;
-    newspaperLogo.src = logoPath;
-    newspaperLogo.alt = `${source} Logo`;
-}
-
 async function fetchNews(source) {
     console.log('Fetching news for:', source); // Debugging
     const rssUrl = NEWS_SOURCES[source].rss;
@@ -214,8 +193,13 @@ async function fetchNews(source) {
                 console.log('Base64 data:', base64Data); // Debugging
 
                 // Decode the base64 data
-                xmlContent = atob(base64Data);
-                console.log('Decoded data:', xmlContent); // Debugging
+                const decodedData = atob(base64Data);
+                console.log('Decoded data:', decodedData); // Debugging
+
+                // Convert the decoded data to a UTF-8 string
+                const utf8Decoder = new TextDecoder('utf-8');
+                xmlContent = utf8Decoder.decode(new Uint8Array([...decodedData].map((char) => char.charCodeAt(0)));
+                console.log('UTF-8 XML content:', xmlContent); // Debugging
             } catch (error) {
                 console.error('Error decoding base64 data:', error);
                 showError(newsWidget, 'Fehler beim Dekodieren der Nachrichten.');
@@ -266,7 +250,6 @@ async function fetchNews(source) {
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
-
 // ===== Utility Functions =====
 function showError(element, message) {
     element.innerHTML = `<p>${message}</p>`;
