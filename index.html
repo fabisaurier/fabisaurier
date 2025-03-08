@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dashboard für persönliche Widgets wie Wetter, Uhrzeit und Notizen.">
     <title>Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&display=swap">
 </head>
 <body>
     <!-- Header with Title and GIF -->
     <header>
         <h1 class="fancy-title">
             fabisaurier
-            <img src="images/saurierlogo.gif" alt="Dinosaurier-Logo - Ein animierter Dinosaurier" class="title-gif">
+            <img src="images/saurierlogo.gif" alt="Dinosaurier-Logo - Ein animierter Dinosaurier" class="title-gif" loading="lazy">
         </h1>
     </header>
 
@@ -23,10 +22,10 @@
         <!-- Sidebar Navigation -->
         <nav class="sidebar" aria-label="Hauptnavigation">
             <ul>
-                <li><a href="#dashboard"><i class="fas fa-home" aria-hidden="true"></i> Dashboard</a></li>
-                <li><a href="#settings"><i class="fas fa-cog" aria-hidden="true"></i> Einstellungen</a></li>
-                <li><a href="#profile"><i class="fas fa-user" aria-hidden="true"></i> Profil</a></li>
-                <li><a href="#help"><i class="fas fa-question-circle" aria-hidden="true"></i> Hilfe</a></li>
+                <li><a href="#dashboard" aria-label="Dashboard"><i class="fas fa-home" aria-hidden="true"></i> Dashboard</a></li>
+                <li><a href="#settings" aria-label="Einstellungen"><i class="fas fa-cog" aria-hidden="true"></i> Einstellungen</a></li>
+                <li><a href="#profile" aria-label="Profil"><i class="fas fa-user" aria-hidden="true"></i> Profil</a></li>
+                <li><a href="#help" aria-label="Hilfe"><i class="fas fa-question-circle" aria-hidden="true"></i> Hilfe</a></li>
             </ul>
         </nav>
 
@@ -123,6 +122,6 @@
         <p>Seite ist aktuell noch im Aufbau</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
