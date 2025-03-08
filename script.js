@@ -199,47 +199,85 @@ async function fetchNews(source) {
                 const items = xmlDoc.querySelectorAll('item');
                 const newsData = [];
                 items.forEach((item) => {
-                    const title = item.querySelector('title')?.textContent || 'No title';
-                    const link = item.querySelector('link')?.textContent || '#';
-                    let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent || 'No description';
+                    const title = item.queasync function fetchNews(source) {
+    const rssUrl = NEWS_SOURCES[source].rss;
+    if (!rssUrl) return;
 
-                    // Remove images and other HTML tags from the description
-                    description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
-                    description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
+    // Show loading indicator
+    newsWidget.innerHTML = `<p>Lade Nachrichten...</p>`;
 
-                    newsData.push({ title, link, description });
-                });
+    try {
+        const url = `${PROXY_URL}${encodeURIComponent(rssUrl)}`;
+        const response = await fetch(url);
 
-                // Render the news
-                renderNews(newsData);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Raw response:', data); // Debugging
+
+        let xmlContent;
+
+        if (data.contents && data.contents.startsWith('data:application/rss+xml; charset=utf-8;base64,')) {
+            // Handle base64-encoded data
+            try {
+                const base64Data = data.contents.split('base64,')[1];
+                console.log('Base64 data:', base64Data); // Debugging
+
+                // Decode the base64 data
+                xmlContent = atob(base64Data);
+                console.log('Decoded data:', xmlContent); // Debugging
             } catch (error) {
                 console.error('Error decoding base64 data:', error);
                 showError(newsWidget, 'Fehler beim Dekodieren der Nachrichten.');
+                return;
             }
+        } else if (data.contents) {
+            // Handle non-encoded (plain XML) data
+            xmlContent = data.contents;
+            console.log('Plain XML data:', xmlContent); // Debugging
         } else {
-            console.error('Invalid or missing base64 data in response:', data);
+            console.error('Invalid or missing data in response:', data);
             showError(newsWidget, 'Ungültiges Nachrichtenformat.');
+            return;
         }
+
+        // Parse the XML content
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlContent, 'text/xml');
+        console.log('Parsed XML:', xmlDoc); // Debugging
+
+        // Check for XML parsing errors
+        const parserError = xmlDoc.querySelector('parsererror');
+        if (parserError) {
+            console.error('Error parsing XML:', parserError.textContent);
+            showError(newsWidget, 'Fehler beim Verarbeiten der Nachrichten.');
+            return;
+        }
+
+        // Process the XML document
+        const items = xmlDoc.querySelectorAll('item');
+        const newsData = [];
+        items.forEach((item) => {
+            const title = item.querySelector('title')?.textContent || 'No title';
+            const link = item.querySelector('link')?.textContent || '#';
+            let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent || 'No description';
+
+            // Remove images and other HTML tags from the description
+            description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
+            description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
+
+            newsData.push({ title, link, description });
+        });
+
+        // Render the news
+        renderNews(newsData);
     } catch (error) {
         console.error('Error fetching RSS feed:', error);
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
-function renderNews(newsData) {
-    newsWidget.innerHTML = ''; // Clear loading indicator
-    newsData.forEach((item) => {
-        const newsItem = document.createElement('div');
-        newsItem.classList.add('news-item');
-        newsItem.innerHTML = `
-            <a href="${item.link}" target="_blank">
-                <h3>${item.title}</h3>
-                <div>${item.description}</div>
-            </a>
-        `;
-        newsWidget.appendChild(newsItem);
-    });
-}
-
 // ===== Utility Functions =====
 function showError(element, message) {
     element.innerHTML = `<p>${message}</p>`;
