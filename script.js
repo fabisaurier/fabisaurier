@@ -31,6 +31,13 @@ const newspaperLogo = document.getElementById('newspaper-logo');
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 
+// ===== Functions =====
+function updateNewspaperLogo(source) {
+    const logoPath = NEWS_SOURCES[source].logo;
+    newspaperLogo.src = logoPath;
+    newspaperLogo.alt = `${source} Logo`;
+}
+
 // ===== Clock =====
 let clockInterval;
 
@@ -250,6 +257,7 @@ async function fetchNews(source) {
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
+
 // ===== Utility Functions =====
 function showError(element, message) {
     element.innerHTML = `<p>${message}</p>`;
