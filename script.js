@@ -2,19 +2,19 @@
 const NEWS_SOURCES = {
     tagesschau: {
         rss: 'https://www.tagesschau.de/xml/rss2',
-        logo: 'images/tagesschau-logo.png',
+        logo: 'images/tagesschau_logo.png',
     },
     zeit: {
         rss: 'https://newsfeed.zeit.de/index',
-        logo: 'images/zeit-logo.png',
+        logo: 'images/zeit_logo.png',
     },
     spiegel: {
         rss: 'https://www.spiegel.de/schlagzeilen/index.rss',
-        logo: 'images/spiegel-logo.png',
+        logo: 'images/spiegel_logo.png',
     },
     sueddeutsche: {
         rss: 'https://rss.sueddeutsche.de/rss/Topthemen',
-        logo: 'images/sueddeutsche-logo.png',
+        logo: 'images/süddeutsche_logo.png',
     },
 };
 
