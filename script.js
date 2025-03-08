@@ -272,20 +272,23 @@ async function fetchNews(source) {
             // Debugging: Log the contentEncoded field
             console.log('Content Encoded:', contentEncoded); // Debugging
 
-           // Remove CDATA tags
-const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, '');
-console.log('CDATA Removed:', cdataContent); // Debugging
+            // Remove CDATA tags (if present)
+            const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, '');
+            console.log('CDATA Removed:', cdataContent); // Debugging
 
-// Extract the thumbnail from <content:encoded>
-const thumbnailMatch = cdataContent.match(/<img[^>]*src\s*=\s*(?:"([^">]*)"|'([^'>]*)')[^>]*>/i);
-console.log('Thumbnail Match:', thumbnailMatch); // Debugging
+            // Try to extract the thumbnail from <content:encoded>
+            let thumbnailMatch = cdataContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
+            let thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : '';
 
-if (!thumbnailMatch) {
-    console.error('No thumbnail found in contentEncoded:', cdataContent); // Debugging
-}
+            // If no thumbnail found in <content:encoded>, try the <description> field
+            if (!thumbnailUrl) {
+                const descriptionContent = description.replace(/<!\[CDATA\[|\]\]>/g, '');
+                thumbnailMatch = descriptionContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
+                thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : 'https://via.placeholder.com/120x80'; // Fallback image
+            }
 
-const thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : 'https://via.placeholder.com/120x80'; // Fallback image
-console.log('Thumbnail URL:', thumbnailUrl); // Debugging
+            console.log('Thumbnail Match:', thumbnailMatch); // Debugging
+            console.log('Thumbnail URL:', thumbnailUrl); // Debugging
 
             // Extract the publication date from <pubDate> or <dc:date>
             const pubDate = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
