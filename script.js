@@ -2,15 +2,15 @@
 const API_KEY = 'd1ce329d16cbfd561e667f32bbafbe5a'; // Replace with your OpenWeatherMap API key
 const NEWS_SOURCES = {
     tagesschau: {
-        rss: 'https://www.tagesschau.de/xml/rss2',
+        rss: 'https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml',
         logo: 'images/tagesschau_logo.png',
     },
     zeit: {
-        rss: 'https://newsfeed.zeit.de/index',
+        rss: 'https://newsfeed.zeit.de/',
         logo: 'images/zeit_logo.png',
     },
     spiegel: {
-        rss: 'https://www.spiegel.de/schlagzeilen/index.rss',
+        rss: 'https://www.spiegel.de/schlagzeilen/tops/index.rss',
         logo: 'images/spiegel_logo.png',
     },
     sueddeutsche: {
