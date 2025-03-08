@@ -98,23 +98,28 @@ function fetchWeather(latitude, longitude) {
         });
 }
 
-// Google Search Functionality
-document.getElementById('search-button').addEventListener('click', () => {
+// UPDATED: Google Search Functionality using form
+// This code ensures the form behaves consistently, even though native form behavior
+// would handle most of this functionality
+document.getElementById('search-form').addEventListener('submit', (event) => {
     const searchQuery = document.getElementById('search-input').value.trim();
-    if (searchQuery) {
-        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
-        window.open(googleSearchUrl, '_blank'); // Open in a new tab
-    } else {
+    
+    // We have 'required' on the input, but this is a backup validation
+    if (!searchQuery) {
+        event.preventDefault(); // Prevents form submission if empty
         alert('Bitte geben Sie einen Suchbegriff ein.');
     }
+    // If searchQuery is not empty, the form will submit normally to Google
 });
 
-// Optional: Allow pressing "Enter" to trigger search
-document.getElementById('search-input').addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        document.getElementById('search-button').click();
+// Cleanup function to remove event listeners and intervals if needed
+function cleanup() {
+    // Clear the clock interval when the page is unloaded
+    if (clockInterval) {
+        clearInterval(clockInterval);
     }
-});
+}
+
 // Google News RSS Feed URL
 const GOOGLE_NEWS_RSS_URL = 'https://news.google.com/rss?hl=de&gl=DE&ceid=DE:de';
 
@@ -174,3 +179,6 @@ window.addEventListener('load', () => {
     startClock();
     getLocation();
 });
+
+// Add cleanup on page unload to prevent memory leaks
+window.addEventListener('unload', cleanup);
