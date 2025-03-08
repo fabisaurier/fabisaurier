@@ -249,10 +249,6 @@ async function fetchNews(source) {
             const link = item.querySelector('link')?.textContent || '#';
             let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent;
 
-            // Remove images and other HTML tags from the description
-            if (description) {
-                description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
-                description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
             }
 
             // Only add the description if it exists
