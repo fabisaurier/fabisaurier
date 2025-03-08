@@ -267,7 +267,7 @@ async function fetchNews(source) {
             const title = item.querySelector('title')?.textContent || 'No title';
             const link = item.querySelector('link')?.textContent || '#';
             const description = item.querySelector('description')?.textContent || '';
-            const contentEncoded = item.querySelector('content\\:encoded')?.textContent || '';
+            const contentEncoded = item.getElementsByTagNameNS('http://purl.org/rss/1.0/modules/content/', 'encoded')[0]?.textContent || '';
 
             // Debugging: Log the contentEncoded field
             console.log('Content Encoded:', contentEncoded); // Debugging
