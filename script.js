@@ -134,21 +134,34 @@ async function fetchGoogleNews() {
     // Check for cached news
     const cachedNews = getCachedNews();
     if (cachedNews) {
+        console.log('Using cached news data'); // Debugging: Log if cached data is used
         renderNews(cachedNews);
         return;
     }
 
     try {
         const url = `${PROXY_URL}${encodeURIComponent(GOOGLE_NEWS_RSS_URL)}`;
+        console.log('Fetching RSS feed from:', url); // Debugging: Log the fetch URL
+
         const response = await fetch(url);
+        console.log('Fetch response:', response); // Debugging: Log the fetch response
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
+        console.log('RSS feed data:', data); // Debugging: Log the parsed JSON data
 
         // Log the raw RSS feed data
         console.log('Raw RSS Feed Data:', data.contents);
 
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+        console.log('Parsed XML document:', xmlDoc); // Debugging: Log the parsed XML document
+
         const items = xmlDoc.querySelectorAll('item');
+        console.log('Number of items found:', items.length); // Debugging: Log the number of items
 
         // Log the first item to inspect its structure
         if (items.length > 0) {
@@ -186,6 +199,7 @@ async function fetchGoogleNews() {
         // Render the news
         renderNews(newsData);
     } catch (error) {
+        console.error('Error fetching or parsing RSS feed:', error); // Debugging: Log any errors
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
