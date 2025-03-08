@@ -201,17 +201,13 @@ async function fetchNews(source) {
                 console.log('Base64 data:', base64Data); // Debugging
 
                 // Decode the base64 data
-                const decodedData = atob(base64Data);
-                console.log('Decoded data:', decodedData); // Debugging
+                const binaryString = atob(base64Data);
+                console.log('Binary string:', binaryString); // Debugging
 
-                // Check if the decoded data starts with '<' (valid XML)
-                if (!decodedData.startsWith('<')) {
-                    throw new Error('Invalid XML content: Start tag expected');
-                }
-
-                // Use the decoded data as XML content
-                xmlContent = decodedData;
-                console.log('XML content:', xmlContent); // Debugging
+                // Convert the binary string to a UTF-8 string
+                const utf8Decoder = new TextDecoder('utf-8');
+                xmlContent = utf8Decoder.decode(new Uint8Array([...binaryString].map((char) => char.charCodeAt(0))));
+                console.log('UTF-8 XML content:', xmlContent); // Debugging
             } catch (error) {
                 console.error('Error decoding base64 data:', error);
                 showError(newsWidget, 'Fehler beim Dekodieren der Nachrichten.');
@@ -266,10 +262,6 @@ async function fetchNews(source) {
         console.error('Error fetching RSS feed:', error);
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
-}
-// ===== Utility Functions =====
-function showError(element, message) {
-    element.innerHTML = `<p>${message}</p>`;
 }
 
 // ===== Initialize =====
