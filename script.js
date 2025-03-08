@@ -29,20 +29,36 @@ async function fetchGoogleNews() {
         const items = xmlDoc.querySelectorAll('item');
 
         // Filter and process news items
-        const newsData = Array.from(items)
-            .filter((item) => {
-                const title = item.querySelector('title').textContent;
-                const description = item.querySelector('description').textContent;
+        const newsData = [];
+        const uniqueTitles = new Set(); // To avoid duplicates
 
-                // Exclude alternative or related articles
-                return !title.includes('Related:') && !description.includes('See also:');
-            })
-            .slice(0, 5) // Show only top 5 main articles
-            .map((item) => ({
-                title: item.querySelector('title').textContent,
-                link: item.querySelector('link').textContent,
-                description: item.querySelector('description').textContent,
-            }));
+        Array.from(items).forEach((item) => {
+            const title = item.querySelector('title').textContent;
+            const description = item.querySelector('description').textContent;
+            const link = item.querySelector('link').textContent;
+
+            // Parse the description to check for bold text (main article)
+            const descriptionDoc = new DOMParser().parseFromString(description, 'text/html');
+            const boldText = descriptionDoc.querySelector('b'); // Main article is wrapped in <b> tags
+
+            // Skip if there's no bold text (not a main article)
+            if (!boldText) return;
+
+            // Skip if the title is already in the set (duplicate)
+            if (uniqueTitles.has(title)) return;
+
+            // Add the main article to the list
+            newsData.push({
+                title: boldText.textContent, // Use the bold text as the title
+                link,
+                description: descriptionDoc.body.textContent, // Use the full description
+            });
+
+            uniqueTitles.add(title); // Mark this title as seen
+
+            // Stop after collecting 5 main articles
+            if (newsData.length >= 5) return;
+        });
 
         // Cache the news data
         cacheNews(newsData);
