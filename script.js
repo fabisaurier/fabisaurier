@@ -141,7 +141,27 @@ function handleSearch() {
     }
 }
 
-// ===== Fetch News =====
+// ===== News Widget =====
+tabButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        tabButtons.forEach((btn) => btn.classList.remove('active'));
+        // Add active class to the clicked button
+        button.classList.add('active');
+        // Fetch news for the selected source
+        const source = button.getAttribute('data-source');
+        fetchNews(source);
+        // Update the newspaper logo
+        updateNewspaperLogo(source);
+    });
+});
+
+function updateNewspaperLogo(source) {
+    const logoPath = NEWS_SOURCES[source].logo;
+    newspaperLogo.src = logoPath;
+    newspaperLogo.alt = `${source} Logo`;
+}
+
 async function fetchNews(source) {
     const rssUrl = NEWS_SOURCES[source].rss;
     if (!rssUrl) return;
@@ -159,35 +179,74 @@ async function fetchNews(source) {
 
         const data = await response.json();
 
-        // Decode the base64-encoded RSS feed
-        const base64Data = data.contents.split('base64,')[1]; // Extract the base64 part
-        const decodedData = atob(base64Data); // Decode the base64 data
-        console.log(decodedData); // Log the decoded XML data for debugging
+        // Check if the response contains base64-encoded data
+        if (data.contents && data.contents.startsWith('data:application/rss+xml;base64,')) {
+            // Extract and decode the base64 data
+            const base64Data = data.contents.split('base64,')[1];
+            const decodedData = atob(base64Data); // Decode the base64 data
+            console.log(decodedData); // Log the decoded XML data for debugging
 
-        // Parse the decoded XML data
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(decodedData, 'text/xml');
-        const items = xmlDoc.querySelectorAll('item');
+            // Parse the decoded XML data
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(decodedData, 'text/xml');
+            const items = xmlDoc.querySelectorAll('item');
 
-        const newsData = [];
-        items.forEach((item) => {
-            const title = item.querySelector('title').textContent;
-            const link = item.querySelector('link').textContent;
-            let description = item.querySelector('description').textContent;
+            const newsData = [];
+            items.forEach((item) => {
+                const title = item.querySelector('title').textContent;
+                const link = item.querySelector('link').textContent;
+                let description = item.querySelector('description').textContent;
 
-            // Remove images and other HTML tags from the description
-            description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
-            description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
+                // Remove images and other HTML tags from the description
+                description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
+                description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
 
-            newsData.push({ title, link, description });
-        });
+                newsData.push({ title, link, description });
+            });
 
-        // Render the news
-        renderNews(newsData);
+            // Render the news
+            renderNews(newsData);
+        } else {
+            // Handle non-base64 responses (e.g., direct XML)
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+            const items = xmlDoc.querySelectorAll('item');
+
+            const newsData = [];
+            items.forEach((item) => {
+                const title = item.querySelector('title').textContent;
+                const link = item.querySelector('link').textContent;
+                let description = item.querySelector('description').textContent;
+
+                // Remove images and other HTML tags from the description
+                description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
+                description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
+
+                newsData.push({ title, link, description });
+            });
+
+            // Render the news
+            renderNews(newsData);
+        }
     } catch (error) {
         console.error('Error fetching or parsing RSS feed:', error);
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
+}
+
+function renderNews(newsData) {
+    newsWidget.innerHTML = ''; // Clear loading indicator
+    newsData.forEach((item) => {
+        const newsItem = document.createElement('div');
+        newsItem.classList.add('news-item');
+        newsItem.innerHTML = `
+            <a href="${item.link}" target="_blank">
+                <h3>${item.title}</h3>
+                <div>${item.description}</div>
+            </a>
+        `;
+        newsWidget.appendChild(newsItem);
+    });
 }
 
 // ===== Utility Functions =====
@@ -201,5 +260,5 @@ window.addEventListener('load', () => {
     getLocation();
     // Load default news source (Tagesschau)
     fetchNews('tagesschau');
-    updateNewspaperLogo('tagesschau');
+    updateNewspaperLogo('tagesschau'); // Update the logo
 });
