@@ -141,27 +141,7 @@ function handleSearch() {
     }
 }
 
-// ===== News Widget =====
-tabButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        tabButtons.forEach((btn) => btn.classList.remove('active'));
-        // Add active class to the clicked button
-        button.classList.add('active');
-        // Fetch news for the selected source
-        const source = button.getAttribute('data-source');
-        fetchNews(source);
-        // Update the newspaper logo
-        updateNewspaperLogo(source);
-    });
-});
-
-function updateNewspaperLogo(source) {
-    const logoPath = NEWS_SOURCES[source].logo;
-    newspaperLogo.src = logoPath;
-    newspaperLogo.alt = `${source} Logo`;
-}
-
+// ===== Fetch News =====
 async function fetchNews(source) {
     const rssUrl = NEWS_SOURCES[source].rss;
     if (!rssUrl) return;
@@ -178,10 +158,15 @@ async function fetchNews(source) {
         }
 
         const data = await response.json();
-        console.log(data.contents); // Log the raw RSS feed data
 
+        // Decode the base64-encoded RSS feed
+        const base64Data = data.contents.split('base64,')[1]; // Extract the base64 part
+        const decodedData = atob(base64Data); // Decode the base64 data
+        console.log(decodedData); // Log the decoded XML data for debugging
+
+        // Parse the decoded XML data
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+        const xmlDoc = parser.parseFromString(decodedData, 'text/xml');
         const items = xmlDoc.querySelectorAll('item');
 
         const newsData = [];
