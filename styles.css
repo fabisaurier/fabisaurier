@@ -1,201 +1,128 @@
-/* CSS Variables */
-:root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --font-family: 'Poppins', sans-serif;
-    --font-family-fancy: 'Bubblegum Sans', cursive;
-    --spacing: 1rem;
-    --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard für persönliche Widgets wie Wetter, Uhrzeit und Notizen.">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Title and GIF -->
+    <header>
+        <h1 class="fancy-title">
+            fabisaurier
+            <img src="images/saurierlogo.gif" alt="Dinosaurier-Logo" class="title-gif">
+        </h1>
+    </header>
 
-/* Global Styles */
-body {
-    font-family: var(--font-family);
-    color: var(--text-color);
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
+    <!-- Main Layout Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#dashboard"><i class="fas fa-home" aria-label="Dashboard"></i> Dashboard</a></li>
+                <li><a href="#settings"><i class="fas fa-cog" aria-label="Einstellungen"></i> Einstellungen</a></li>
+                <li><a href="#profile"><i class="fas fa-user" aria-label="Profil"></i> Profil</a></li>
+                <li><a href="#help"><i class="fas fa-question-circle" aria-label="Hilfe"></i> Hilfe</a></li>
+            </ul>
+        </aside>
 
-/* Header */
-header {
-    text-align: center;
-    padding: var(--spacing);
-    background-color: var(--primary-color);
-    color: white;
-}
+        <!-- Content Area -->
+        <div class="content-container">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <!-- Left Side: Location and Weather -->
+                <div class="left-section">
+                    <div id="location">
+                        <i class="fas fa-location-dot" aria-label="Standort"></i> <span id="city">Berlin</span>
+                    </div>
+                    <div id="weather-widget">
+                        <div class="weather-info">
+                            <div class="weather-icon">
+                                <img src="https://openweathermap.org/img/wn/10d.png" alt="Weather Icon">
+                            </div>
+                            <div class="weather-details">
+                                <p>
+                                    <span id="temperature">18°C</span> |
+                                    <span id="weather-condition">Sunny</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-.fancy-title {
-    font-family: var(--font-family-fancy);
-    font-size: 2.5rem;
-    margin: 0;
-}
+                <!-- Middle Section: Google Search - UPDATED to use a form element -->
+                <div class="middle-section">
+                    <form class="search-container" id="search-form" action="https://www.google.com/search" method="get" target="_blank">
+                        <input type="text" id="search-input" name="q" placeholder="Google-Suche..." required>
+                        <button type="submit" id="search-button">
+                            <i class="fas fa-search" aria-label="Suchen"></i>
+                        </button>
+                    </form>
+                </div>
 
-.title-gif {
-    vertical-align: middle;
-    margin-left: 10px;
-}
+                <!-- Right Side: Time and Date -->
+                <div class="right-section">
+                    <div id="main-clock">14:35:07</div>
+                    <div id="current-date">Montag, 23. Oktober 2023</div>
+                </div>
+            </div>
 
-/* Main Layout */
-.main-container {
-    display: flex;
-    min-height: 100vh;
-}
+           <!-- Dashboard Content -->
+            <main class="dashboard-container" id="dashboard">
+                <!-- First Row: News Widget and Widget 4 -->
+                <div class="dashboard-row">
+                    <!-- News Widget -->
+                    <div class="dashboard-item news-widget">
+                        <h2>Nachrichten</h2>
+                        <div class="widget-content">
+                            <div id="news-widget">
+                                <div class="news-list">
+                                    <!-- News items will be dynamically added here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    background-color: var(--primary-color);
-    color: white;
-    padding: var(--spacing);
-}
+                    <!-- Widget 4 -->
+                    <div class="dashboard-item" id="widget-4">
+                        <h2>Widget 4</h2>
+                        <div class="widget-content">
+                            <p>Inhalt für Widget 4...</p>
+                        </div>
+                    </div>
+                </div>
 
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+                <!-- Second Row: Widget 5 and Widget 6 -->
+                <div class="dashboard-row">
+                    <!-- Widget 5 -->
+                    <div class="dashboard-item" id="widget-5">
+                        <h2>Widget 5</h2>
+                        <div class="widget-content">
+                            <p>Inhalt für Widget 5...</p>
+                        </div>
+                    </div>
 
-.sidebar li {
-    margin-bottom: var(--spacing);
-}
+                    <!-- Widget 6 -->
+                    <div class="dashboard-item" id="widget-6">
+                        <h2>Widget 6</h2>
+                        <div class="widget-content">
+                            <p>Inhalt für Widget 6...</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
 
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    <!-- Footer -->
+    <footer>
+        <p>Seite ist aktuell noch im Aufbau</p>
+    </footer>
 
-.sidebar a:hover {
-    text-decoration: underline;
-}
-
-/* Content Area */
-.content-container {
-    flex: 1;
-    padding: var(--spacing);
-}
-
-/* Top Bar */
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing);
-}
-
-.left-section, .middle-section, .right-section {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing);
-}
-
-#location, #weather-widget, #main-clock, #current-date {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.weather-info {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.weather-icon img {
-    width: 30px;
-    height: 30px;
-}
-
-/* Search Form */
-.search-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-#search-input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius);
-    width: 200px;
-}
-
-#search-button {
-    padding: 8px 12px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-}
-
-#search-button:hover {
-    background-color: darken(var(--primary-color), 10%);
-}
-
-/* Dashboard */
-.dashboard-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing);
-}
-
-.dashboard-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing);
-}
-
-.dashboard-item {
-    background-color: white;
-    padding: var(--spacing);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.dashboard-item h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-.news-widget .widget-content {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.news-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.news-item {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.news-item a {
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.news-item a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: var(--spacing);
-    background-color: var(--primary-color);
-    color: white;
-    margin-top: auto;
-}
+    <script src="script.js"></script>
+</body>
+</html>
