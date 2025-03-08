@@ -63,9 +63,15 @@
             </div>
 
             <main class="dashboard-container" id="dashboard">
-                <section class="dashboard-row">
+                <!-- First Row: News Widget and Widget 4 -->
+                <section class="dashboard-row" aria-labelledby="first-row-heading">
+                    <h2 id="first-row-heading" class="visually-hidden">Erste Reihe: Nachrichten und Widget 4</h2>
+
+                    <!-- News Widget -->
                     <article class="dashboard-item news-widget" aria-labelledby="news-heading">
-                        <h2 id="news-heading">Nachrichten</h2>
+                        <header>
+                            <h2 id="news-heading">Nachrichten</h2>
+                        </header>
                         <div class="widget-content">
                             <div id="news-widget">
                                 <div class="news-list"></div>
@@ -73,24 +79,36 @@
                         </div>
                     </article>
 
+                    <!-- Widget 4 -->
                     <article class="dashboard-item" id="widget-4" aria-labelledby="widget4-heading">
-                        <h2 id="widget4-heading">Widget 4</h2>
+                        <header>
+                            <h2 id="widget4-heading">Widget 4</h2>
+                        </header>
                         <div class="widget-content">
                             <p>Inhalt für Widget 4...</p>
                         </div>
                     </article>
                 </section>
 
-                <section class="dashboard-row">
+                <!-- Second Row: Widget 5 and Widget 6 -->
+                <section class="dashboard-row" aria-labelledby="second-row-heading">
+                    <h2 id="second-row-heading" class="visually-hidden">Zweite Reihe: Widget 5 und Widget 6</h2>
+
+                    <!-- Widget 5 -->
                     <article class="dashboard-item" id="widget-5" aria-labelledby="widget5-heading">
-                        <h2 id="widget5-heading">Widget 5</h2>
+                        <header>
+                            <h2 id="widget5-heading">Widget 5</h2>
+                        </header>
                         <div class="widget-content">
                             <p>Inhalt für Widget 5...</p>
                         </div>
                     </article>
 
+                    <!-- Widget 6 -->
                     <article class="dashboard-item" id="widget-6" aria-labelledby="widget6-heading">
-                        <h2 id="widget6-heading">Widget 6</h2>
+                        <header>
+                            <h2 id="widget6-heading">Widget 6</h2>
+                        </header>
                         <div class="widget-content">
                             <p>Inhalt für Widget 6...</p>
                         </div>
