@@ -162,7 +162,7 @@ function renderNews(newsData) {
         newsItem.innerHTML = `
             <a href="${item.link}" target="_blank">
                 <h3>${item.title}</h3>
-                <div>${item.description}</div>
+                ${item.description ? `<div>${item.description}</div>` : ''}
             </a>
         `;
 
@@ -247,12 +247,15 @@ async function fetchNews(source) {
         items.forEach((item) => {
             const title = item.querySelector('title')?.textContent || 'No title';
             const link = item.querySelector('link')?.textContent || '#';
-            let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent || 'No description';
+            let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent;
 
             // Remove images and other HTML tags from the description
-            description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
-            description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
+            if (description) {
+                description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
+                description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
+            }
 
+            // Only add the description if it exists
             newsData.push({ title, link, description });
         });
 
@@ -263,7 +266,6 @@ async function fetchNews(source) {
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
-
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Script loaded'); // Debugging
