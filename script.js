@@ -165,6 +165,7 @@ function updateNewspaperLogo(source) {
 }
 
 async function fetchNews(source) {
+    console.log('Fetching news for:', source); // Debugging
     const rssUrl = NEWS_SOURCES[source].rss;
     if (!rssUrl) return;
 
@@ -173,43 +174,7 @@ async function fetchNews(source) {
 
     try {
         const url = `${PROXY_URL}${encodeURIComponent(rssUrl)}`;
-        const response = await fetch(url);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Raw response:', data); // Debugging
-
-        if (data.contents && data.contents.startsWith('data:application/rss+xml; charset=utf-8;base64,')) {
-            // Extract the base64 data
-            const base64Data = data.contents.split('base64,')[1];
-            console.log('Base64 data:', base64Data); // Debugging
-
-            try {
-                // Decode the base64 data
-                const decodedData = atob(base64Data);
-                console.log('Decoded data:', decodedData); // Debugging
-
-                // Parse the decoded XML data
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(decodedData, 'text/xml');
-                console.log('Parsed XML:', xmlDoc); // Debugging
-
-                // Process the XML document
-                const items = xmlDoc.querySelectorAll('item');
-                const newsData = [];
-                items.forEach((item) => {
-                    const title = item.queasync function fetchNews(source) {
-    const rssUrl = NEWS_SOURCES[source].rss;
-    if (!rssUrl) return;
-
-    // Show loading indicator
-    newsWidget.innerHTML = `<p>Lade Nachrichten...</p>`;
-
-    try {
-        const url = `${PROXY_URL}${encodeURIComponent(rssUrl)}`;
+        console.log('Fetching URL:', url); // Debugging
         const response = await fetch(url);
 
         if (!response.ok) {
