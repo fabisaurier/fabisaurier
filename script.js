@@ -272,8 +272,9 @@ async function fetchNews(source) {
             // Debugging: Log the contentEncoded field
             console.log('Content Encoded:', contentEncoded); // Debugging
 
-            // Handle CDATA sections
-            const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, ''); // Remove CDATA tags
+            // Remove CDATA tags
+            const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, '');
+            console.log('CDATA Removed:', cdataContent); // Debugging
 
             // Extract the thumbnail from <content:encoded>
             const thumbnailMatch = cdataContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
