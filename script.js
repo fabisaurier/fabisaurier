@@ -54,7 +54,12 @@ function startClock() {
 
 function updateClock() {
     const now = new Date();
-    const localTime = now.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const localTime = now.toLocaleTimeString('de-DE', { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit', 
+        timeZoneName: undefined // Remove time zone information
+    });
     if (mainClockElement) {
         mainClockElement.textContent = localTime;
     }
@@ -62,7 +67,13 @@ function updateClock() {
 
 function updateDate() {
     const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric', 
+        timeZoneName: undefined // Remove time zone information
+    };
     const dateString = now.toLocaleDateString('de-DE', options);
     if (dateElement) {
         dateElement.textContent = dateString;
