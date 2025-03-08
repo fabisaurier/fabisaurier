@@ -196,9 +196,9 @@ async function fetchNews(source) {
                 const decodedData = atob(base64Data);
                 console.log('Decoded data:', decodedData); // Debugging
 
-                 // Convert the decoded data to a UTF-8 string
+                // Convert the decoded data to a UTF-8 string
                 const utf8Decoder = new TextDecoder('utf-8');
-                const xmlContent = utf8Decoder.decode(new Uint8Array([...decodedData].map((char) => char.charCodeAt(0)));
+                const xmlContent = utf8Decoder.decode(new Uint8Array([...decodedData].map((char) => char.charCodeAt(0))));
                 console.log('UTF-8 XML content:', xmlContent); // Debugging
             } catch (error) {
                 console.error('Error decoding base64 data:', error);
