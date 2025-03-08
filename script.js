@@ -195,7 +195,9 @@ async function fetchNews(source) {
             items.forEach((item) => {
                 const title = item.querySelector('title').textContent;
                 const link = item.querySelector('link').textContent;
-                let description = item.querySelector('description').textContent;
+
+                // Use <content:encoded> if <description> is empty
+                let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent;
 
                 // Remove images and other HTML tags from the description
                 description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
@@ -216,7 +218,9 @@ async function fetchNews(source) {
             items.forEach((item) => {
                 const title = item.querySelector('title').textContent;
                 const link = item.querySelector('link').textContent;
-                let description = item.querySelector('description').textContent;
+
+                // Use <content:encoded> if <description> is empty
+                let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent;
 
                 // Remove images and other HTML tags from the description
                 description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
@@ -233,7 +237,6 @@ async function fetchNews(source) {
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
-
 function renderNews(newsData) {
     newsWidget.innerHTML = ''; // Clear loading indicator
     newsData.forEach((item) => {
