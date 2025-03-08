@@ -15,7 +15,7 @@ const NEWS_SOURCES = {
     },
     sueddeutsche: {
         rss: 'https://rss.sueddeutsche.de/rss/Topthemen',
-        logo: 'images/sueddeutsche_logo.png',
+        logo: 'images/süddeutsche_logo.png',
     },
 };
 const PROXY_URL = 'https://api.allorigins.win/get?url=';
