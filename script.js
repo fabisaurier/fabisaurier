@@ -6,7 +6,7 @@ const NEWS_SOURCES = {
         logo: 'images/tagesschau_logo.png',
     },
     zeit: {
-        rss: 'https://newsfeed.zeit.de/',
+        rss: 'https://newsfeed.zeit.de/index',
         logo: 'images/zeit_logo.png',
     },
     spiegel: {
