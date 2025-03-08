@@ -142,6 +142,28 @@ function handleSearch() {
 }
 
 // ===== News Widget =====
+function renderNews(newsData) {
+    // Clear the news widget
+    newsWidget.innerHTML = '';
+
+    // Loop through the news data and create HTML elements for each news item
+    newsData.forEach((item) => {
+        const newsItem = document.createElement('div');
+        newsItem.classList.add('news-item');
+
+        // Create the HTML structure for a news item
+        newsItem.innerHTML = `
+            <a href="${item.link}" target="_blank">
+                <h3>${item.title}</h3>
+                <div>${item.description}</div>
+            </a>
+        `;
+
+        // Append the news item to the news widget
+        newsWidget.appendChild(newsItem);
+    });
+}
+
 tabButtons.forEach((button) => {
     button.addEventListener('click', () => {
         console.log('Button clicked:', button.getAttribute('data-source')); // Debugging
