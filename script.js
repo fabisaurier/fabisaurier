@@ -264,10 +264,30 @@ function showError(element, message) {
 }
 
 // ===== Initialize =====
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script loaded'); // Debugging
     startClock();
     getLocation();
     // Load default news source (Tagesschau)
     fetchNews('tagesschau');
     updateNewspaperLogo('tagesschau'); // Update the logo
+
+    // Attach event listeners to tab buttons
+    const tabButtons = document.querySelectorAll('.tab-button');
+    console.log('Tab buttons:', tabButtons); // Debugging
+
+    tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            console.log('Button clicked:', button.getAttribute('data-source')); // Debugging
+            // Remove active class from all buttons
+            tabButtons.forEach((btn) => btn.classList.remove('active'));
+            // Add active class to the clicked button
+            button.classList.add('active');
+            // Fetch news for the selected source
+            const source = button.getAttribute('data-source');
+            fetchNews(source);
+            // Update the newspaper logo
+            updateNewspaperLogo(source);
+        });
+    });
 });
