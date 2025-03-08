@@ -268,7 +268,7 @@ async function fetchNews(source) {
             const link = item.querySelector('link')?.textContent || '#';
             let description = item.querySelector('description')?.textContent || item.querySelector('content\\:encoded')?.textContent;
 
-            }
+            
 
             // Only add the description if it exists
             newsData.push({ title, link, description });
