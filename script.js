@@ -126,6 +126,8 @@ function handleSearch() {
 
 // ===== News =====
 async function fetchGoogleNews() {
+    console.log('fetchGoogleNews called'); // Debugging: Confirm the function is called
+
     // Show loading indicator
     newsWidget.innerHTML = `<p>Lade Nachrichten...</p>`;
 
@@ -141,9 +143,17 @@ async function fetchGoogleNews() {
         const response = await fetch(url);
         const data = await response.json();
 
+        // Log the raw RSS feed data
+        console.log('Raw RSS Feed Data:', data.contents);
+
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
         const items = xmlDoc.querySelectorAll('item');
+
+        // Log the first item to inspect its structure
+        if (items.length > 0) {
+            console.log('First Item:', items[0].querySelector('description').textContent);
+        }
 
         // Filter and process news items
         const newsData = [];
