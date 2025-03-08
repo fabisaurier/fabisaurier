@@ -186,7 +186,11 @@ async function fetchNews(source) {
         items.forEach((item) => {
             const title = item.querySelector('title').textContent;
             const link = item.querySelector('link').textContent;
-            const description = item.querySelector('description').textContent;
+            let description = item.querySelector('description').textContent;
+
+            // Remove images and other HTML tags from the description
+            description = description.replace(/<img[^>]*>/g, ''); // Remove <img> tags
+            description = description.replace(/<[^>]+>/g, ''); // Remove all HTML tags
 
             newsData.push({ title, link, description });
         });
