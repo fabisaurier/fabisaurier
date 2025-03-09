@@ -129,7 +129,7 @@ h1.fancy-title .title-gif {
 .top-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space between left, middle, and right sections */
+    justify-content: space-between;
     padding: 10px 20px;
     border-bottom: 2px solid rgba(234, 234, 234, 0.8);
     margin-bottom: 10px;
@@ -149,6 +149,37 @@ h1.fancy-title .title-gif {
     flex-shrink: 0; /* Prevent shrinking */
 }
 
+/* Location Icon */
+#location i.fa-location-dot {
+    color: red;
+}
+
+/* Weather Widget */
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-icon img {
+    width: 40px;
+    height: 40px;
+    filter: none; /* Ensure the weather icon is not affected by any filters */
+}
+
+.weather-details p {
+    margin: 0;
+    color: #000;
+}
+
+#temperature {
+    font-weight: 600;
+}
+
+#weather-condition {
+    font-style: italic;
+}
+
 /* Middle Section (Search Bar) */
 .middle-section {
     flex: 1; /* Take up remaining space */
@@ -158,23 +189,6 @@ h1.fancy-title .title-gif {
     min-width: 300px; /* Ensure it doesn't shrink too much */
     max-width: 500px; /* Ensure it doesn't grow too large */
     margin: 0 auto; /* Center the middle section */
-}
-
-/* Right Section (Clock and Date) */
-.right-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0; /* Prevent shrinking */
-    min-width: 120px; /* Constrain the width of the clock and date */
-}
-
-/* Clock and Date */
-#main-clock, #current-date {
-    font-size: 1em;
-    font-weight: 500;
-    color: #000;
-    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 /* Search Bar Container */
@@ -222,6 +236,23 @@ h1.fancy-title .title-gif {
 #search-button:hover {
     background-color: #7b5f95;
 }
+
+/* Right Section (Clock and Date) */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0; /* Prevent shrinking */
+    min-width: 120px; /* Constrain the width of the clock and date */
+}
+
+#main-clock, #current-date {
+    font-size: 1em;
+    font-weight: 500;
+    color: #000;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
 /* ===== Dashboard ===== */
 .dashboard-container {
     display: flex;
