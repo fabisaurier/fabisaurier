@@ -85,12 +85,15 @@ h1.fancy-title .title-gif {
 /* ===== Sidebar ===== */
 .sidebar {
     width: 200px;
-    background-color: rgba(232, 218, 239, 0.9);
+    background-color: rgba(232, 218, 239, 0.9); /* Keep the existing color */
+    backdrop-filter: blur(10px); /* Add blur effect */
     padding: 20px;
-    border-right: 1px solid rgba(234, 234, 234, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    box-shadow: var(--box-shadow); /* Same box shadow as content container */
     position: fixed;
     height: calc(100vh - 70px);
     z-index: 1000;
+    border-radius: var(--border-radius); /* Optional: Add border radius */
 }
 
 .sidebar ul {
@@ -115,7 +118,6 @@ h1.fancy-title .title-gif {
 .sidebar ul li a:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
-
 /* ===== Content Container ===== */
 .content-container {
     flex: 1;
