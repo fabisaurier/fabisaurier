@@ -262,13 +262,14 @@ async function fetchNews(source) {
 
         let xmlContent;
 
-        if (data.contents && data.contents.startsWith('data:application/rss+xml; charset=utf-8;base64,')) {
+        if (data.contents && data.contents.startsWith('data:application/rss+xml;')) {
             // Handle base64-encoded data
             try {
                 const base64Data = data.contents.split('base64,')[1];
                 const binaryString = atob(base64Data);
                 const utf8Decoder = new TextDecoder('utf-8');
                 xmlContent = utf8Decoder.decode(new Uint8Array([...binaryString].map((char) => char.charCodeAt(0))));
+                console.log('Decoded XML content:', xmlContent); // Log the decoded XML content
             } catch (error) {
                 console.error('Error decoding base64 data:', error);
                 showError(newsWidget, 'Fehler beim Dekodieren der Nachrichten.');
@@ -286,7 +287,10 @@ async function fetchNews(source) {
             return;
         }
 
-        console.log('XML content to parse:', xmlContent); // Log the XML content
+        // Verify if the content is XML
+        if (!isXML(xmlContent)) {
+            throw new Error('The fetched content is not valid XML.');
+        }
 
         // Parse the XML content
         const parser = new DOMParser();
@@ -358,11 +362,28 @@ async function fetchNews(source) {
     }
 }
 
+// Function to check if the content is XML
+function isXML(content) {
+    try {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(content, 'text/xml');
+        return !parser.parseFromString(content, 'text/xml').querySelector('parsererror');
+    } catch (e) {
+        return false;
+    }
+}
+
 // Display a subset of news items
 function displayNewsItems() {
     const itemsToDisplay = currentNewsData.slice(0, displayedItems);
     renderNews(itemsToDisplay);
 }
+
+// Define the showError function
+function showError(element, message) {
+    element.innerHTML = `<p>${message}</p>`;
+}
+
 
 
 // ===== Initialize =====
