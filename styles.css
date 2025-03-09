@@ -263,8 +263,8 @@ h1.fancy-title .title-gif {
 }
 
 .news-icon {
-    width: 30px; /* Adjust icon size */
-    height: 30px; /* Adjust icon size */
+    width: 15px; /* Adjust icon size */
+    height: 15px; /* Adjust icon size */
     object-fit: contain; /* Ensure the icon fits properly */
 }
 
