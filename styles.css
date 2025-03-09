@@ -273,7 +273,7 @@ h1.fancy-title .title-gif {
 }
 
 .news-header-title {
-    font-size: 1.5em; /* Adjust font size as needed */
+    font-size: 1.9em; /* Adjust font size as needed */
     font-weight: bold;
     color: var(--text-color); /* Use the text color variable */
     margin: 0; /* Remove default margin */
