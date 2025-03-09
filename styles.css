@@ -196,6 +196,60 @@ h1.fancy-title .title-gif {
     justify-content: center; /* Center the search bar */
 }
 
+/* ===== Search Bar Container ===== */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between input and button */
+    width: 100%;
+    max-width: 400px; /* Limit the maximum width of the search bar */
+}
+
+/* Search Input */
+#search-input {
+    flex: 1;
+    padding: 12px 20px; /* Increase padding for a larger input */
+    border: 2px solid var(--primary-color); /* Use the primary color for the border */
+    border-radius: 30px; /* Rounder corners */
+    font-size: 1em; /* Slightly larger font size */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    color: var(--text-color); /* Use the global text color */
+}
+
+#search-input::placeholder {
+    color: #86868b; /* Grey placeholder text */
+}
+
+#search-input:focus {
+    border-color: #ff6f61; /* Change border color on focus */
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.5); /* Add a glow effect on focus */
+}
+
+/* Search Button */
+#search-button {
+    padding: 12px 20px; /* Increase padding for a larger button */
+    background-color: var(--primary-color); /* Use the primary color for the button */
+    color: white;
+    border: none;
+    border-radius: 30px; /* Rounder corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    font-size: 1em; /* Slightly larger font size */
+    font-weight: 500; /* Medium font weight */
+}
+
+#search-button:hover {
+    background-color: #7b5f95; /* Darker color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+#search-button:active {
+    background-color: #6a4f7d; /* Even darker color on click */
+    transform: scale(0.95); /* Slightly shrink the button on click */
+}
+
 /* Right Top Bar */
 .top-bar-right {
     right: 0; /* Align to the right */
