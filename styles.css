@@ -244,7 +244,22 @@ h1.fancy-title .title-gif {
 .top-bar-right {
     display: flex;
     align-items: center;
-    gap: 20px; /* Space between items */
+    gap: 20px; /* Space between date/time and other elements */
+    flex-shrink: 0; /* Prevent shrinking */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.date-time-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align date and time to the left */
+    gap: 5px; /* Space between date and time */
+}
+
+.other-elements {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between other elements */
 }
 
 #current-date,
