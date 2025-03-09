@@ -52,7 +52,7 @@ h1.fancy-title {
     font-family: 'Bubblegum Sans', cursive;
     font-size: 5em;
     color: #3AD4CD;
-    margin: 0;
+    margin-top: 5px;
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
     letter-spacing: 2px;
     display: flex;
