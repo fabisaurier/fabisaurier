@@ -280,12 +280,12 @@ h1.fancy-title .title-gif {
 }
 
 .tab-button {
-    padding: 8px 16px;
+    padding: 6px 12px;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid var(--secondary-color);
-    border-radius: 20px;
+    border-radius: 15px;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 0.8em;
     font-weight: bold;
     color: var(--text-color);
     transition: background-color 0.2s ease, color 0.2s ease;
