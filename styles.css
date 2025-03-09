@@ -262,14 +262,14 @@ h1.fancy-title .title-gif {
     display: flex;
     align-items: flex-start; /* Align items to the top */
     justify-content: space-between; /* Space between left and right sections */
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Space between header and news articles */
 }
 
 /* Left side: Title and Newspaper Logo */
 .news-header-left {
     display: flex;
     flex-direction: column; /* Stack title and logo vertically */
-    gap: 15px; /* Increased space between title and logo */
+    gap: 20px; /* Consistent space between title and logo */
 }
 
 .news-header-title {
@@ -315,6 +315,13 @@ h1.fancy-title .title-gif {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* ===== News List ===== */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Consistent space between news articles */
+    padding-right: 10px;
+}
 /* ===== News Widget Layout ===== */
 .news-list {
     display: flex;
