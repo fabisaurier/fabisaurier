@@ -269,23 +269,22 @@ h1.fancy-title .title-gif {
     white-space: nowrap;
 }
 
-#date-time-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: var(--text-color);
-    flex-shrink: 0;
-    white-space: nowrap;
-    height: 31px;
-    width: 300px
+/* ===== Time Container ===== */
+#time-container {
+    font-size: 1.1rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: var(--text-color); /* Use global text color */
+    margin-right: 10px; /* Add spacing between time and date */
 }
 
-#main-clock,
-#current-date {
-    margin: 0;
+/* ===== Date Container ===== */
+#date-container {
+    font-size: 1rem; /* Slightly smaller font size than time */
+    font-weight: 500; /* Medium font weight */
+    color: var(--text-color); /* Use global text color */
+    font-style: italic; /* Optional: Add italic style for date */
 }
+
 
 /* ===== Dashboard Container ===== */
 .dashboard-container {
