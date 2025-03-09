@@ -282,7 +282,7 @@ h1.fancy-title .title-gif {
 
 /* ===== Date Container ===== */
 #date-container {
-    font-size: 1rem; /* Slightly smaller font size than time */
+    font-size: 1.1rem; /* Slightly smaller font size than time */
     font-weight: bold; 
     color: var(--text-color); /* Use global text color */
     height: 31px;
