@@ -140,7 +140,7 @@ h1.fancy-title .title-gif {
     top: 0; /* Align to the top of the viewport */
     left: 200px; /* Start after the sidebar */
     z-index: 1000; /* Ensure it's above other content */
-    height: 30px; /* Half the original height */
+    height: 40px; /* Half the original height */
 }
 
 /* Left Top Bar */
