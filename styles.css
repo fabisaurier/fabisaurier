@@ -341,6 +341,7 @@ h1.fancy-title .title-gif {
 
 /* ===== News Thumbnail ===== */
 .news-thumbnail {
+    position: relative; /* Required for positioning the lines */
     flex: 0 0 120px; /* Fixed width */
     height: 80px; /* Fixed height */
     display: flex;
@@ -352,6 +353,51 @@ h1.fancy-title .title-gif {
     padding: 0; /* Remove any default padding */
 }
 
+/* ===== Lines Above the Thumbnail ===== */
+.news-thumbnail::before,
+.news-thumbnail::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%; /* Full width of the thumbnail */
+    height: 1px; /* Line thickness */
+    background-color: #0077ff; /* Blue color */
+}
+
+/* Outer Line Above */
+.news-thumbnail::before {
+    top: -20px; /* Position above the thumbnail */
+}
+
+/* Inner Line Above */
+.news-thumbnail::after {
+    top: -10px; /* Position closer to the thumbnail */
+    width: 80%; /* Shorter than the outer line */
+    left: 10%; /* Center the shorter line */
+}
+
+/* ===== Lines Below the Thumbnail ===== */
+.news-thumbnail .line-below-outer,
+.news-thumbnail .line-below-inner {
+    position: absolute;
+    left: 0;
+    width: 100%; /* Full width of the thumbnail */
+    height: 1px; /* Line thickness */
+    background-color: #0077ff; /* Blue color */
+}
+
+/* Outer Line Below */
+.news-thumbnail .line-below-outer {
+    bottom: -20px; /* Position below the thumbnail */
+}
+
+/* Inner Line Below */
+.news-thumbnail .line-below-inner {
+    bottom: -10px; /* Position closer to the thumbnail */
+    width: 80%; /* Shorter than the outer line */
+    left: 10%; /* Center the shorter line */
+}
+
 /* ===== Thumbnail Image ===== */
 .news-thumbnail img {
     width: 100%; /* Ensure the image fills the container */
@@ -359,7 +405,6 @@ h1.fancy-title .title-gif {
     object-fit: cover; /* Maintain aspect ratio while covering the container */
     border-radius: 8px; /* Rounded edges */
 }
-
 
 .news-content {
     flex: 1;
@@ -454,6 +499,7 @@ h1.fancy-title .title-gif {
 #show-more-button:active {
     background-color: #004080;
 }
+
 /* ===== Footer ===== */
 footer {
     font-size: 0.9em;
