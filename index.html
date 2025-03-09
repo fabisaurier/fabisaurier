@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dashboard für persönliche Widgets wie Wetter, Uhrzeit und Notizen.">
     <title>Dashboard</title>
+    <!-- External Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;500;600&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Cooper+Hewitt&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <h1 class="fancy-title">
             fabisaurier
@@ -18,7 +20,9 @@
         </h1>
     </header>
 
+    <!-- Main Container -->
     <div class="main-container">
+        <!-- Sidebar Navigation -->
         <nav class="sidebar" aria-label="Hauptnavigation">
             <ul>
                 <li><a href="#dashboard" aria-label="Dashboard"><i class="fas fa-home" aria-hidden="true"></i> Dashboard</a></li>
@@ -28,10 +32,11 @@
             </ul>
         </nav>
 
+        <!-- Content Container -->
         <div class="content-container">
-            <!-- Top Bars -->
+            <!-- Top Bar -->
             <div class="top-bar">
-                <!-- Left Top Bar -->
+                <!-- Left Top Bar: Location, Temperature, Weather -->
                 <div class="top-bar-left">
                     <div class="left-section">
                         <div id="location">
@@ -43,7 +48,7 @@
                     </div>
                 </div>
 
-                <!-- Middle Top Bar (Search Bar) -->
+                <!-- Middle Top Bar: Search Bar -->
                 <div class="top-bar-middle">
                     <div class="middle-section">
                         <div class="search-container">
@@ -53,7 +58,7 @@
                     </div>
                 </div>
 
-                <!-- Right Top Bar (Clock and Date) -->
+                <!-- Right Top Bar: Date and Time -->
                 <div class="top-bar-right">
                     <div class="right-section">
                         <div id="current-date">October 10, 2023</div>
@@ -64,20 +69,21 @@
 
             <!-- Dashboard Container -->
             <main class="dashboard-container" id="dashboard">
+                <!-- First Row: News Widget and Shortcuts -->
                 <section class="dashboard-row" aria-labelledby="first-row-heading">
                     <h2 id="first-row-heading" class="visually-hidden">Erste Reihe: Nachrichten-Widget und Shortcuts</h2>
 
                     <!-- News Widget -->
                     <article class="dashboard-item news-widget" aria-labelledby="news-heading">
                         <header class="news-header">
-                            <!-- Left side: Newspaper Logo -->
+                            <!-- Left Side: Newspaper Logo -->
                             <div class="news-header-left">
                                 <div class="newspaper-logo">
                                     <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
                                 </div>
                             </div>
 
-                            <!-- Right side: Tabs -->
+                            <!-- Right Side: Tabs -->
                             <div class="news-tabs">
                                 <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
                                 <button class="tab-button" data-source="zeit">Zeit</button>
@@ -89,7 +95,7 @@
                         <div class="widget-content">
                             <div id="news-widget" lang="de">
                                 <div class="news-list">
-                                    <!-- Example News Item (will be dynamically populated by JavaScript) -->
+                                    <!-- Example News Item -->
                                     <div class="news-item">
                                         <a href="#" class="news-link" target="_blank">
                                             <div class="news-thumbnail">
@@ -113,8 +119,7 @@
                     <article class="dashboard-item shortcut-container" aria-labelledby="shortcuts-heading">
                         <header>
                             <h2 id="shortcuts-heading">
-                                <i class="fas fa-rocket" aria-hidden="true"></i> <!-- Rocket Icon -->
-                                Shortcuts
+                                <i class="fas fa-rocket" aria-hidden="true"></i> Shortcuts
                             </h2>
                         </header>
                         <div class="shortcut-content">
@@ -141,6 +146,7 @@
         </div>
     </div>
 
+    <!-- External JavaScript -->
     <script src="script.js" defer></script>
 </body>
 </html>
