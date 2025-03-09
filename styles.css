@@ -145,6 +145,15 @@ h1.fancy-title .title-gif {
     display: flex;
     align-items: center; /* Vertically center items in left and right sections */
     gap: 20px; /* Space between items */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Middle Section (Search Bar) */
+.middle-section {
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    justify-content: center; /* Center the search bar horizontally */
+    padding: 0 20px; /* Add some padding to prevent overlap */
 }
 
 /* Right Section: Time and Date */
@@ -235,6 +244,7 @@ h1.fancy-title .title-gif {
 #search-button:hover {
     background-color: #7b5f95; /* Darker lavender on hover */
 }
+
 /* ===== Dashboard ===== */
 .dashboard-container {
     display: flex;
