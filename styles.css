@@ -152,6 +152,10 @@ h1.fancy-title .title-gif {
 #location i.fa-location-dot {
     color: red;
 }
+/* Ensure the weather icon is not affected by any filters */
+.weather-icon img {
+    filter: none; /* Remove any filters applied to the weather icon */
+}
 
 /* Middle Section (Search Bar) */
 .middle-section {
