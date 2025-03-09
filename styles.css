@@ -272,6 +272,13 @@ h1.fancy-title .title-gif {
     object-fit: contain; /* Ensure the icon fits properly */
 }
 
+.news-header-title {
+    font-size: 1.5em; /* Adjust font size as needed */
+    font-weight: bold;
+    color: var(--text-color); /* Use the text color variable */
+    margin: 0; /* Remove default margin */
+}
+
 .news-tabs {
     display: flex;
     gap: 10px; /* Space between tabs */
