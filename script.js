@@ -22,7 +22,7 @@ const NEWS_SOURCES = {
         logo: 'images/taz_logo.png',
     },
     hna: {
-        rss: 'https://www.hna.de/rss/rssfeed-lokales-kassel.xml',
+        rss: 'https://www.hna.de/kassel/rssfeed.xml',
         logo: 'images/hna_logo.png',
     },
 };
