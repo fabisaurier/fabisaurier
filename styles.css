@@ -123,7 +123,7 @@ h1.fancy-title .title-gif {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    padding-top: 60px; /* Add padding to account for the top bar height + gap */
+    padding-top: 55px; /* Add padding to account for the top bar height + gap */
 }
 /* ===== Top Bar ===== */
 .top-bar {
