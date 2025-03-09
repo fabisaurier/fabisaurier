@@ -323,12 +323,14 @@ async function fetchNews(source) {
                 thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : '';
             }
 
-            // If no thumbnail found in <content:encoded> or <description>, check for <media:thumbnail> or <enclosure>
-            if (!thumbnailUrl) {
-                const mediaThumbnail = item.querySelector('media\\:thumbnail, thumbnail')?.getAttribute('url');
-                const enclosure = item.querySelector('enclosure')?.getAttribute('url');
-                thumbnailUrl = mediaThumbnail || enclosure || 'https://via.placeholder.com/120x80'; // Fallback image
-            }
+          // If no thumbnail found in <content:encoded> or <description>, check for <media:thumbnail>, <media:content>, or <enclosure>
+if (!thumbnailUrl) {
+    const mediaThumbnail = item.querySelector('media\\:thumbnail, thumbnail')?.getAttribute('url');
+    const mediaContent = item.querySelector('media\\:content')?.getAttribute('url');
+    const enclosure = item.querySelector('enclosure')?.getAttribute('url');
+    thumbnailUrl = mediaThumbnail || mediaContent || enclosure || 'https://via.placeholder.com/120x80'; // Fallback image
+}
+
 
             // Extract the publication date from <pubDate> or <dc:date>
             const pubDateRaw = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
