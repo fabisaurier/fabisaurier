@@ -70,16 +70,23 @@
                     <!-- News Widget -->
                     <article class="dashboard-item news-widget" aria-labelledby="news-heading">
                        <header class="news-header">
+<header class="news-header">
     <div class="news-header-left">
-        <h2 id="news-heading">
-            <i class="fas fa-newspaper" aria-hidden="true"></i> <!-- Newspaper Icon -->
-            Nachrichten
-        </h2>
-        <!-- Newspaper Logo Container -->
-        <div class="newspaper-logo">
-            <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
+        <!-- Custom Icon -->
+        <img src="images/news-icon.png" alt="News Icon" class="news-icon">
+        <!-- Tabs -->
+        <div class="news-tabs">
+            <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
+            <button class="tab-button" data-source="zeit">Zeit</button>
+            <button class="tab-button" data-source="spiegel">Spiegel</button>
+            <button class="tab-button" data-source="sueddeutsche">Süddeutsche</button>
         </div>
     </div>
+    <!-- Newspaper Logo Container -->
+    <div class="newspaper-logo">
+        <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
+    </div>
+</header>
     <div class="news-tabs">
         <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
         <button class="tab-button" data-source="zeit">Zeit</button>
