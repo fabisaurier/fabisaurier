@@ -157,7 +157,7 @@ h1.fancy-title .title-gif {
 #location {
     display: flex;
     align-items: center;
-    gap: 5px; /* Space between icon and text */
+    gap: 5px; /* Space between icon and city name */
 }
 
 #location i.fa-location-dot {
