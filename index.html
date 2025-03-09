@@ -28,50 +28,40 @@
             </ul>
         </nav>
 
-        <div class="content-container">
-            <!-- Left Top Bar -->
-            <div class="top-bar-left">
-                <div class="left-section">
-                    <div id="location">
-                        <i class="fas fa-location-dot" aria-hidden="true"></i>
-                        <span id="city">Berlin</span>
-                    </div>
-                    <div id="weather-widget" lang="de">
-                        <div class="weather-info">
-                            <div class="weather-icon">
-                                <img src="https://openweathermap.org/img/wn/10d.png" alt="Aktuelles Wetter-Symbol">
-                            </div>
-                            <div class="weather-details">
-                                <p>
-                                    <span id="temperature">18°C</span> |
-                                    <span id="weather-condition">Sunny</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+       <div class="content-container">
+    <!-- Left Top Bar -->
+    <div class="top-bar-left">
+        <div class="left-section">
+            <div id="location">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                <span id="city">Berlin</span>
+                <!-- Temperature and Condition -->
+                <span id="temperature">18°C</span>
+                <span id="weather-condition">Sunny</span>
             </div>
+        </div>
+    </div>
 
-            <!-- Middle Top Bar (Search Bar) -->
-            <div class="top-bar-middle">
-                <div class="middle-section">
-                    <div class="search-container">
-                        <input type="text" id="search-input" placeholder="Search...">
-                        <button id="search-button">Search</button>
-                    </div>
-                </div>
+    <!-- Middle Top Bar (Search Bar) -->
+    <div class="top-bar-middle">
+        <div class="middle-section">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
             </div>
+        </div>
+    </div>
 
-            <!-- Right Top Bar (Clock and Date) -->
-            <div class="top-bar-right">
-                <div class="right-section">
-                    <div id="current-date">October 10, 2023</div>
-                    <div id="main-clock">10:00 AM</div>
-                </div>
-            </div>
+    <!-- Right Top Bar (Clock and Date) -->
+    <div class="top-bar-right">
+        <div class="right-section">
+            <div id="current-date">October 10, 2023</div>
+            <div id="main-clock">10:00 AM</div>
+        </div>
+    </div>
 
-            <!-- Dashboard Container -->
-            <main class="dashboard-container" id="dashboard">
+    <!-- Dashboard Container -->
+    <main class="dashboard-container" id="dashboard">
                 <section class="dashboard-row" aria-labelledby="first-row-heading">
                     <h2 id="first-row-heading" class="visually-hidden">Erste Reihe: Nachrichten-Widget und Shortcuts</h2>
 
