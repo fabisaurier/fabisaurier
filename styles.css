@@ -368,14 +368,18 @@ h1.fancy-title .title-gif {
 }
 
 .tab-button.active {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
+    background-color: #EADBEF; /* Change to #EADBEF when clicked */
+    color: var(--text-color); /* Keep the text color consistent */
+    border-color: #EADBEF; /* Match the border color with the background */
 }
 
+
 .tab-button:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #FFF6FA; /* Change to #FFF6FA on hover */
+    color: var(--text-color); /* Keep the text color consistent */
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
+
 
 .news-list {
     display: flex;
