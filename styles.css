@@ -129,7 +129,7 @@ h1.fancy-title .title-gif {
 .top-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between left, middle, and right sections */
     padding: 10px 20px;
     border-bottom: 2px solid rgba(234, 234, 234, 0.8);
     margin-bottom: 10px;
@@ -141,11 +141,12 @@ h1.fancy-title .title-gif {
     color: #000;
 }
 
+/* Left and Right Sections */
 .left-section, .right-section {
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 /* Location Icon */
@@ -185,16 +186,18 @@ h1.fancy-title .title-gif {
     display: flex;
     justify-content: center; /* Center the search bar horizontally */
     padding: 0 20px; /* Add some padding to prevent overlap */
-    min-width: 400px; /* Set a fixed minimum width */
-    max-width: 400px; /* Set the same fixed maximum width */
+    min-width: 300px; /* Ensure it doesn't shrink too much */
+    max-width: 500px; /* Ensure it doesn't grow too large */
+    margin: 0 auto; /* Center the middle section */
 }
 
+/* Search Bar Container */
 .search-container {
     display: flex;
     align-items: center;
     gap: 10px;
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Limit the maximum width of the search bar */
 }
 
 #search-input {
