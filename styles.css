@@ -138,7 +138,7 @@ h1.fancy-title .title-gif {
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
     height: 50px;
-    color: #ff6f61;
+    color: #000; /* Default text color for the top bar */
 }
 
 .left-section, .right-section {
@@ -150,10 +150,11 @@ h1.fancy-title .title-gif {
 #location, #weather-widget, #main-clock, #current-date {
     font-size: 1em;
     font-weight: 500;
+    color: #000; /* Black text for location, date, and time */
 }
 
 #location i {
-    color: #ff0000;
+    color: #ff0000; /* Red icon for location */
 }
 
 .weather-info {
@@ -169,6 +170,7 @@ h1.fancy-title .title-gif {
 
 .weather-details p {
     margin: 0;
+    color: #000; /* Black text for temperature and weather condition */
 }
 
 #temperature {
@@ -197,20 +199,20 @@ h1.fancy-title .title-gif {
     background-color: rgba(255, 255, 255, 0.8);
     outline: none;
     transition: border-color 0.2s ease;
-    color: #ff6f61;
+    color: #808080; /* Grey text for search input */
 }
 
 #search-input::placeholder {
-    color: #ff6f61;
+    color: #808080; /* Grey placeholder text */
 }
 
 #search-input:focus {
-    border-color: #ff6f61;
+    border-color: #ff6f61; /* Focus border color */
 }
 
 #search-button {
     padding: 8px 12px;
-    background-color: #ff6f61;
+    background-color: #967bb6; /* Lavender color for the button */
     color: white;
     border: none;
     border-radius: var(--border-radius);
@@ -219,9 +221,8 @@ h1.fancy-title .title-gif {
 }
 
 #search-button:hover {
-    background-color: #e65a50;
+    background-color: #7b5f95; /* Darker lavender on hover */
 }
-
 /* ===== Dashboard ===== */
 .dashboard-container {
     display: flex;
