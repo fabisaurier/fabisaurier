@@ -340,13 +340,16 @@ h1.fancy-title .title-gif {
 }
 
 .news-thumbnail {
-    flex: 0 0 120px;
-    height: 80px;
+  .news-thumbnail {
+    flex: 0 0 120px; /* Fixed width */
+    height: 80px; /* Fixed height */
     display: flex;
-    align-items: center; /* Center the image vertically */
-    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
     overflow: hidden;
     border-radius: 8px;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
 }
 
 .news-thumbnail img {
