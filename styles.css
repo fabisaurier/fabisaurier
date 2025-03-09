@@ -265,8 +265,8 @@ h1.fancy-title .title-gif {
 }
 
 .news-icon {
-    width: 30px; /* Adjust icon size */
-    height: 30px; /* Adjust icon size */
+    width: 40px; /* Adjust icon size */
+    height: 40px; /* Adjust icon size */
     object-fit: contain; /* Ensure the icon fits properly */
 }
 
@@ -309,7 +309,7 @@ h1.fancy-title .title-gif {
 }
 
 .newspaper-logo img {
-    height: 60px; /* Adjust logo height */
+    height: 70px; /* Adjust logo height */
     width: auto;
     object-fit: contain;
     border-radius: 8px;
