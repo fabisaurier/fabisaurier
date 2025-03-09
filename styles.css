@@ -251,15 +251,15 @@ h1.fancy-title .title-gif {
 /* ===== News Widget Header ===== */
 .news-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top */
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .news-header-left {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column; /* Stack title and logo vertically */
+    gap: 10px; /* Space between title and logo */
 }
 
 .news-header h2 {
