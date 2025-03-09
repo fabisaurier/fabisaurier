@@ -234,6 +234,10 @@ function formatPubDate(pubDate) {
 async function fetchNews(source) {
     console.log('Fetching news for:', source);
 
+    // Reset pagination variables
+    currentNewsData = [];
+    displayedItems = 10;
+
     // Show loading indicator
     newsWidget.innerHTML = `<p>Lade Nachrichten...</p>`;
 
