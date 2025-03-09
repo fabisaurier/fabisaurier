@@ -309,7 +309,7 @@ h1.fancy-title .title-gif {
 }
 
 .newspaper-logo img {
-    height: 40px; /* Adjust logo height */
+    height: 50px; /* Adjust logo height */
     width: auto;
     object-fit: contain;
     border-radius: 8px;
