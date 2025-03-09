@@ -320,8 +320,8 @@ h1.fancy-title .title-gif {
 .news-item {
     display: flex;
     align-items: center; /* Center items vertically */
-    gap: 8px; /* Minimal gap between thumbnail and content */
-    padding: 8px; /* Reduced padding */
+    gap: 12px; /* Slightly increased gap between thumbnail and content */
+    padding: 10px; /* Slightly increased padding */
     margin: 0; /* Remove any default margin */
     background-color: rgba(255, 255, 255, 0.9); /* Background color */
     border-radius: var(--border-radius); /* Rounded edges */
@@ -366,7 +366,7 @@ h1.fancy-title .title-gif {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 4px; /* Reduced gap between content elements */
+    gap: 5px; /* Reduced gap between content elements */
     overflow: hidden; /* Ensure content doesn't overflow */
 }
 
