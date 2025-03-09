@@ -275,14 +275,20 @@ h1.fancy-title .title-gif {
     font-weight: bold; /* Make the text bold */
     color: var(--text-color); /* Use global text color */
     margin-right: 10px; /* Add spacing between time and date */
+    height: 31px;
+    width: 100px;
+    flex-shrink: 0; /* Prevents shrinking */
 }
 
 /* ===== Date Container ===== */
 #date-container {
     font-size: 1rem; /* Slightly smaller font size than time */
-    font-weight: 500; /* Medium font weight */
+    font-weight: bold; 
     color: var(--text-color); /* Use global text color */
     font-style: italic; /* Optional: Add italic style for date */
+    height: 31px;
+    width: 100px;
+    flex-shrink: 0; /* Prevents shrinking */
 }
 
 
