@@ -373,11 +373,105 @@ function isXML(content) {
     }
 }
 
+// Function to sort news articles by publication date
+function sortNewsByDate(newsData) {
+    return newsData.sort((a, b) => {
+        const dateA = new Date(a.pubDate);
+        const dateB = new Date(b.pubDate);
+        return dateB - dateA; // Sort in descending order (most recent first)
+    });
+}
+
 // Display a subset of news items
 function displayNewsItems() {
-    const itemsToDisplay = currentNewsData.slice(0, displayedItems);
+    // Sort the news data by publication date
+    const sortedNewsData = sortNewsByDate(currentNewsData);
+    // Display the first set of items
+    const itemsToDisplay = sortedNewsData.slice(0, displayedItems);
     renderNews(itemsToDisplay);
 }
+
+// Fetch news from the selected source
+async function fetchNews(source) {
+    console.log('Fetching news for:', source);
+
+    // Reset pagination variables
+    currentNewsData = [];
+    displayedItems = 10;
+
+    // Show loading indicator
+    newsWidget.innerHTML = `<p>Lade Nachrichten...</p>`;
+
+    try {
+        const url = `${PROXY_URL}${encodeURIComponent(NEWS_SOURCES[source].rss)}`;
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Fetched data:', data);
+
+        let xmlContent;
+
+        if (data.contents && data.contents.startsWith('data:application/rss+xml;')) {
+            // Handle base64-encoded data
+            try {
+                const base64Data = data.contents.split('base64,')[1];
+                const binaryString = atob(base64Data);
+                const utf8Decoder = new TextDecoder('utf-8');
+                xmlContent = utf8Decoder.decode(new Uint8Array([...binaryString].map((char) => char.charCodeAt(0)));
+                console.log('Decoded XML content:', xmlContent);
+            } catch (error) {
+                console.error('Error decoding base64 data:', error);
+                showError(newsWidget, 'Fehler beim Dekodieren der Nachrichten.');
+                return;
+            }
+        } else if (data.contents) {
+            // Handle non-encoded (plain XML) data
+            xmlContent = data.contents;
+            if (!xmlContent.startsWith('<')) {
+                throw new Error('Invalid XML content: Start tag expected');
+            }
+        } else {
+            console.error('Invalid or missing data in response:', data);
+            showError(newsWidget, 'Ungültiges Nachrichtenformat.');
+            return;
+        }
+
+        // Verify if the content is XML
+        if (!isXML(xmlContent)) {
+            throw new Error('The fetched content is not valid XML.');
+        }
+
+        // Parse the XML content
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlContent, 'text/xml');
+
+        // Check for XML parsing errors
+        const parserError = xmlDoc.querySelector('parsererror');
+        if (parserError) {
+            console.error('Error parsing XML:', parserError.textContent);
+            showError(newsWidget, 'Fehler beim Verarbeiten der Nachrichten.');
+            return;
+        }
+
+        // Process the XML document
+        const items = xmlDoc.querySelectorAll('item');
+        currentNewsData = []; // Reset the news data array
+
+        items.forEach((item) => {
+            const title = item.querySelector('title')?.textContent || 'No title';
+            const link = item.querySelector('link')?.textContent || '#';
+            const description = item.querySelector('description')?.textContent || '';
+            const contentEncoded = item.getElementsByTagNameNS('http://purl.org/rss/1.0/modules/content/', 'encoded')[0]?.textContent || '';
+
+            // Remove CDATA tags (if present)
+            const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, '');
+
+            // Decode HTML entities
+            const decodedContent =
 
 // Define the showError function
 function showError(element, message) {
