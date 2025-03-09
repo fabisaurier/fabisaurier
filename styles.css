@@ -1,15 +1,3 @@
-/* ===== Utility Classes ===== */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
 /* ===== Global Styles ===== */
 :root {
     --background-color: #f5f5f7;
@@ -38,6 +26,18 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+}
+
+/* ===== Utility Classes ===== */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 /* ===== Header ===== */
@@ -116,7 +116,7 @@ h1.fancy-title .title-gif {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* ===== Content Area ===== */
+/* ===== Content Container ===== */
 .content-container {
     flex: 1;
     margin-left: 200px;
@@ -125,98 +125,98 @@ h1.fancy-title .title-gif {
     flex-direction: column;
     padding-top: 55px; /* Add padding to account for the top bar height + gap */
 }
+
 /* ===== Top Bar ===== */
 .top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 20px; /* Reduced padding to make it compact */
-    background-color: rgba(255, 245, 250, 0.8); /* Match news/shortcut widget background */
-    backdrop-filter: blur(10px); /* Match blur effect */
-    border-radius: var(--border-radius); /* Match border radius */
-    box-shadow: var(--box-shadow); /* Match box shadow */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Match border style */
-    position: fixed; /* Fix the top bar at the top */
-    top: 20px; /* Align to the padding-top of the content container */
-    left: 220px; /* Start after the sidebar + padding */
-    right: 20px; /* End at the same position as the shortcuts widget */
-    z-index: 1000; /* Ensure it's above other content */
-    height: 35px; /* Fixed height for the top bar */
-    overflow: hidden; /* Prevent content from overflowing */
+    padding: 5px 20px;
+    background-color: rgba(255, 245, 250, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: fixed;
+    top: 20px;
+    left: 220px;
+    right: 20px;
+    z-index: 1000;
+    height: 35px;
+    overflow: hidden;
 }
 
 /* Left Top Bar */
 .top-bar-left {
-    height: 31px; /* Height of the left top bar */
+    height: 31px;
     display: flex;
-    flex-direction: row; /* Ensure items are aligned horizontally */
-    align-items: center; /* Vertically center content */
-    gap: 10px; /* Space between items */
-    flex-shrink: 0; /* Prevent shrinking */
-    white-space: nowrap; /* Prevent text from wrapping */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 #location {
     display: flex;
     align-items: center;
-    gap: 5px; /* Space between icon and city name */
+    gap: 5px;
 }
 
 #location i.fa-location-dot {
-    color: red; /* Style for the location icon */
-    font-size: 1.2em; /* Slightly larger icon */
+    color: red;
+    font-size: 1.2em;
 }
 
 #city {
-    font-weight: 500; /* Medium font weight */
-    font-size: 1em; /* Standard font size */
+    font-weight: 500;
+    font-size: 1em;
 }
 
 #temperature,
 #weather-condition {
-    font-size: 0.9em; /* Smaller font size */
-    color: var(--text-color); /* Use global text color */
+    font-size: 0.9em;
+    color: var(--text-color);
 }
 
 #temperature {
-    font-weight: 600; /* Bold font weight */
+    font-weight: 600;
 }
 
 #weather-condition {
-    font-style: italic; /* Italic font style */
+    font-style: italic;
 }
 
 /* Middle Top Bar */
 .top-bar-middle {
-    height: 31px; /* Height of the middle top bar */
+    height: 31px;
     display: flex;
-    align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content */
-    flex: 1; /* Take up remaining space */
-    min-width: 0; /* Allow the container to shrink */
-    max-width: 400px; /* Limit width */
-    margin: 0 20px; /* Add margin for spacing */
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+    max-width: 400px;
+    margin: 0 20px;
 }
 
 .search-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between input and button */
+    gap: 10px;
     width: 100%;
-    max-width: 100%; /* Ensure it doesn't overflow */
+    max-width: 100%;
     overflow: hidden;
 }
 
-/* Search Input */
 #search-input {
     flex: 1;
     padding: 8px 12px;
-    border: 2px solid rgba(232, 218, 239, 0.9); /* Match sidebar background color */
+    border: 2px solid rgba(232, 218, 239, 0.9);
     border-radius: 20px;
     font-size: 0.9em;
     background-color: rgba(255, 255, 255, 0.9);
     outline: none;
-    transition: border-color 0.3s ease; /* Smooth transition for border color */
+    transition: border-color 0.3s ease;
     color: var(--text-color);
     height: 31px;
 }
@@ -226,17 +226,15 @@ h1.fancy-title .title-gif {
 }
 
 #search-input:focus {
-    border-color: rgba(200, 180, 220, 0.9); /* Slightly darker lavender for focus */
-    box-shadow: none; /* Remove shadow effect */
+    border-color: rgba(200, 180, 220, 0.9);
+    box-shadow: none;
 }
 
-
-/* Search Button */
 #search-button {
     padding: 8px 12px;
-    background-color: rgba(232, 218, 239, 0.9); /* Match sidebar background color */
-    color: var(--text-color); /* Use global text color */
-    border: 2px solid rgba(232, 218, 239, 0.9); /* Match sidebar background color */
+    background-color: rgba(232, 218, 239, 0.9);
+    color: var(--text-color);
+    border: 2px solid rgba(232, 218, 239, 0.9);
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -249,82 +247,77 @@ h1.fancy-title .title-gif {
 }
 
 #search-button:hover {
-    background-color: rgba(210, 190, 220, 0.9); /* Slightly darker on hover */
+    background-color: rgba(210, 190, 220, 0.9);
     transform: scale(1.05);
 }
 
 #search-button:active {
-    background-color: rgba(190, 170, 200, 0.9); /* Even darker on click */
+    background-color: rgba(190, 170, 200, 0.9);
     transform: scale(0.95);
 }
 
 #search-button i.fa-search {
     font-size: 1em;
 }
+
 /* Right Top Bar */
 .top-bar-right {
-    height: 31px; /* Height of the right top bar */
+    height: 31px;
     display: flex;
-    align-items: center; /* Vertically center content */
-    gap: 20px; /* Space between items */
-    flex-shrink: 0; /* Prevent shrinking */
-    white-space: nowrap; /* Prevent text from wrapping */
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
-/* ===== Date and Time Container ===== */
 #date-time-container {
-    display: flex; /* Use flexbox for horizontal alignment */
-    align-items: center; /* Vertically center the items */
-    gap: 10px; /* Add spacing between time and date */
-    font-size: 1.1rem; /* Adjust font size as needed */
-    font-weight: bold; /* Make the text bold */
-    color: var(--text-color); /* Use global text color */
-    flex-shrink: 0; /* Prevent shrinking */
-    white-space: nowrap; /* Prevent text from wrapping */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color);
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 #main-clock,
 #current-date {
-    margin: 0; /* Remove default margins */
+    margin: 0;
 }
 
 /* ===== Dashboard Container ===== */
 .dashboard-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Adds spacing between rows */
-    padding: 20px; /* Adds padding inside the container */
-    background-color: rgba(255, 245, 250, 0.8); /* Match the background color */
-    border-radius: var(--border-radius); /* Rounded corners */
-    box-shadow: var(--box-shadow); /* Subtle shadow */
-    margin-top: 20px; /* Add margin to account for the fixed top bar */
+    gap: 20px;
+    padding: 20px;
+    background-color: rgba(255, 245, 250, 0.8);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 20px;
 }
 
 /* ===== Dashboard Row ===== */
 .dashboard-row {
     display: flex;
-    gap: 20px; /* Adds spacing between items in a row */
+    gap: 20px;
 }
 
 /* ===== Dashboard Item (e.g., News Widget, Shortcut Container) ===== */
 .dashboard-item {
-    flex: 1; /* Allows items to grow and fill available space */
-    background-color: rgba(255, 255, 255, 0.9); /* White background for items */
-    border-radius: var(--border-radius); /* Rounded corners */
-    box-shadow: var(--box-shadow); /* Subtle shadow */
-    padding: 15px; /* Padding inside items */
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 15px;
 }
+
 /* ===== News Widget ===== */
 .dashboard-item.news-widget {
-    max-width: 70%; /* Limit width of the news widget */
+    max-width: 70%;
 }
 
-/* ===== Shortcut Container ===== */
-.dashboard-item.shortcut-container {
-    max-width: 28%; /* Limit width of the shortcut container */
-}
-
-/* ===== News Widget Header ===== */
 .news-header {
     display: flex;
     align-items: flex-start;
@@ -373,7 +366,6 @@ h1.fancy-title .title-gif {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* ===== News List ===== */
 .news-list {
     display: flex;
     flex-direction: column;
@@ -462,6 +454,10 @@ h1.fancy-title .title-gif {
 }
 
 /* ===== Shortcut Container ===== */
+.dashboard-item.shortcut-container {
+    max-width: 28%;
+}
+
 .shortcut-container {
     background-color: rgba(255, 245, 250, 0.8);
     border-radius: var(--border-radius);
