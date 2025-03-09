@@ -123,49 +123,37 @@ h1.fancy-title .title-gif {
     padding: 20px;
     display: flex;
     flex-direction: column;
+    padding-top: 80px; /* Add padding to prevent content overlap with top bar */
 }
 
-
-.content-container {
-    position: relative; /* Required for absolute positioning of top bars */
-    padding-top: 60px; /* Add padding to prevent content from being hidden behind the top bars */
-}
-
-/* ===== Top Bars ===== */
-.top-bar-left,
-.top-bar-middle,
-.top-bar-right {
-    position: absolute; /* Position the top bars absolutely */
-    top: 0; /* Align to the top of the content container */
+/* ===== Top Bar ===== */
+.top-bar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
     padding: 10px 20px;
-    background-color: transparent; /* Make the background transparent */
-    backdrop-filter: none; /* Remove backdrop filter */
-    box-shadow: none; /* Remove box shadow */
-    border-radius: 0; /* Remove border radius */
-    color: #000;
-    z-index: 10; /* Ensure the top bars are above the content container */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    position: fixed; /* Fix the top bar at the top */
+    top: 0; /* Align to the top of the viewport */
+    left: 0; /* Align to the left of the viewport */
+    z-index: 1000; /* Ensure it's above other content */
+    height: 60px; /* Fixed height for the top bar */
 }
 
 /* Left Top Bar */
 .top-bar-left {
-    left: 0; /* Align to the left */
-    justify-content: flex-start; /* Align content to the left */
-}
-
-/* ===== Left Top Bar ===== */
-.top-bar-left {
     display: flex;
-    align-items: center; /* Vertically center the items */
+    align-items: center;
     gap: 10px; /* Space between items */
 }
 
-/* Location Section */
 #location {
     display: flex;
     align-items: center;
-    gap: 5px; /* Space between location icon and city name */
+    gap: 5px; /* Space between icon and text */
 }
 
 #location i.fa-location-dot {
@@ -174,91 +162,95 @@ h1.fancy-title .title-gif {
 }
 
 #city {
-    font-weight: 500; /* Style for the city name */
+    font-weight: 500; /* Medium font weight */
     font-size: 1em; /* Standard font size */
 }
 
-/* Temperature and Condition */
 #temperature,
 #weather-condition {
-    font-size: 0.9em; /* Smaller font size for temperature and condition */
-    color: var(--text-color); /* Use the global text color */
+    font-size: 0.9em; /* Smaller font size */
+    color: var(--text-color); /* Use global text color */
 }
 
 #temperature {
-    font-weight: 600; /* Bold font weight for temperature */
+    font-weight: 600; /* Bold font weight */
 }
 
 #weather-condition {
-    font-style: italic; /* Italic font style for condition */
-}
-/* Middle Top Bar */
-.top-bar-middle {
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
-    justify-content: center; /* Center the search bar */
+    font-style: italic; /* Italic font style */
 }
 
-/* ===== Search Bar Container ===== */
+/* Middle Top Bar */
+.top-bar-middle {
+    flex: 1; /* Take up remaining space */
+    max-width: 500px; /* Limit width */
+    margin: 0 20px; /* Add margin for spacing */
+}
+
 .search-container {
     display: flex;
     align-items: center;
     gap: 10px; /* Space between input and button */
     width: 100%;
-    max-width: 700px; /* Increase max-width for a longer search bar */
 }
 
-/* Search Input */
 #search-input {
     flex: 1;
-    padding: 8px 20px; /* Less vertical padding, more horizontal padding */
-    border: 2px solid var(--primary-color); /* Use the primary color for the border */
-    border-radius: 20px; /* Slightly rounded corners */
+    padding: 8px 20px; /* Padding for input */
+    border: 2px solid var(--primary-color); /* Border color */
+    border-radius: 20px; /* Rounded corners */
     font-size: 1em; /* Standard font size */
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-    color: var(--text-color); /* Use the global text color */
-    height: 30px; /* Fixed height for a less tall input */
+    color: var(--text-color); /* Use global text color */
 }
 
 #search-input::placeholder {
-    color: #86868b; /* Grey placeholder text */
+    color: #86868b; /* Placeholder text color */
 }
 
 #search-input:focus {
     border-color: #ff6f61; /* Change border color on focus */
-    box-shadow: 0 0 8px rgba(255, 111, 97, 0.5); /* Add a glow effect on focus */
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.5); /* Glow effect on focus */
 }
 
-/* Search Button */
 #search-button {
-    padding: 8px 20px; /* Less vertical padding, more horizontal padding */
-    background-color: var(--primary-color); /* Use the primary color for the button */
-    color: white;
+    padding: 8px 20px; /* Padding for button */
+    background-color: var(--primary-color); /* Button background color */
+    color: white; /* Button text color */
     border: none;
-    border-radius: 20px; /* Slightly rounded corners */
+    border-radius: 20px; /* Rounded corners */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
     font-size: 1em; /* Standard font size */
     font-weight: 500; /* Medium font weight */
-    height: 25x; /* Fixed height for a less tall button */
 }
 
 #search-button:hover {
     background-color: #7b5f95; /* Darker color on hover */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 #search-button:active {
     background-color: #6a4f7d; /* Even darker color on click */
-    transform: scale(0.95); /* Slightly shrink the button on click */
+    transform: scale(0.95); /* Slightly shrink on click */
 }
+
 /* Right Top Bar */
 .top-bar-right {
-    right: 0; /* Align to the right */
-    justify-content: flex-end; /* Align content to the right */
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between items */
 }
+
+#current-date,
+#main-clock {
+    font-weight: 500; /* Medium font weight */
+    font-size: 1em; /* Standard font size */
+    color: var(--text-color); /* Use global text color */
+}
+
 /* ===== Dashboard ===== */
 .dashboard-container {
     display: flex;
@@ -415,13 +407,6 @@ h1.fancy-title .title-gif {
     font-size: 0.9em;
     color: var(--secondary-color);
     margin: 0;
-}
-
-@font-face {
-    font-family: 'Cooper Hewitt';
-    src: url('cooper-hewitt/cooper-hewitt-medium.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 .news-description {
