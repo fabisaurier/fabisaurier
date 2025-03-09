@@ -285,7 +285,6 @@ h1.fancy-title .title-gif {
     font-size: 1rem; /* Slightly smaller font size than time */
     font-weight: bold; 
     color: var(--text-color); /* Use global text color */
-    font-style: italic; /* Optional: Add italic style for date */
     height: 31px;
     width: 120px;
     flex-shrink: 0; /* Prevents shrinking */
