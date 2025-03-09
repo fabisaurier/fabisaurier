@@ -290,7 +290,7 @@ h1.fancy-title .title-gif {
     align-items: center;
     justify-content: center;
     height: 31px;
-    width: 185px;
+    width: 190px;
     flex-shrink: 0; /* Prevents shrinking */
 }
 
