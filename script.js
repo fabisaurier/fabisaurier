@@ -21,10 +21,6 @@ const NEWS_SOURCES = {
         rss: 'https://taz.de/!p4608;rss/',
         logo: 'images/taz_logo.png',
     },
-    hna: {
-        rss: 'https://www.hna.de/kassel/rssfeed.xml',
-        logo: 'images/hna_logo.png',
-    },
 };
 const PROXY_URL = 'https://api.allorigins.win/get?url=';
 
