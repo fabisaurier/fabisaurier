@@ -272,13 +272,6 @@ h1.fancy-title .title-gif {
     gap: 5px; /* Consistent space between title and logo */
 }
 
-.news-header-title {
-    font-size: 1.9em; /* Adjust font size as needed */
-    font-weight: bold;
-    color: var(--text-color); /* Use the text color variable */
-    margin: -15; /* Remove default margin */
-}
-
 .newspaper-logo img {
     height: 30px; /* Adjust logo height */
     width: auto;
