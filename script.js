@@ -131,6 +131,8 @@ function fetchWeather(latitude, longitude) {
                 const weatherCondition = data.weather[0].description;
                 const icon = data.weather[0].icon;
 
+                // Update the weather widget
+                const weatherWidget = document.getElementById('weather-widget');
                 weatherWidget.innerHTML = `
                     <div class="weather-info">
                         <div class="weather-icon">
