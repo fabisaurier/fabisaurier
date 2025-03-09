@@ -121,7 +121,6 @@ function fetchCityName(latitude, longitude) {
         });
 }
 
-// ===== Weather =====
 function fetchWeather(latitude, longitude) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=de&appid=${API_KEY}`)
         .then((response) => response.json())
@@ -129,32 +128,18 @@ function fetchWeather(latitude, longitude) {
             if (data.cod === 200) {
                 const temperature = Math.round(data.main.temp);
                 const weatherCondition = data.weather[0].description;
-                const icon = data.weather[0].icon;
 
-                // Update the weather widget
-                const weatherWidget = document.getElementById('weather-widget');
-                weatherWidget.innerHTML = `
-                    <div class="weather-info">
-                        <div class="weather-icon">
-                            <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${weatherCondition}">
-                        </div>
-                        <div class="weather-details">
-                            <p>
-                                <span id="temperature">${temperature}°C</span> |
-                                <span id="weather-condition">${weatherCondition}</span>
-                            </p>
-                        </div>
-                    </div>
-                `;
+                // Update the weather information
+                document.getElementById('temperature').textContent = `${temperature}°C`;
+                document.getElementById('weather-condition').textContent = weatherCondition;
             } else {
-                showError(weatherWidget, 'Wetterdaten konnten nicht geladen werden.');
+                console.error('Weather data could not be loaded.');
             }
         })
         .catch(() => {
-            showError(weatherWidget, 'Wetterdaten konnten nicht geladen werden.');
+            console.error('Error fetching weather data.');
         });
 }
-
 // ===== Google Search =====
 searchButton.addEventListener('click', handleSearch);
 searchInput.addEventListener('keypress', (e) => {
