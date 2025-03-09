@@ -327,7 +327,7 @@ h1.fancy-title .title-gif {
     border-radius: var(--border-radius); /* Rounded edges */
     box-shadow: var(--box-shadow); /* Add shadow for depth */
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
-    height: 100px; /* Fixed height for consistency */
+    height: 110px; /* Fixed height for consistency */
 }
 
 /* ===== News Link ===== */
