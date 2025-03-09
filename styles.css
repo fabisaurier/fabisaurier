@@ -193,10 +193,9 @@ h1.fancy-title .title-gif {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1;
-    min-width: 0;
-    max-width: 400px;
+    width: 400px; /* Fixed width */
     margin: 0 20px;
+    flex-shrink: 0; /* Prevents shrinking */
 }
 
 .search-container {
