@@ -140,6 +140,7 @@ h1.fancy-title .title-gif {
     position: fixed; /* Fix the top bar at the top */
     top: 20px; /* Align to the padding-top of the content container */
     left: 220px; /* Start after the sidebar + padding */
+    right: 20px; /* End at the same position as the shortcuts widget */
     z-index: 1000; /* Ensure it's above other content */
     height: 35px; /* Fixed height for the top bar */
 }
