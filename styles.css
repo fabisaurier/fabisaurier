@@ -191,14 +191,15 @@ h1.fancy-title .title-gif {
     margin: 0 auto; /* Center the middle section */
 }
 
-/* Search Bar Container */
+* Search Bar Container */
 .search-container {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: center; /* Vertically center the input and button */
+    gap: 10px; /* Space between input and button */
     width: 100%;
     max-width: 400px; /* Limit the maximum width of the search bar */
 }
+
 
 #search-input {
     flex: 1;
@@ -221,8 +222,9 @@ h1.fancy-title .title-gif {
     border-color: #ff6f61;
 }
 
+/* Search Button */
 #search-button {
-    padding: 8px 12px;
+    padding: 8px 12px; /* Consistent padding */
     background-color: #967bb6;
     color: white;
     border: none;
@@ -230,6 +232,7 @@ h1.fancy-title .title-gif {
     cursor: pointer;
     transition: background-color 0.2s ease;
     flex-shrink: 0; /* Prevent the button from shrinking */
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 #search-button:hover {
