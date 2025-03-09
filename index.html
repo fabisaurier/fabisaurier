@@ -38,35 +38,33 @@
             <div class="top-bar">
                 <!-- Left Top Bar: Location, Temperature, Weather -->
                 <div class="top-bar-left">
-                        <div id="location">
-                            <i class="fas fa-location-dot" aria-hidden="true"></i>
-                            <span id="city">Berlin</span>
-                        </div>
-                        <span id="temperature">18°C</span>
-                        <span id="weather-condition">Sunny</span>
+                    <div id="location">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+                        <span id="city">Berlin</span>
+                    </div>
+                    <span id="temperature">18°C</span>
+                    <span id="weather-condition">Sunny</span>
+                </div>
+
+                <!-- Middle Top Bar: Search Bar -->
+                <div class="top-bar-middle">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search...">
+                        <button id="search-button">
+                            <i class="fas fa-search" aria-hidden="true"></i> <!-- Search icon -->
+                        </button>
                     </div>
                 </div>
 
-              <!-- Middle Top Bar: Search Bar -->
-<div class="top-bar-middle">
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search...">
-            <button id="search-button">
-                <i class="fas fa-search" aria-hidden="true"></i> <!-- Search icon -->
-            </button>
-        </div>
-    </div>
-</div>
-
-              <!-- Right Top Bar -->
-<div class="top-bar-right">
-    <!-- Date and Time on the Left -->
-    <div class="date-time-container">
-        <div id="current-date">October 10, 2023</div>
-        <div id="main-clock">10:00 AM</div>
-    </div>
+                <!-- Right Top Bar -->
+                <div class="top-bar-right">
+                    <!-- Date and Time on the Left -->
+                    <div class="date-time-container">
+                        <div id="current-date">October 10, 2023</div>
+                        <div id="main-clock">10:00 AM</div>
+                    </div>
                 </div>
-            </div>
+            </div> <!-- End of .top-bar -->
 
             <!-- Dashboard Container -->
             <main class="dashboard-container" id="dashboard">
@@ -144,8 +142,8 @@
                     </article>
                 </section>
             </main>
-        </div>
-    </div>
+        </div> <!-- End of .content-container -->
+    </div> <!-- End of .main-container -->
 
     <!-- External JavaScript -->
     <script src="script.js" defer></script>
