@@ -573,11 +573,11 @@ h1.fancy-title .title-gif {
 }
 
 #show-more-button:hover {
-    background-color: #0056b3;
+    background-color: #EADBEF;
 }
 
 #show-more-button:active {
-    background-color: #004080;
+    background-color: #EADBEF;
 }
 
 /* ===== Responsive Design ===== */
