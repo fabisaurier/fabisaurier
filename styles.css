@@ -277,7 +277,7 @@ h1.fancy-title .title-gif {
     align-items: center;
     justify-content: center;
     margin-right: 5px; /* Add spacing between time and date */
-    height: 29px;
+    height: 31px;
     width: 60px;
     flex-shrink: 0; /* Prevents shrinking */
 }
