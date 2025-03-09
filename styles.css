@@ -205,7 +205,7 @@ h1.fancy-title .title-gif {
     gap: 10px;
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible; /* Allows content to overflow */
 }
 
 #search-input {
