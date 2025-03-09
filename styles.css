@@ -131,44 +131,34 @@ h1.fancy-title .title-gif {
     padding-top: 60px; /* Add padding to prevent content from overlapping the top bars */
 }
 
-/* Shared Styles for All Top Bars */
+/* ===== Top Bars ===== */
 .top-bar-left,
 .top-bar-middle,
 .top-bar-right {
-    position: absolute;
-    top: 0;
-    height: 50px;
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(5px);
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
+    background-color: transparent; /* Make the background transparent */
+    backdrop-filter: none; /* Remove backdrop filter */
+    box-shadow: none; /* Remove box shadow */
+    border-radius: 0; /* Remove border radius */
     color: #000;
 }
 
 /* Left Top Bar */
 .top-bar-left {
-    left: 0;
-    width: 30%; /* Adjust width as needed */
     justify-content: flex-start; /* Align content to the left */
 }
 
 /* Middle Top Bar */
 .top-bar-middle {
-    left: 30%; /* Start after the left top bar */
-    width: 40%; /* Adjust width as needed */
     justify-content: center; /* Center the search bar */
 }
 
 /* Right Top Bar */
 .top-bar-right {
-    right: 0;
-    width: 30%; /* Adjust width as needed */
     justify-content: flex-end; /* Align content to the right */
 }
-
 /* Left Section */
 .left-section {
     display: flex;
