@@ -216,7 +216,7 @@ h1.fancy-title .title-gif {
     font-size: 0.9em;
     background-color: rgba(255, 255, 255, 0.9);
     outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
     color: var(--text-color);
     height: 31px;
 }
@@ -226,8 +226,8 @@ h1.fancy-title .title-gif {
 }
 
 #search-input:focus {
-    border-color: #ff6f61; /* Optional: Change border color on focus */
-    box-shadow: 0 0 8px rgba(255, 111, 97, 0.5); /* Optional: Glow effect on focus */
+    border-color: rgba(200, 180, 220, 0.9); /* Slightly darker lavender for focus */
+    box-shadow: none; /* Remove shadow effect */
 }
 
 
