@@ -389,14 +389,14 @@ h1.fancy-title .title-gif {
 
 @font-face {
     font-family: 'Cooper Hewitt';
-    src: url('cooper-hewitt/cooper-hewitt-book.otf') format('opentype');
+    src: url('cooper-hewitt/cooper-hewitt-medium.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 .news-description {
     font-family: 'Cooper Hewitt', serif;
-    font-size: 0.95em;
+    font-size: 0.99em;
     color: var(--text-color);
     margin: 0;
     line-height: 1.4;
