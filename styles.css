@@ -158,14 +158,14 @@ h1.fancy-title .title-gif {
     font-size: 1em;
     font-weight: 500;
     color: #000; /* Black text for time */
-    margin-top: -5px; /* Move time slightly higher */
+    margin-top: 1px; /* Move time slightly higher */
 }
 
 #current-date {
     font-size: 1em;
     font-weight: 500;
     color: #000; /* Black text for date */
-    margin-top: 5px; /* Move date slightly lower */
+    margin-top: 1px; /* Move date slightly lower */
 }
 
 /* Weather Widget */
