@@ -261,14 +261,14 @@ h1.fancy-title .title-gif {
 .news-header {
     display: flex;
     align-items: center; /* Align items vertically in the center */
-    gap: 10px; /* Space between the title and the icon */
+    justify-content: space-between; /* Space between title/logo and tabs */
     margin-bottom: 20px;
 }
 
-.news-icon {
-    width: 40px; /* Adjust icon size */
-    height: 40px; /* Adjust icon size */
-    object-fit: contain; /* Ensure the icon fits properly */
+.news-header-left {
+    display: flex;
+    flex-direction: column; /* Stack title and logo vertically */
+    gap: 10px; /* Space between title and logo */
 }
 
 .news-header-title {
@@ -278,11 +278,17 @@ h1.fancy-title .title-gif {
     margin: 0; /* Remove default margin */
 }
 
+.newspaper-logo img {
+    height: 30px; /* Adjust logo height */
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
 .news-tabs {
     display: flex;
     gap: 10px; /* Space between tabs */
-    flex-wrap: wrap; /* Allow tabs to wrap to the next line if needed */
-    margin-bottom: 20px; /* Add space below the tabs */
+    margin-left: auto; /* Push tabs to the right */
 }
 
 .tab-button {
@@ -305,13 +311,6 @@ h1.fancy-title .title-gif {
 
 .tab-button:hover {
     background-color: rgba(0, 0, 0, 0.05);
-}
-
-.newspaper-logo img {
-    height: 30px; /* Adjust logo height */
-    width: auto;
-    object-fit: contain;
-    border-radius: 8px;
 }
 
 /* ===== News Widget Layout ===== */
