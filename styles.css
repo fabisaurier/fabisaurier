@@ -141,43 +141,12 @@ h1.fancy-title .title-gif {
     color: #000;
 }
 
-/* Left and Right Sections */
-.left-section, .right-section {
+/* Left Section */
+.left-section {
     display: flex;
     align-items: center;
     gap: 20px;
     flex-shrink: 0; /* Prevent shrinking */
-}
-
-/* Location Icon */
-#location i.fa-location-dot {
-    color: red;
-}
-
-/* Weather Widget */
-.weather-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.weather-icon img {
-    width: 40px;
-    height: 40px;
-    filter: none; /* Ensure the weather icon is not affected by any filters */
-}
-
-.weather-details p {
-    margin: 0;
-    color: #000;
-}
-
-#temperature {
-    font-weight: 600;
-}
-
-#weather-condition {
-    font-style: italic;
 }
 
 /* Middle Section (Search Bar) */
@@ -191,15 +160,31 @@ h1.fancy-title .title-gif {
     margin: 0 auto; /* Center the middle section */
 }
 
-* Search Bar Container */
+/* Right Section (Clock and Date) */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0; /* Prevent shrinking */
+    min-width: 120px; /* Constrain the width of the clock and date */
+}
+
+/* Clock and Date */
+#main-clock, #current-date {
+    font-size: 1em;
+    font-weight: 500;
+    color: #000;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+/* Search Bar Container */
 .search-container {
     display: flex;
-    align-items: center; /* Vertically center the input and button */
-    gap: 10px; /* Space between input and button */
+    align-items: center;
+    gap: 10px;
     width: 100%;
     max-width: 400px; /* Limit the maximum width of the search bar */
 }
-
 
 #search-input {
     flex: 1;
@@ -222,9 +207,8 @@ h1.fancy-title .title-gif {
     border-color: #ff6f61;
 }
 
-/* Search Button */
 #search-button {
-    padding: 8px 12px; /* Consistent padding */
+    padding: 8px 12px;
     background-color: #967bb6;
     color: white;
     border: none;
@@ -238,7 +222,6 @@ h1.fancy-title .title-gif {
 #search-button:hover {
     background-color: #7b5f95;
 }
-
 /* ===== Dashboard ===== */
 .dashboard-container {
     display: flex;
