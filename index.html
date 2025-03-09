@@ -30,39 +30,49 @@
 
         <div class="content-container">
             <div class="top-bar">
-                <div class="left-section">
-                    <div id="location">
-                        <i class="fas fa-location-dot" aria-hidden="true"></i> <span id="city">Berlin</span>
+    <!-- Left Container -->
+    <div class="left-container">
+        <div class="left-section">
+            <!-- Location and Weather Widget -->
+            <div id="location">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                <span id="city">Berlin</span>
+            </div>
+            <div id="weather-widget" lang="de">
+                <div class="weather-info">
+                    <div class="weather-icon">
+                        <img src="https://openweathermap.org/img/wn/10d.png" alt="Aktuelles Wetter-Symbol">
                     </div>
-                    <div id="weather-widget" lang="de">
-                        <div class="weather-info">
-                            <div class="weather-icon">
-                                <img src="https://openweathermap.org/img/wn/10d.png" alt="Aktuelles Wetter-Symbol">
-                            </div>
-                            <div class="weather-details">
-                                <p>
-                                    <span id="temperature">18°C</span> |
-                                    <span id="weather-condition">Sunny</span>
-                                </p>
-                            </div>
-                        </div>
+                    <div class="weather-details">
+                        <p>
+                            <span id="temperature">18°C</span> |
+                            <span id="weather-condition">Sunny</span>
+                        </p>
                     </div>
-                </div>
-
-                <div class="middle-section">
-                    <form class="search-container" id="search-form" action="https://www.google.com/search" method="get" target="_blank" aria-label="Google-Suche">
-                        <input type="text" id="search-input" name="q" placeholder="Google-Suche..." required aria-label="Suchbegriff eingeben">
-                        <button type="submit" id="search-button" aria-label="Suchen">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </button>
-                    </form>
-                </div>
-
-                <div class="right-section" lang="de">
-                    <div id="main-clock" aria-live="polite">14:35:07</div>
-                    <div id="current-date" aria-live="polite">Montag, 23. Oktober 2023</div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Middle Container -->
+    <div class="middle-container">
+        <div class="middle-section">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Container -->
+    <div class="right-container">
+        <div class="right-section">
+            <!-- Clock and Date -->
+            <div id="main-clock">10:00 AM</div>
+            <div id="current-date">October 10, 2023</div>
+        </div>
+    </div>
+</div>
 
             <main class="dashboard-container" id="dashboard">
                 <section class="dashboard-row" aria-labelledby="first-row-heading">
