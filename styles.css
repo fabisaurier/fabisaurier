@@ -276,7 +276,7 @@ h1.fancy-title .title-gif {
     display: flex; /* Use flexbox for horizontal alignment */
     align-items: center; /* Vertically center the items */
     gap: 10px; /* Add spacing between time and date */
-    font-size: 1.2rem; /* Adjust font size as needed */
+    font-size: 1.1rem; /* Adjust font size as needed */
     font-weight: bold; /* Make the text bold */
     color: var(--text-color); /* Use global text color */
     flex-shrink: 0; /* Prevent shrinking */
