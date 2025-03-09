@@ -269,14 +269,14 @@ h1.fancy-title .title-gif {
 .news-header-left {
     display: flex;
     flex-direction: column; /* Stack title and logo vertically */
-    gap: 20px; /* Consistent space between title and logo */
+    gap: 10px; /* Consistent space between title and logo */
 }
 
 .news-header-title {
     font-size: 1.9em; /* Adjust font size as needed */
     font-weight: bold;
     color: var(--text-color); /* Use the text color variable */
-    margin: 0; /* Remove default margin */
+    margin: -10; /* Remove default margin */
 }
 
 .newspaper-logo img {
