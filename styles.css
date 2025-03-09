@@ -279,6 +279,8 @@ h1.fancy-title .title-gif {
     font-size: 1.2rem; /* Adjust font size as needed */
     font-weight: bold; /* Make the text bold */
     color: var(--text-color); /* Use global text color */
+    flex-shrink: 0; /* Prevent shrinking */
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 #main-clock,
