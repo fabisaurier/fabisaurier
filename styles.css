@@ -198,19 +198,20 @@ h1.fancy-title .title-gif {
     gap: 10px; /* Space between input and button */
     width: 100%;
     max-width: 100%; /* Ensure it doesn't overflow */
-    overflow: hidden; /* Prevent overflow */
+    overflow: hidden;
 }
 
 #search-input {
     flex: 1;
-    padding: 8px 20px; /* Padding for input */
+    padding: 8px 12px; /* Smaller padding for a smaller input */
     border: 2px solid var(--primary-color); /* Border color */
     border-radius: 20px; /* Rounded corners */
-    font-size: 1em; /* Standard font size */
+    font-size: 0.9em; /* Smaller font size */
     background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
     color: var(--text-color); /* Use global text color */
+    height: 35px; /* Fixed height to match the button */
 }
 
 #search-input::placeholder {
@@ -223,7 +224,7 @@ h1.fancy-title .title-gif {
 }
 
 #search-button {
-    padding: 8px 20px; /* Padding for button */
+    padding: 8px 12px; /* Smaller padding for a smaller button */
     background-color: var(--primary-color); /* Button background color */
     color: white; /* Button text color */
     border: none;
@@ -232,6 +233,10 @@ h1.fancy-title .title-gif {
     transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
     font-size: 1em; /* Standard font size */
     font-weight: 500; /* Medium font weight */
+    height: 35px; /* Fixed height to match the input */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #search-button:hover {
@@ -242,6 +247,10 @@ h1.fancy-title .title-gif {
 #search-button:active {
     background-color: #6a4f7d; /* Even darker color on click */
     transform: scale(0.95); /* Slightly shrink on click */
+}
+
+#search-button i.fa-search {
+    font-size: 1em; /* Icon size */
 }
 
 /* Right Top Bar */
