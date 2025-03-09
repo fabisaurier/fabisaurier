@@ -30,6 +30,12 @@ const tabButtons = document.querySelectorAll('.tab-button');
 const newspaperLogo = document.getElementById('newspaper-logo');
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
+const showMoreButton = document.getElementById('show-more-button');
+
+// ===== Variables for Pagination =====
+let currentNewsData = []; // Stores all fetched news items
+let displayedItems = 10; // Number of items to display initially
+const ITEMS_PER_PAGE = 10; // Number of items to load each time "Show More" is clicked
 
 // ===== Functions =====
 
@@ -188,6 +194,13 @@ function renderNews(newsData) {
         // Append the news item to the news widget
         newsWidget.appendChild(newsItem);
     });
+
+    // Show or hide the "Show More" button
+    if (currentNewsData.length > displayedItems) {
+        showMoreButton.style.display = 'block';
+    } else {
+        showMoreButton.style.display = 'none';
+    }
 }
 
 // Decode HTML entities
@@ -273,12 +286,9 @@ async function fetchNews(source) {
 
         // Process the XML document
         const items = xmlDoc.querySelectorAll('item');
-        const newsData = [];
-        const MAX_ITEMS = 10; // Limit to 10 items
+        currentNewsData = []; // Reset the news data array
 
-        items.forEach((item, index) => {
-            if (index >= MAX_ITEMS) return; // Stop after 10 items
-
+        items.forEach((item) => {
             const title = item.querySelector('title')?.textContent || 'No title';
             const link = item.querySelector('link')?.textContent || '#';
             const description = item.querySelector('description')?.textContent || '';
@@ -316,16 +326,23 @@ async function fetchNews(source) {
             const cleanDescription = description.replace(/<[^>]+>/g, '');
 
             // Add the news item to the array
-            newsData.push({ title, link, description: cleanDescription, thumbnailUrl, pubDate });
+            currentNewsData.push({ title, link, description: cleanDescription, thumbnailUrl, pubDate });
         });
 
-        // Render the news
-        renderNews(newsData);
+        // Display the first set of items
+        displayNewsItems();
     } catch (error) {
         console.error('Error fetching RSS feed:', error);
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
+
+// Display a subset of news items
+function displayNewsItems() {
+    const itemsToDisplay = currentNewsData.slice(0, displayedItems);
+    renderNews(itemsToDisplay);
+}
+
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Script loaded'); // Debugging
@@ -352,5 +369,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update the newspaper logo
             updateNewspaperLogo(source);
         });
+    });
+
+    // "Show More" button event listener
+    showMoreButton.addEventListener('click', () => {
+        displayedItems += ITEMS_PER_PAGE; // Increase the number of displayed items
+        displayNewsItems(); // Update the displayed items
     });
 });
