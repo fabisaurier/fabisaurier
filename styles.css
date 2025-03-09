@@ -239,7 +239,7 @@ h1.fancy-title .title-gif {
     transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
     font-size: 1em; /* Standard font size */
     font-weight: 500; /* Medium font weight */
-    height: 30x; /* Fixed height for a less tall button */
+    height: 25x; /* Fixed height for a less tall button */
 }
 
 #search-button:hover {
