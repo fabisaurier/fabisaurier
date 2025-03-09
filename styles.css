@@ -113,6 +113,21 @@ h1.fancy-title .title-gif {
     z-index: 1; /* Ensure it's above the sidebar background */
 }
 
+/* ===== Sidebar GIF ===== */
+.sidebar-gif {
+    position: absolute;
+    top: 20px; /* Align with the top bar */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    width: 50px; /* Circle width */
+    height: 50px; /* Circle height */
+    border-radius: 50%; /* Make it a circle */
+    object-fit: cover; /* Ensure the GIF fits inside the circle */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    box-shadow: var(--box-shadow); /* Box shadow */
+    z-index: 1; /* Ensure it's above the sidebar background */
+}
+
 .sidebar ul {
     list-style: none;
     padding: 0;
