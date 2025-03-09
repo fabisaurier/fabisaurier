@@ -230,23 +230,31 @@ h1.fancy-title .title-gif {
     width: 100%;
 }
 
+/* ===== Dashboard Row ===== */
 .dashboard-row {
     display: flex;
-    gap: 20px;
+    gap: 20px; /* Space between widgets */
+    width: 100%; /* Ensure it takes full width */
 }
 
 /* ===== News Widget ===== */
 .dashboard-item.news-widget {
-    flex: 0 0 70%; /* Take up 70% of the width */
-    max-width: 70%; /* Ensure it doesn't exceed 70% */
+    flex: 1; /* Allow it to grow and shrink */
+    max-width: 70%; /* Ensure it doesn't exceed 70% of the container */
     padding: 15px; /* Adjust padding as needed */
+    background-color: rgba(255, 245, 250, 0.8); /* Ensure background is visible */
+    border-radius: var(--border-radius); /* Add rounded corners */
+    box-shadow: var(--box-shadow); /* Add shadow for visibility */
 }
 
 /* ===== Shortcut Widget ===== */
 .dashboard-item.shortcut-container {
-    flex: 0 0 28%; /* Take up 28% of the width */
-    max-width: 28%; /* Ensure it doesn't exceed 28% */
+    flex: 1; /* Allow it to grow and shrink */
+    max-width: 28%; /* Ensure it doesn't exceed 28% of the container */
     padding: 15px; /* Adjust padding as needed */
+    background-color: rgba(255, 245, 250, 0.8); /* Ensure background is visible */
+    border-radius: var(--border-radius); /* Add rounded corners */
+    box-shadow: var(--box-shadow); /* Add shadow for visibility */
 }
 
 /* ===== News Widget Header ===== */
