@@ -316,24 +316,26 @@ h1.fancy-title .title-gif {
     padding-right: 10px;
 }
 
+/* ===== News Item ===== */
 .news-item {
     display: flex;
     align-items: center; /* Center items vertically */
     gap: 16px; /* Space between thumbnail and content */
     padding: 12px; /* Adjust padding as needed */
     margin: 0; /* Remove any default margin */
-    background-color: rgba(255, 255, 255, 0.5); /* Slightly visible background */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
-    border-radius: 12px; /* Rounded edges */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    background-color: rgba(255, 255, 255, 0.9); /* Background color */
+    border-radius: var(--border-radius); /* Rounded edges */
+    box-shadow: var(--box-shadow); /* Add shadow for depth */
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
 }
 
+/* ===== News Link ===== */
 .news-link {
     display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 16px; /* Space between thumbnail and content */
     text-decoration: none;
     color: inherit;
-    gap: 16px;
     width: 100%;
 }
 
@@ -350,6 +352,7 @@ h1.fancy-title .title-gif {
     padding: 0; /* Remove any default padding */
 }
 
+/* ===== Thumbnail Image ===== */
 .news-thumbnail img {
     width: 100%; /* Ensure the image fills the container */
     height: 100%; /* Ensure the image fills the container */
