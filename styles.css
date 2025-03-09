@@ -149,6 +149,7 @@ h1.fancy-title .title-gif {
 .top-bar-left {
     height: 31px; /* Height of the left top bar */
     display: flex;
+    flex-direction: row; /* Ensure items are aligned horizontally */
     align-items: center; /* Vertically center content */
     gap: 10px; /* Space between items */
     flex-shrink: 0; /* Prevent shrinking */
