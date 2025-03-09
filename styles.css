@@ -272,18 +272,19 @@ h1.fancy-title .title-gif {
 }
 
 .date-time-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align date and time to the left */
-    gap: 5px; /* Space between date and time */
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Vertically center the items */
+    gap: 10px; /* Add some spacing between the time and date */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
 }
 
-#current-date,
 #main-clock {
-    font-weight: 500; /* Medium font weight */
-    font-size: 1em; /* Standard font size */
-    color: var(--text-color); /* Use global text color */
+    margin: 0; /* Remove default margins */
 }
+
+#current-date {
+    margin: 0; /* Remove default margins */
 /* ===== Dashboard ===== */
 
 
