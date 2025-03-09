@@ -130,8 +130,7 @@ h1.fancy-title .title-gif {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: calc(70% + 28% + 20px); /* Match combined width of news and shortcut widgets + gap */
-    padding: 5px 20px; /* Reduced padding to make it half the height */
+    padding: 5px 20px; /* Reduced padding to make it compact */
     background-color: rgba(255, 245, 250, 0.8); /* Match news/shortcut widget background */
     backdrop-filter: blur(10px); /* Match blur effect */
     border-radius: var(--border-radius); /* Match border radius */
@@ -151,6 +150,8 @@ h1.fancy-title .title-gif {
     display: flex;
     align-items: center;
     gap: 10px; /* Space between items */
+    flex-shrink: 0; /* Prevent shrinking */
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 #location {
@@ -186,6 +187,7 @@ h1.fancy-title .title-gif {
 /* Middle Top Bar */
 .top-bar-middle {
     flex: 1; /* Take up remaining space */
+    min-width: 0; /* Allow the container to shrink */
     max-width: 500px; /* Limit width */
     margin: 0 20px; /* Add margin for spacing */
 }
@@ -195,6 +197,8 @@ h1.fancy-title .title-gif {
     align-items: center;
     gap: 10px; /* Space between input and button */
     width: 100%;
+    max-width: 100%; /* Ensure it doesn't overflow */
+    overflow: hidden; /* Prevent overflow */
 }
 
 #search-input {
@@ -256,19 +260,12 @@ h1.fancy-title .title-gif {
     gap: 5px; /* Space between date and time */
 }
 
-.other-elements {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Space between other elements */
-}
-
 #current-date,
 #main-clock {
     font-weight: 500; /* Medium font weight */
     font-size: 1em; /* Standard font size */
     color: var(--text-color); /* Use global text color */
 }
-
 /* ===== Dashboard ===== */
 
 
