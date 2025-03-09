@@ -18,7 +18,7 @@ const NEWS_SOURCES = {
         logo: 'images/süddeutsche_logo.png',
     },
     taz: {
-        rss: 'https://taz.de/rss.xml',
+        rss: 'https://taz.de/!p4608;rss/',
         logo: 'images/taz_logo.png',
     },
     hna: {
