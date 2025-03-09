@@ -153,7 +153,7 @@ h1.fancy-title .title-gif {
 }
 
 #location i {
-    color: #ff6f61;
+    color: #000000;
 }
 
 .weather-info {
@@ -165,7 +165,6 @@ h1.fancy-title .title-gif {
 .weather-icon img {
     width: 30px;
     height: 30px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .weather-details p {
