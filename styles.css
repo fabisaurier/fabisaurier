@@ -123,7 +123,7 @@ h1.fancy-title .title-gif {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    padding-top: 40px; /* Reduced padding to account for the smaller top bar */
+    padding-top: 20px; /* Add padding to match the gap space */
 }
 
 /* ===== Top Bar ===== */
@@ -139,10 +139,10 @@ h1.fancy-title .title-gif {
     box-shadow: var(--box-shadow); /* Match box shadow */
     border: 1px solid rgba(255, 255, 255, 0.3); /* Match border style */
     position: fixed; /* Fix the top bar at the top */
-    top: 0; /* Align to the top of the viewport */
+    top: 20px; /* Align to the padding-top of the content container */
     left: 220px; /* Start after the sidebar + padding */
     z-index: 1000; /* Ensure it's above other content */
-    height: 30px; /* Half the original height */
+    height: 35px; /* Half the original height */
 }
 
 /* Left Top Bar */
