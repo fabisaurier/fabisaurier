@@ -295,7 +295,7 @@ h1.fancy-title .title-gif {
     background-color: rgba(255, 245, 250, 0.8); /* Match the background color */
     border-radius: var(--border-radius); /* Rounded corners */
     box-shadow: var(--box-shadow); /* Subtle shadow */
-    margin-top: 50px; /* Add margin to account for the fixed top bar */
+    margin-top: 40px; /* Add margin to account for the fixed top bar */
 }
 
 /* ===== Dashboard Row ===== */
