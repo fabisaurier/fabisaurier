@@ -85,7 +85,7 @@ h1.fancy-title .title-gif {
 /* ===== Sidebar ===== */
 .sidebar {
     width: 200px;
-    background-color: rgba(232, 218, 239, 0.7); /* Keep the existing color */
+    background-color: rgba(232, 218, 239, 0.6); /* Keep the existing color */
     backdrop-filter: blur(10px); /* Add blur effect */
     padding: 20px;
     border-right: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
