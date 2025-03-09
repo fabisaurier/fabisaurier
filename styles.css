@@ -154,13 +154,14 @@ h1.fancy-title .title-gif {
     justify-content: flex-start; /* Align content to the left */
 }
 
-/* ===== Left Section ===== */
-.left-section {
+/* ===== Left Top Bar ===== */
+.top-bar-left {
     display: flex;
-    align-items: center;
-    gap: 10px; /* Space between location, temperature, and condition */
+    align-items: center; /* Vertically center the items */
+    gap: 10px; /* Space between items */
 }
 
+/* Location Section */
 #location {
     display: flex;
     align-items: center;
@@ -169,12 +170,15 @@ h1.fancy-title .title-gif {
 
 #location i.fa-location-dot {
     color: red; /* Style for the location icon */
+    font-size: 1.2em; /* Slightly larger icon */
 }
 
 #city {
     font-weight: 500; /* Style for the city name */
+    font-size: 1em; /* Standard font size */
 }
 
+/* Temperature and Condition */
 #temperature,
 #weather-condition {
     font-size: 0.9em; /* Smaller font size for temperature and condition */
@@ -188,7 +192,6 @@ h1.fancy-title .title-gif {
 #weather-condition {
     font-style: italic; /* Italic font style for condition */
 }
-
 /* Middle Top Bar */
 .top-bar-middle {
     left: 50%; /* Center horizontally */
