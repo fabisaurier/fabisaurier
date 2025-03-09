@@ -320,13 +320,14 @@ h1.fancy-title .title-gif {
 .news-item {
     display: flex;
     align-items: center; /* Center items vertically */
-    gap: 8px; /* Reduced gap between thumbnail and content */
+    gap: 8px; /* Minimal gap between thumbnail and content */
     padding: 8px; /* Reduced padding */
     margin: 0; /* Remove any default margin */
     background-color: rgba(255, 255, 255, 0.9); /* Background color */
     border-radius: var(--border-radius); /* Rounded edges */
     box-shadow: var(--box-shadow); /* Add shadow for depth */
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+    height: 100px; /* Fixed height for consistency */
 }
 
 /* ===== News Link ===== */
@@ -366,6 +367,7 @@ h1.fancy-title .title-gif {
     display: flex;
     flex-direction: column;
     gap: 4px; /* Reduced gap between content elements */
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 .news-title {
@@ -373,6 +375,9 @@ h1.fancy-title .title-gif {
     font-weight: bold;
     margin: 0;
     color: var(--primary-color);
+    overflow: hidden; /* Hide overflow text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Show ellipsis for overflow text */
 }
 
 .news-date {
@@ -386,6 +391,11 @@ h1.fancy-title .title-gif {
     color: var(--text-color);
     margin: 0;
     line-height: 1.4;
+    overflow: hidden; /* Hide overflow text */
+    display: -webkit-box; /* Enable ellipsis for multiline text */
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical; /* Clamp lines vertically */
+    text-overflow: ellipsis; /* Show ellipsis for overflow text */
 }
 
 /* ===== Shortcut Container ===== */
