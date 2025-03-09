@@ -327,6 +327,10 @@ h1.fancy-title .title-gif {
 /* ===== News Widget ===== */
 .dashboard-item.news-widget {
     max-width: 70%;
+    background-color: rgba(255, 245, 250, 0.8); /* Match the shortcut widget color */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 15px;
 }
 
 .news-header {
