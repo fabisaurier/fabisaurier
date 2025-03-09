@@ -98,16 +98,18 @@ h1.fancy-title .title-gif {
 
 /* ===== Sidebar Circle ===== */
 .sidebar::before {
-    content: "";
+    content: ""; /* Required for pseudo-elements */
     position: absolute;
     top: 20px; /* Align with the top bar */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px; /* Circle size */
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    width: 50px; /* Circle width */
+    height: 50px; /* Circle height */
+    background-color: rgba(255, 255, 255, 0.7); /* Same as content container */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    box-shadow: var(--box-shadow); /* Box shadow */
     border-radius: 50%; /* Make it a circle */
-    border: 2px solid rgba(255, 255, 255, 0.7); /* Optional: Add a border */
     z-index: 1; /* Ensure it's above the sidebar background */
 }
 
