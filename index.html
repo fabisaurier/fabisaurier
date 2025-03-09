@@ -29,11 +29,10 @@
         </nav>
 
         <div class="content-container">
-            <div class="top-bar">
-    <!-- Left Container -->
-    <div class="left-container">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <!-- Left Section -->
         <div class="left-section">
-            <!-- Location and Weather Widget -->
             <div id="location">
                 <i class="fas fa-location-dot" aria-hidden="true"></i>
                 <span id="city">Berlin</span>
@@ -52,129 +51,123 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Middle Container -->
-    <div class="middle-container">
+        <!-- Middle Section (Search Bar) -->
         <div class="middle-section">
             <div class="search-container">
                 <input type="text" id="search-input" placeholder="Search...">
                 <button id="search-button">Search</button>
             </div>
         </div>
+
+        <!-- Right Section (Date and Clock) -->
+        <div class="right-section">
+            <div id="current-date">October 10, 2023</div>
+            <div id="main-clock">10:00 AM</div>
+        </div>
     </div>
 
-    <!-- Right Container -->
-   <div class="right-section">
-    <!-- Date -->
-    <div id="current-date">October 10, 2023</div>
-    <!-- Clock -->
-    <div id="main-clock">10:00 AM</div>
-</div>
+    <!-- Dashboard Container -->
+    <main class="dashboard-container" id="dashboard">
+        <section class="dashboard-row" aria-labelledby="first-row-heading">
+            <h2 id="first-row-heading" class="visually-hidden">Erste Reihe: Nachrichten-Widget und Shortcuts</h2>
 
-            <main class="dashboard-container" id="dashboard">
-                <section class="dashboard-row" aria-labelledby="first-row-heading">
-                    <h2 id="first-row-heading" class="visually-hidden">Erste Reihe: Nachrichten-Widget und Shortcuts</h2>
-
-                    <!-- News Widget -->
-<article class="dashboard-item news-widget" aria-labelledby="news-heading">
-    <header class="news-header">
-        <!-- Left side: Newspaper Logo -->
-        <div class="news-header-left">
-            <!-- Newspaper logo -->
-            <div class="newspaper-logo">
-                <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
-            </div>
-        </div>
-
-        <!-- Right side: Tabs -->
-        <div class="news-tabs">
-            <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
-            <button class="tab-button" data-source="zeit">Zeit</button>
-            <button class="tab-button" data-source="spiegel">Spiegel</button>
-            <button class="tab-button" data-source="sueddeutsche">Süddeutsche</button>
-            <button class="tab-button" data-source="taz">TAZ</button>
-        </div>
-    </header>
-    <div class="widget-content">
-        <div id="news-widget" lang="de">
-            <div class="news-list">
-                <!-- Example News Item (will be dynamically populated by JavaScript) -->
-                <div class="news-item">
-                    <a href="#" class="news-link" target="_blank">
-                        <div class="news-thumbnail">
-                            <img src="https://via.placeholder.com/120x80" alt="Thumbnail">
+            <!-- News Widget -->
+            <article class="dashboard-item news-widget" aria-labelledby="news-heading">
+                <header class="news-header">
+                    <!-- Left side: Newspaper Logo -->
+                    <div class="news-header-left">
+                        <div class="newspaper-logo">
+                            <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
                         </div>
-                        <div class="news-content">
-                            <h3 class="news-title">Titel des Nachrichtenartikels</h3>
-                            <p class="news-date">23. Oktober 2023, 14:30</p>
-                            <p class="news-description">Eine kurze Beschreibung des Nachrichtenartikels.</p>
+                    </div>
+
+                    <!-- Right side: Tabs -->
+                    <div class="news-tabs">
+                        <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
+                        <button class="tab-button" data-source="zeit">Zeit</button>
+                        <button class="tab-button" data-source="spiegel">Spiegel</button>
+                        <button class="tab-button" data-source="sueddeutsche">Süddeutsche</button>
+                        <button class="tab-button" data-source="taz">TAZ</button>
+                    </div>
+                </header>
+                <div class="widget-content">
+                    <div id="news-widget" lang="de">
+                        <div class="news-list">
+                            <!-- Example News Item (will be dynamically populated by JavaScript) -->
+                            <div class="news-item">
+                                <a href="#" class="news-link" target="_blank">
+                                    <div class="news-thumbnail">
+                                        <img src="https://via.placeholder.com/120x80" alt="Thumbnail">
+                                    </div>
+                                    <div class="news-content">
+                                        <h3 class="news-title">Titel des Nachrichtenartikels</h3>
+                                        <p class="news-date">23. Oktober 2023, 14:30</p>
+                                        <p class="news-description">Eine kurze Beschreibung des Nachrichtenartikels.</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </a>
+                        <!-- Show More Button -->
+                        <button id="show-more-button" class="show-more-button">Mehr anzeigen</button>
+                    </div>
                 </div>
-            </div>
-            <!-- Show More Button -->
-            <button id="show-more-button" class="show-more-button">Mehr anzeigen</button>
-        </div>
-    </div>
-</article>
+            </article>
 
-                    <!-- Shortcut Container -->
-                    <article class="dashboard-item shortcut-container" aria-labelledby="shortcuts-heading">
-                        <header>
-                            <h2 id="shortcuts-heading">
-                                <i class="fas fa-rocket" aria-hidden="true"></i> <!-- Rocket Icon -->
-                                Shortcuts
-                            </h2>
-                        </header>
-                        <div class="shortcut-content">
-                            <div class="shortcut-item">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>Kalender</span>
-                            </div>
-                            <div class="shortcut-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>E-Mails</span>
-                            </div>
-                            <div class="shortcut-item">
-                                <i class="fas fa-tasks"></i>
-                                <span>Aufgaben</span>
-                            </div>
-                            <div class="shortcut-item">
-                                <i class="fas fa-cog"></i>
-                                <span>Einstellungen</span>
-                            </div>
-                        </div>
-                    </article>
-                </section>
+            <!-- Shortcut Container -->
+            <article class="dashboard-item shortcut-container" aria-labelledby="shortcuts-heading">
+                <header>
+                    <h2 id="shortcuts-heading">
+                        <i class="fas fa-rocket" aria-hidden="true"></i> <!-- Rocket Icon -->
+                        Shortcuts
+                    </h2>
+                </header>
+                <div class="shortcut-content">
+                    <div class="shortcut-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Kalender</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>E-Mails</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>Aufgaben</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Einstellungen</span>
+                    </div>
+                </div>
+            </article>
+        </section>
 
-                <section class="dashboard-row" aria-labelledby="second-row-heading">
-                    <h2 id="second-row-heading" class="visually-hidden">Zweite Reihe: Widget 5 und Widget 6</h2>
+        <section class="dashboard-row" aria-labelledby="second-row-heading">
+            <h2 id="second-row-heading" class="visually-hidden">Zweite Reihe: Widget 5 und Widget 6</h2>
 
-                    <!-- Widget 5 -->
-                    <article class="dashboard-item" id="widget-5" aria-labelledby="widget5-heading">
-                        <header>
-                            <h2 id="widget5-heading">Widget 5</h2>
-                        </header>
-                        <div class="widget-content">
-                            <p>Inhalt für Widget 5...</p>
-                        </div>
-                    </article>
+            <!-- Widget 5 -->
+            <article class="dashboard-item" id="widget-5" aria-labelledby="widget5-heading">
+                <header>
+                    <h2 id="widget5-heading">Widget 5</h2>
+                </header>
+                <div class="widget-content">
+                    <p>Inhalt für Widget 5...</p>
+                </div>
+            </article>
 
-                    <!-- Widget 6 -->
-                    <article class="dashboard-item" id="widget-6" aria-labelledby="widget6-heading">
-                        <header>
-                            <h2 id="widget6-heading">Widget 6</h2>
-                        </header>
-                        <div class="widget-content">
-                            <p>Inhalt für Widget 6...</p>
-                        </div>
-                    </article>
-                </section>
-            </main>
-        </div>
-    </div>
-
+            <!-- Widget 6 -->
+            <article class="dashboard-item" id="widget-6" aria-labelledby="widget6-heading">
+                <header>
+                    <h2 id="widget6-heading">Widget 6</h2>
+                </header>
+                <div class="widget-content">
+                    <p>Inhalt für Widget 6...</p>
+                </div>
+            </article>
+        </section>
+    </main>
+</div>
     <footer>
         <p>Seite ist aktuell noch im Aufbau</p>
     </footer>
