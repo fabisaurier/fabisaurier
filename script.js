@@ -345,13 +345,21 @@ async function fetchNews(source) {
 
             // Extract the publication date from <pubDate> or <dc:date>
             const pubDateRaw = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
-            const pubDate = pubDateRaw ? formatPubDate(pubDateRaw) : ''; // Format the date
+            const pubDate = pubDateRaw ? new Date(pubDateRaw) : null; // Parse the date into a Date object
 
             // Clean up the description (remove HTML tags)
             const cleanDescription = description.replace(/<[^>]+>/g, '');
 
             // Add the news item to the array
             currentNewsData.push({ title, link, description: cleanDescription, thumbnailUrl, pubDate });
+        });
+
+        // Sort the news items by publication date (newest first)
+        currentNewsData.sort((a, b) => {
+            if (a.pubDate && b.pubDate) {
+                return b.pubDate - a.pubDate; // Sort in descending order
+            }
+            return 0; // If dates are missing, keep the original order
         });
 
         // Display the first set of items
@@ -361,30 +369,6 @@ async function fetchNews(source) {
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
-
-// Function to check if the content is XML
-function isXML(content) {
-    try {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(content, 'text/xml');
-        return !parser.parseFromString(content, 'text/xml').querySelector('parsererror');
-    } catch (e) {
-        return false;
-    }
-}
-
-// Display a subset of news items
-function displayNewsItems() {
-    const itemsToDisplay = currentNewsData.slice(0, displayedItems);
-    renderNews(itemsToDisplay);
-}
-
-// Define the showError function
-function showError(element, message) {
-    element.innerHTML = `<p>${message}</p>`;
-}
-
-
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
