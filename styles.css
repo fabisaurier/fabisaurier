@@ -133,14 +133,16 @@ h1.fancy-title .title-gif {
     align-items: center;
     width: calc(100% - 200px); /* Adjust width to account for sidebar */
     padding: 5px 20px; /* Reduced padding to make it half the height */
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-    backdrop-filter: blur(10px); /* Blur effect */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    background-color: rgba(255, 245, 250, 0.8); /* Match news/shortcut widget background */
+    backdrop-filter: blur(10px); /* Match blur effect */
+    border-radius: var(--border-radius); /* Match border radius */
+    box-shadow: var(--box-shadow); /* Match box shadow */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Match border style */
     position: fixed; /* Fix the top bar at the top */
     top: 0; /* Align to the top of the viewport */
     left: 200px; /* Start after the sidebar */
     z-index: 1000; /* Ensure it's above other content */
-    height: 40px; /* Half the original height */
+    height: 35px; /* Half the original height */
 }
 
 /* Left Top Bar */
