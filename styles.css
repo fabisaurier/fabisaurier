@@ -128,12 +128,12 @@ h1.fancy-title .title-gif {
 /* ===== Top Bar ===== */
 .top-bar {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* Vertically center all items */
+    justify-content: space-between; /* Space between left, middle, and right sections */
     padding: 10px 20px;
     border-bottom: 2px solid rgba(234, 234, 234, 0.8);
     margin-bottom: 10px;
-    background-color: rgba(255, 245, 250, 0.8); /* Ensure background is visible */
+    background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(5px);
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
@@ -143,23 +143,35 @@ h1.fancy-title .title-gif {
 
 .left-section, .right-section {
     display: flex;
-    align-items: center;
-    gap: 20px;
+    align-items: center; /* Vertically center items in left and right sections */
+    gap: 20px; /* Space between items */
 }
 
-#location, #weather-widget, #main-clock, #current-date {
+/* Right Section: Time and Date */
+.right-section {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 10px; /* Space between time and date */
+}
+
+#main-clock {
     font-size: 1em;
     font-weight: 500;
-    color: #000; /* Black text for location, date, and time */
+    color: #000; /* Black text for time */
+    margin-top: -5px; /* Move time slightly higher */
 }
 
-#location i {
-    color: #ff0000; /* Red icon for location */
+#current-date {
+    font-size: 1em;
+    font-weight: 500;
+    color: #000; /* Black text for date */
+    margin-top: 5px; /* Move date slightly lower */
 }
 
+/* Weather Widget */
 .weather-info {
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically center weather icon and details */
     gap: 10px;
 }
 
@@ -181,10 +193,10 @@ h1.fancy-title .title-gif {
     font-style: italic;
 }
 
-/* ===== Search Bar ===== */
+/* Search Bar */
 .search-container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically center search input and button */
     gap: 10px;
     max-width: 400px;
     width: 100%;
@@ -212,7 +224,7 @@ h1.fancy-title .title-gif {
 
 #search-button {
     padding: 8px 12px;
-    background-color: rgba(232, 218, 239, 0.9);
+    background-color: #967bb6; /* Lavender color for the button */
     color: white;
     border: none;
     border-radius: var(--border-radius);
