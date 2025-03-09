@@ -242,15 +242,15 @@ h1.fancy-title .title-gif {
     box-shadow: var(--box-shadow);
     padding: 20px;
     transition: transform 0.2s ease;
-    flex: 1;
 }
 
 .dashboard-item:hover {
     transform: translateY(-5px);
 }
 
+/* ===== News Widget ===== */
 .news-widget {
-    flex: 2;
+    flex: 3; /* Takes 3/4 of the width */
     min-height: 400px;
 }
 
@@ -371,6 +371,52 @@ h1.fancy-title .title-gif {
     line-height: 1.4;
 }
 
+/* ===== Shortcut Container ===== */
+.shortcut-container {
+    flex: 1; /* Takes 1/4 of the width */
+    background-color: rgba(255, 245, 250, 0.8);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    transition: transform 0.2s ease;
+}
+
+.shortcut-container:hover {
+    transform: translateY(-5px);
+}
+
+.shortcut-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shortcut-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shortcut-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.shortcut-item i {
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.shortcut-item span {
+    font-size: 0.95em;
+    color: var(--text-color);
+}
+
 /* Show More Button */
 #show-more-button {
     display: none; /* Hidden by default */
@@ -436,5 +482,14 @@ footer {
 
     .news-content {
         gap: 8px;
+    }
+
+    /* Responsive Dashboard Row */
+    .dashboard-row {
+        flex-direction: column;
+    }
+
+    .news-widget, .shortcut-container {
+        flex: 1; /* Full width on mobile */
     }
 }
