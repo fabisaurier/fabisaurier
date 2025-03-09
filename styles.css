@@ -331,6 +331,7 @@ h1.fancy-title .title-gif {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
 }
 
 .news-header {
@@ -475,6 +476,7 @@ h1.fancy-title .title-gif {
 /* ===== Shortcut Container ===== */
 .dashboard-item.shortcut-container {
     max-width: 28%;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
 }
 
 .shortcut-container {
@@ -483,10 +485,6 @@ h1.fancy-title .title-gif {
     box-shadow: var(--box-shadow);
     padding: 20px;
     transition: transform 0.2s ease;
-}
-
-.shortcut-container:hover {
-    transform: translateY(-5px);
 }
 
 .shortcut-content {
