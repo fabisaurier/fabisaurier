@@ -68,48 +68,50 @@
                     <h2 id="first-row-heading" class="visually-hidden">Erste Reihe: Nachrichten-Widget und Shortcuts</h2>
 
                     <!-- News Widget -->
-                   <article class="dashboard-item news-widget" aria-labelledby="news-heading">
-    <header class="news-header">
-        <!-- Icon in the top-left corner -->
-        <div class="news-icon-container">
-            <img src="images/news-icon.png" alt="News Icon" class="news-icon">
-        </div>
-        <!-- Tabs underneath the icon -->
-        <div class="news-tabs">
-            <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
-            <button class="tab-button" data-source="zeit">Zeit</button>
-            <button class="tab-button" data-source="spiegel">Spiegel</button>
-            <button class="tab-button" data-source="sueddeutsche">Süddeutsche</button>
-        </div>
-        <!-- Newspaper logo underneath the tabs -->
-        <div class="newspaper-logo">
-            <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
-        </div>
-    </header>
-    <div class="widget-content">
-        <div id="news-widget" lang="de">
-            <div class="news-list">
-                <!-- Example News Item (will be dynamically populated by JavaScript) -->
-                <div class="news-item">
-                    <a href="#" class="news-link" target="_blank">
-                        <div class="news-thumbnail">
-                            <img src="https://via.placeholder.com/120x80" alt="Thumbnail">
-                            <div class="line-below-outer"></div> <!-- Outer line below -->
-                            <div class="line-below-inner"></div> <!-- Inner line below -->
+                    <article class="dashboard-item news-widget" aria-labelledby="news-heading">
+                        <header class="news-header">
+                            <!-- Icon in the top-left corner -->
+                            <div class="news-icon-container">
+                                <img src="images/news-icon.png" alt="News Icon" class="news-icon">
+                            </div>
+                            <!-- Tabs underneath the icon -->
+                            <div class="news-tabs">
+                                <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
+                                <button class="tab-button" data-source="zeit">Zeit</button>
+                                <button class="tab-button" data-source="spiegel">Spiegel</button>
+                                <button class="tab-button" data-source="sueddeutsche">Süddeutsche</button>
+                            </div>
+                            <!-- Newspaper logo underneath the tabs -->
+                            <div class="newspaper-logo">
+                                <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
+                            </div>
+                        </header>
+                        <div class="widget-content">
+                            <div id="news-widget" lang="de">
+                                <div class="news-list">
+                                    <!-- Example News Item (will be dynamically populated by JavaScript) -->
+                                    <div class="news-item">
+                                        <a href="#" class="news-link" target="_blank">
+                                            <!-- Thumbnail with lines -->
+                                            <div class="news-thumbnail">
+                                                <img src="https://via.placeholder.com/120x80" alt="Thumbnail">
+                                                <!-- Lines below the thumbnail -->
+                                                <div class="line-below-outer"></div>
+                                                <div class="line-below-inner"></div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">Titel des Nachrichtenartikels</h3>
+                                                <p class="news-date">23. Oktober 2023, 14:30</p>
+                                                <p class="news-description">Eine kurze Beschreibung des Nachrichtenartikels.</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Show More Button -->
+                                <button id="show-more-button" class="show-more-button">Mehr anzeigen</button>
+                            </div>
                         </div>
-                        <div class="news-content">
-                            <h3 class="news-title">Titel des Nachrichtenartikels</h3>
-                            <p class="news-date">23. Oktober 2023, 14:30</p>
-                            <p class="news-description">Eine kurze Beschreibung des Nachrichtenartikels.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- Show More Button -->
-            <button id="show-more-button" class="show-more-button">Mehr anzeigen</button>
-        </div>
-    </div>
-</article>
+                    </article>
 
                     <!-- Shortcut Container -->
                     <article class="dashboard-item shortcut-container" aria-labelledby="shortcuts-heading">
