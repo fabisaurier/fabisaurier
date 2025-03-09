@@ -286,7 +286,7 @@ h1.fancy-title .title-gif {
     font-weight: bold; 
     color: var(--text-color); /* Use global text color */
     height: 31px;
-    width: 220px;
+    width: 200px;
     flex-shrink: 0; /* Prevents shrinking */
 }
 
