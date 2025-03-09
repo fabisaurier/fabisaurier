@@ -125,16 +125,18 @@ h1.fancy-title .title-gif {
     flex-direction: column;
 }
 
-/* ===== Top Bar Container ===== */
+
 .content-container {
     position: relative; /* Required for absolute positioning of top bars */
-    padding-top: 60px; /* Add padding to prevent content from overlapping the top bars */
+    padding-top: 60px; /* Add padding to prevent content from being hidden behind the top bars */
 }
 
 /* ===== Top Bars ===== */
 .top-bar-left,
 .top-bar-middle,
 .top-bar-right {
+    position: absolute; /* Position the top bars absolutely */
+    top: 0; /* Align to the top of the content container */
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -143,95 +145,27 @@ h1.fancy-title .title-gif {
     box-shadow: none; /* Remove box shadow */
     border-radius: 0; /* Remove border radius */
     color: #000;
+    z-index: 10; /* Ensure the top bars are above the content container */
 }
 
 /* Left Top Bar */
 .top-bar-left {
+    left: 0; /* Align to the left */
     justify-content: flex-start; /* Align content to the left */
 }
 
 /* Middle Top Bar */
 .top-bar-middle {
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
     justify-content: center; /* Center the search bar */
 }
 
 /* Right Top Bar */
 .top-bar-right {
+    right: 0; /* Align to the right */
     justify-content: flex-end; /* Align content to the right */
 }
-/* Left Section */
-.left-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Middle Section (Search Bar) */
-.middle-section {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 400px;
-}
-
-#search-input {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1px solid var(--secondary-color);
-    border-radius: var(--border-radius);
-    font-size: 0.9em;
-    background-color: rgba(255, 255, 255, 0.8);
-    outline: none;
-    transition: border-color 0.2s ease;
-    color: #808080;
-    min-width: 200px;
-}
-
-#search-input::placeholder {
-    color: #808080;
-}
-
-#search-input:focus {
-    border-color: #ff6f61;
-}
-
-#search-button {
-    padding: 8px 12px;
-    background-color: #967bb6;
-    color: white;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    flex-shrink: 0;
-    white-space: nowrap;
-}
-
-#search-button:hover {
-    background-color: #7b5f95;
-}
-
-/* Right Section (Clock and Date) */
-.right-section {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#main-clock, #current-date {
-    font-size: 1em;
-    font-weight: 500;
-    color: #000;
-    white-space: nowrap;
-}
-
 /* ===== Dashboard ===== */
 .dashboard-container {
     display: flex;
