@@ -197,6 +197,27 @@ function decodeHTMLEntities(text) {
     return textArea.value;
 }
 
+// Format publication date to remove time zone
+function formatPubDate(pubDate) {
+    // Parse the pubDate string into a Date object
+    const date = new Date(pubDate);
+
+    // Format the date and time without the time zone
+    const options = {
+        weekday: 'short', // e.g., "Wed"
+        year: 'numeric',  // e.g., "2023"
+        month: 'short',   // e.g., "Oct"
+        day: 'numeric',   // e.g., "25"
+        hour: '2-digit',  // e.g., "12"
+        minute: '2-digit', // e.g., "34"
+        second: '2-digit', // e.g., "56"
+        timeZoneName: undefined // Remove time zone
+    };
+
+    // Convert to a localized string
+    return date.toLocaleString('de-DE', options);
+}
+
 async function fetchNews(source) {
     console.log('Fetching news for:', source); // Debugging
     const rssUrl = NEWS_SOURCES[source].rss;
@@ -309,7 +330,8 @@ async function fetchNews(source) {
             console.log('Thumbnail URL:', thumbnailUrl); // Debugging
 
             // Extract the publication date from <pubDate> or <dc:date>
-            const pubDate = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
+            const pubDateRaw = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
+            const pubDate = pubDateRaw ? formatPubDate(pubDateRaw) : ''; // Format the date
 
             // Clean up the description (remove HTML tags)
             const cleanDescription = description.replace(/<[^>]+>/g, '');
