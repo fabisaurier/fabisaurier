@@ -179,14 +179,14 @@ h1.fancy-title .title-gif {
     font-style: italic;
 }
 
-/* Search Bar */
+/* Middle Section (Search Bar) */
 .middle-section {
-    flex: 1;
+    flex: 1; /* Take up remaining space */
     display: flex;
-    justify-content: center;
-    padding: 0 20px;
-    min-width: 300px; /* Prevent the search bar from shrinking too much */
-    max-width: 500px; /* Prevent the search bar from growing too large */
+    justify-content: center; /* Center the search bar horizontally */
+    padding: 0 20px; /* Add some padding to prevent overlap */
+    min-width: 400px; /* Set a fixed minimum width */
+    max-width: 400px; /* Set the same fixed maximum width */
 }
 
 .search-container {
