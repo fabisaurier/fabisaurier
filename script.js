@@ -17,6 +17,14 @@ const NEWS_SOURCES = {
         rss: 'https://rss.sueddeutsche.de/rss/Topthemen',
         logo: 'images/süddeutsche_logo.png',
     },
+    taz: {
+        rss: 'https://taz.de/rss.xml',
+        logo: 'images/taz_logo.png',
+    },
+    hna: {
+        rss: 'https://www.hna.de/rss/rssfeed-lokales-kassel.xml',
+        logo: 'images/hna_logo.png',
+    },
 };
 const PROXY_URL = 'https://api.allorigins.win/get?url=';
 
