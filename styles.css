@@ -260,15 +260,16 @@ h1.fancy-title .title-gif {
 /* ===== News Widget Header ===== */
 .news-header {
     display: flex;
-    align-items: center; /* Align items vertically in the center */
-    justify-content: space-between; /* Space between title/logo and tabs */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Space between left and right sections */
     margin-bottom: 20px;
 }
 
+/* Left side: Title and Newspaper Logo */
 .news-header-left {
     display: flex;
     flex-direction: column; /* Stack title and logo vertically */
-    gap: 10px; /* Space between title and logo */
+    gap: 15px; /* Increased space between title and logo */
 }
 
 .news-header-title {
@@ -285,10 +286,11 @@ h1.fancy-title .title-gif {
     border-radius: 8px;
 }
 
+/* Right side: Tabs */
 .news-tabs {
     display: flex;
     gap: 10px; /* Space between tabs */
-    margin-left: auto; /* Push tabs to the right */
+    align-items: center; /* Align tabs vertically with the title */
 }
 
 .tab-button {
