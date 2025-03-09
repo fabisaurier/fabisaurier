@@ -154,6 +154,41 @@ h1.fancy-title .title-gif {
     justify-content: flex-start; /* Align content to the left */
 }
 
+/* ===== Left Section ===== */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between location, temperature, and condition */
+}
+
+#location {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between location icon and city name */
+}
+
+#location i.fa-location-dot {
+    color: red; /* Style for the location icon */
+}
+
+#city {
+    font-weight: 500; /* Style for the city name */
+}
+
+#temperature,
+#weather-condition {
+    font-size: 0.9em; /* Smaller font size for temperature and condition */
+    color: var(--text-color); /* Use the global text color */
+}
+
+#temperature {
+    font-weight: 600; /* Bold font weight for temperature */
+}
+
+#weather-condition {
+    font-style: italic; /* Italic font style for condition */
+}
+
 /* Middle Top Bar */
 .top-bar-middle {
     left: 50%; /* Center horizontally */
