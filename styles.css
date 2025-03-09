@@ -45,7 +45,7 @@ header {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 h1.fancy-title {
@@ -78,7 +78,7 @@ h1.fancy-title .title-gif {
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    margin-top: 2px;
+    margin-top: 5px;
     margin-bottom: 20px;
 }
 
