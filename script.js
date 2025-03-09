@@ -300,53 +300,51 @@ async function fetchNews(source) {
         const items = xmlDoc.querySelectorAll('item');
         currentNewsData = []; // Reset the news data array
 
-       items.forEach((item) => {
-    const title = item.querySelector('title')?.textContent || 'No title';
-    const link = item.querySelector('link')?.textContent || '#';
-    const description = item.querySelector('description')?.textContent || '';
-    const contentEncoded = item.getElementsByTagNameNS('http://purl.org/rss/1.0/modules/content/', 'encoded')[0]?.textContent || '';
+        items.forEach((item) => {
+            const title = item.querySelector('title')?.textContent || 'No title';
+            const link = item.querySelector('link')?.textContent || '#';
+            const description = item.querySelector('description')?.textContent || '';
+            const contentEncoded = item.getElementsByTagNameNS('http://purl.org/rss/1.0/modules/content/', 'encoded')[0]?.textContent || '';
 
-    // Remove CDATA tags (if present)
-    const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, '');
+            // Remove CDATA tags (if present)
+            const cdataContent = contentEncoded.replace(/<!\[CDATA\[|\]\]>/g, '');
 
-    // Decode HTML entities
-    const decodedContent = decodeHTMLEntities(cdataContent);
+            // Decode HTML entities
+            const decodedContent = decodeHTMLEntities(cdataContent);
 
-    // Try to extract the thumbnail from the decoded content
-    let thumbnailMatch = decodedContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
-    let thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : '';
+            // Try to extract the thumbnail from the decoded content
+            let thumbnailMatch = decodedContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
+            let thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : '';
 
-    // If no thumbnail found in <content:encoded>, try the <description> field
-    if (!thumbnailUrl) {
-        const descriptionContent = description.replace(/<!\[CDATA\[|\]\]>/g, '');
-        thumbnailMatch = descriptionContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
-        thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : '';
-    }
+            // If no thumbnail found in <content:encoded>, try the <description> field
+            if (!thumbnailUrl) {
+                const descriptionContent = description.replace(/<!\[CDATA\[|\]\]>/g, '');
+                thumbnailMatch = descriptionContent.match(/<img\s+[^>]*src\s*=\s*"([^">]*)"[^>]*>/i);
+                thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : '';
+            }
 
-    // If no thumbnail found in <content:encoded> or <description>, check for <media:thumbnail>, <media:content>, or <enclosure>
-    if (!thumbnailUrl) {
-        const mediaThumbnail = item.querySelector('media\\:thumbnail, thumbnail')?.getAttribute('url');
-        const mediaContent = item.getElementsByTagNameNS('http://search.yahoo.com/mrss/', 'content')[0]?.getAttribute('url');
-        const enclosure = item.querySelector('enclosure')?.getAttribute('url');
-        thumbnailUrl = mediaThumbnail || mediaContent || enclosure || 'https://via.placeholder.com/120x80'; // Fallback image
-    }
+            // If no thumbnail found in <content:encoded> or <description>, check for <media:thumbnail>, <media:content>, or <enclosure>
+            if (!thumbnailUrl) {
+                const mediaThumbnail = item.querySelector('media\\:thumbnail, thumbnail')?.getAttribute('url');
+                const mediaContent = item.getElementsByTagNameNS('http://search.yahoo.com/mrss/', 'content')[0]?.getAttribute('url');
+                const enclosure = item.querySelector('enclosure')?.getAttribute('url');
+                thumbnailUrl = mediaThumbnail || mediaContent || enclosure || 'https://via.placeholder.com/120x80'; // Fallback image
+            }
 
-    // Debugging: Log the extracted thumbnail URL and relevant XML content
-    console.log('Extracted thumbnail URL:', thumbnailUrl);
-    console.log('Item XML:', item.outerHTML);
+            // Debugging: Log the extracted thumbnail URL and relevant XML content
+            console.log('Extracted thumbnail URL:', thumbnailUrl);
+            console.log('Item XML:', item.outerHTML);
 
-    // Extract the publication date from <pubDate> or <dc:date>
-    const pubDateRaw = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
-    const pubDate = pubDateRaw ? formatPubDate(pubDateRaw) : ''; // Format the date
+            // Extract the publication date from <pubDate> or <dc:date>
+            const pubDateRaw = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
+            const pubDate = pubDateRaw ? formatPubDate(pubDateRaw) : ''; // Format the date
 
-    // Clean up the description (remove HTML tags)
-    const cleanDescription = description.replace(/<[^>]+>/g, '');
+            // Clean up the description (remove HTML tags)
+            const cleanDescription = description.replace(/<[^>]+>/g, '');
 
-    // Add the news item to the array
-    currentNewsData.push({ title, link, description: cleanDescription, thumbnailUrl, pubDate });
-});
-
-
+            // Add the news item to the array
+            currentNewsData.push({ title, link, description: cleanDescription, thumbnailUrl, pubDate });
+        });
 
         // Display the first set of items
         displayNewsItems();
@@ -355,6 +353,7 @@ async function fetchNews(source) {
         showError(newsWidget, 'Nachrichten konnten nicht geladen werden.');
     }
 }
+
 
 // Display a subset of news items
 function displayNewsItems() {
