@@ -167,6 +167,7 @@ h1.fancy-title .title-gif {
     font-size: 1em;
     font-weight: 500;
     color: #000; /* Black text for time */
+    margin-top: 1px; /* Move time slightly lower */
 }
 
 #current-date {
