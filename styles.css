@@ -235,16 +235,18 @@ h1.fancy-title .title-gif {
     gap: 20px;
 }
 
-.dashboard-item {
-    background-color: rgba(255, 245, 250, 0.8);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: 20px;
-    transition: transform 0.2s ease;
+/* ===== News Widget ===== */
+.dashboard-item.news-widget {
+    flex: 0 0 70%; /* Take up 70% of the width */
+    max-width: 70%; /* Ensure it doesn't exceed 70% */
+    padding: 15px; /* Adjust padding as needed */
 }
 
-.dashboard-item:hover {
-    transform: translateY(-5px);
+/* ===== Shortcut Widget ===== */
+.dashboard-item.shortcut-container {
+    flex: 0 0 28%; /* Take up 28% of the width */
+    max-width: 28%; /* Ensure it doesn't exceed 28% */
+    padding: 15px; /* Adjust padding as needed */
 }
 
 /* ===== News Widget Header ===== */
@@ -256,26 +258,17 @@ h1.fancy-title .title-gif {
     margin-bottom: 20px;
 }
 
-/* Icon container */
-.news-icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Align icon to the left */
-}
-
 .news-icon {
     width: 40px; /* Adjust icon size */
     height: 40px; /* Adjust icon size */
     object-fit: contain; /* Ensure the icon fits properly */
 }
 
-/* Tabs container */
 .news-tabs {
     display: flex;
     gap: 10px; /* Space between tabs */
     flex-wrap: wrap; /* Allow tabs to wrap to the next line if needed */
     margin-bottom: 20px; /* Add space below the tabs */
-    margin-top: 20px; /* Add space above the tabs */
 }
 
 .tab-button {
@@ -300,19 +293,13 @@ h1.fancy-title .title-gif {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Newspaper logo container */
-.newspaper-logo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Align logo to the left */
-}
-
 .newspaper-logo img {
     height: 30px; /* Adjust logo height */
     width: auto;
     object-fit: contain;
     border-radius: 8px;
 }
+
 /* ===== News Widget Layout ===== */
 .news-list {
     display: flex;
@@ -320,6 +307,7 @@ h1.fancy-title .title-gif {
     gap: 16px;
     padding-right: 10px;
 }
+
 .news-item {
     display: flex;
     align-items: center; /* Center items vertically */
@@ -388,7 +376,6 @@ h1.fancy-title .title-gif {
 
 /* ===== Shortcut Container ===== */
 .shortcut-container {
-    flex: 1; /* Takes 1/4 of the width */
     background-color: rgba(255, 245, 250, 0.8);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -506,5 +493,6 @@ footer {
 
     .news-widget, .shortcut-container {
         flex: 1; /* Full width on mobile */
+        max-width: 100%; /* Full width on mobile */
     }
 }
