@@ -300,7 +300,7 @@ async function fetchNews(source) {
         const items = xmlDoc.querySelectorAll('item');
         currentNewsData = []; // Reset the news data array
 
-        items.forEach((item) => {
+       items.forEach((item) => {
     const title = item.querySelector('title')?.textContent || 'No title';
     const link = item.querySelector('link')?.textContent || '#';
     const description = item.querySelector('description')?.textContent || '';
@@ -326,13 +326,14 @@ async function fetchNews(source) {
     // If no thumbnail found in <content:encoded> or <description>, check for <media:thumbnail>, <media:content>, or <enclosure>
     if (!thumbnailUrl) {
         const mediaThumbnail = item.querySelector('media\\:thumbnail, thumbnail')?.getAttribute('url');
-        const mediaContent = item.querySelector('media\\:content')?.getAttribute('url');
+        const mediaContent = item.getElementsByTagNameNS('http://search.yahoo.com/mrss/', 'content')[0]?.getAttribute('url');
         const enclosure = item.querySelector('enclosure')?.getAttribute('url');
         thumbnailUrl = mediaThumbnail || mediaContent || enclosure || 'https://via.placeholder.com/120x80'; // Fallback image
     }
 
-    // Debugging: Log the extracted thumbnail URL
+    // Debugging: Log the extracted thumbnail URL and relevant XML content
     console.log('Extracted thumbnail URL:', thumbnailUrl);
+    console.log('Item XML:', item.outerHTML);
 
     // Extract the publication date from <pubDate> or <dc:date>
     const pubDateRaw = item.querySelector('pubDate')?.textContent || item.querySelector('dc\\:date')?.textContent || '';
@@ -344,6 +345,7 @@ async function fetchNews(source) {
     // Add the news item to the array
     currentNewsData.push({ title, link, description: cleanDescription, thumbnailUrl, pubDate });
 });
+
 
 
         // Display the first set of items
