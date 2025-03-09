@@ -373,10 +373,9 @@ h1.fancy-title .title-gif {
 .news-title {
     font-family: 'League Spartan', sans-serif;
     font-size: 1.1em;
-    color:	#000000;
     font-weight: bold;
     margin: 0;
-    color: var(--primary-color);
+    color: black; /* Set the color to black */
     overflow: hidden; /* Hide overflow text */
     white-space: nowrap; /* Prevent text from wrapping */
     text-overflow: ellipsis; /* Show ellipsis for overflow text */
