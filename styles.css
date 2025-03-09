@@ -143,6 +143,7 @@ h1.fancy-title .title-gif {
     right: 20px; /* End at the same position as the shortcuts widget */
     z-index: 1000; /* Ensure it's above other content */
     height: 35px; /* Fixed height for the top bar */
+    overflow: hidden; /* Prevent content from overflowing */
 }
 
 /* Left Top Bar */
