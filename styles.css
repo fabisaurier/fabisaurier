@@ -319,11 +319,9 @@ h1.fancy-title .title-gif {
 .news-item {
     display: flex;
     align-items: center; /* Center items vertically */
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: 12px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 16px; /* Space between thumbnail and content */
+    padding: 12px; /* Adjust padding as needed */
+    margin: 0; /* Remove any default margin */
 }
 
 .news-item:hover {
