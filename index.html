@@ -72,10 +72,15 @@
 <article class="dashboard-item news-widget" aria-labelledby="news-heading">
     <header class="news-header">
         <!-- News Header -->
-        <h2 class="news-header-title">Nachrichten</h2>
-        <img class="news-icon" src="path/to/news-icon.png" alt="News Icon">
-
-        <!-- Tabs underneath the icon -->
+        <div class="news-header-left">
+            <h2 class="news-header-title">Nachrichten</h2>
+            <!-- Newspaper logo beneath the title -->
+            <div class="newspaper-logo">
+                <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
+            </div>
+        </div>
+        
+        <!-- Tabs on the right side of the header -->
         <div class="news-tabs">
             <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
             <button class="tab-button" data-source="zeit">Zeit</button>
@@ -83,33 +88,29 @@
             <button class="tab-button" data-source="sueddeutsche">Süddeutsche</button>
             <button class="tab-button" data-source="taz">TAZ</button>
         </div>
-                            <!-- Newspaper logo underneath the tabs -->
-                            <div class="newspaper-logo">
-                                <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
-                            </div>
-                        </header>
-                        <div class="widget-content">
-                            <div id="news-widget" lang="de">
-                                <div class="news-list">
-                                    <!-- Example News Item (will be dynamically populated by JavaScript) -->
-                                    <div class="news-item">
-                                        <a href="#" class="news-link" target="_blank">
-                                            <div class="news-thumbnail">
-                                                <img src="https://via.placeholder.com/120x80" alt="Thumbnail">
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">Titel des Nachrichtenartikels</h3>
-                                                <p class="news-date">23. Oktober 2023, 14:30</p>
-                                                <p class="news-description">Eine kurze Beschreibung des Nachrichtenartikels.</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Show More Button -->
-                                <button id="show-more-button" class="show-more-button">Mehr anzeigen</button>
-                            </div>
+    </header>
+    <div class="widget-content">
+        <div id="news-widget" lang="de">
+            <div class="news-list">
+                <!-- Example News Item (will be dynamically populated by JavaScript) -->
+                <div class="news-item">
+                    <a href="#" class="news-link" target="_blank">
+                        <div class="news-thumbnail">
+                            <img src="https://via.placeholder.com/120x80" alt="Thumbnail">
                         </div>
-                    </article>
+                        <div class="news-content">
+                            <h3 class="news-title">Titel des Nachrichtenartikels</h3>
+                            <p class="news-date">23. Oktober 2023, 14:30</p>
+                            <p class="news-description">Eine kurze Beschreibung des Nachrichtenartikels.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Show More Button -->
+            <button id="show-more-button" class="show-more-button">Mehr anzeigen</button>
+        </div>
+    </div>
+</article>
 
                     <!-- Shortcut Container -->
                     <article class="dashboard-item shortcut-container" aria-labelledby="shortcuts-heading">
