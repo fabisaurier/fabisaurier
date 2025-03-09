@@ -275,8 +275,8 @@ h1.fancy-title .title-gif {
     font-weight: bold; /* Make the text bold */
     color: var(--text-color); /* Use global text color */
     margin-right: 5px; /* Add spacing between time and date */
-    height: 30px;
-    width: 80px;
+    height: 29px;
+    width: 60px;
     flex-shrink: 0; /* Prevents shrinking */
 }
 
