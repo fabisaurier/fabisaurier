@@ -251,21 +251,48 @@ h1.fancy-title .title-gif {
 /* ===== News Widget Header ===== */
 .news-header {
     display: flex;
-    align-items: flex-start; /* Align items to the top */
+    align-items: center; /* Align items vertically */
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .news-header-left {
     display: flex;
-    flex-direction: column; /* Stack title and logo vertically */
-    gap: 10px; /* Space between title and logo */
+    align-items: center; /* Align icon and tabs horizontally */
+    gap: 10px; /* Space between icon and tabs */
 }
 
-.news-header h2 {
-    margin: 0;
-    font-size: 1.5em;
-    color: var(--primary-color);
+.news-icon {
+    width: 30px; /* Adjust icon size */
+    height: 30px; /* Adjust icon size */
+    object-fit: contain; /* Ensure the icon fits properly */
+}
+
+.news-tabs {
+    display: flex;
+    gap: 10px; /* Space between tabs */
+}
+
+.tab-button {
+    padding: 8px 16px; /* Adjust padding for rounded corners */
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--secondary-color);
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold; /* Bold font */
+    color: var(--text-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.tab-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .newspaper-logo {
@@ -278,12 +305,6 @@ h1.fancy-title .title-gif {
     object-fit: contain;
     border-radius: 8px;
 }
-
-.news-tabs {
-    display: flex;
-    gap: 10px;
-}
-
 /* ===== News Widget Layout ===== */
 .news-list {
     display: flex;
