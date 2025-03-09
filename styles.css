@@ -337,8 +337,8 @@ h1.fancy-title .title-gif {
     width: 100%;
 }
 
+/* ===== News Thumbnail ===== */
 .news-thumbnail {
-  .news-thumbnail {
     flex: 0 0 120px; /* Fixed width */
     height: 80px; /* Fixed height */
     display: flex;
