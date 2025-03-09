@@ -131,7 +131,7 @@ h1.fancy-title .title-gif {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: calc(100% - 200px); /* Adjust width to account for sidebar */
+    width: calc(70% + 28% + 20px); /* Match combined width of news and shortcut widgets + gap */
     padding: 5px 20px; /* Reduced padding to make it half the height */
     background-color: rgba(255, 245, 250, 0.8); /* Match news/shortcut widget background */
     backdrop-filter: blur(10px); /* Match blur effect */
