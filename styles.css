@@ -276,7 +276,7 @@ h1.fancy-title .title-gif {
     color: var(--text-color); /* Use global text color */
     margin-right: 5px; /* Add spacing between time and date */
     height: 31px;
-    width: 80px;
+    width: 60px;
     flex-shrink: 0; /* Prevents shrinking */
 }
 
@@ -286,7 +286,7 @@ h1.fancy-title .title-gif {
     font-weight: bold; 
     color: var(--text-color); /* Use global text color */
     height: 31px;
-    width: 120px;
+    width: 140px;
     flex-shrink: 0; /* Prevents shrinking */
 }
 
