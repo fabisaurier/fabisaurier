@@ -260,9 +260,8 @@ h1.fancy-title .title-gif {
 /* ===== News Widget Header ===== */
 .news-header {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
-    align-items: flex-start; /* Align children to the left */
-    gap: 10px; /* Space between icon, tabs, and logo */
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Space between the title and the icon */
     margin-bottom: 20px;
 }
 
