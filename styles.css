@@ -123,9 +123,8 @@ h1.fancy-title .title-gif {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    padding-top: 20px; /* Add padding to match the gap space */
+    padding-top: 60px; /* Add padding to account for the top bar height + gap */
 }
-
 /* ===== Top Bar ===== */
 .top-bar {
     display: flex;
@@ -142,7 +141,7 @@ h1.fancy-title .title-gif {
     top: 20px; /* Align to the padding-top of the content container */
     left: 220px; /* Start after the sidebar + padding */
     z-index: 1000; /* Ensure it's above other content */
-    height: 35px; /* Half the original height */
+    height: 35px; /* Fixed height for the top bar */
 }
 
 /* Left Top Bar */
@@ -254,10 +253,13 @@ h1.fancy-title .title-gif {
 }
 
 /* ===== Dashboard ===== */
+
+
+/* ===== Dashboard Container ===== */
 .dashboard-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px; /* Gap between top bar and widgets */
     width: 100%;
 }
 
@@ -275,6 +277,7 @@ h1.fancy-title .title-gif {
     background-color: rgba(255, 245, 250, 0.8);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    margin-top: 20px; /* Add margin to create gap below the top bar */
 }
 
 /* ===== Shortcut Widget ===== */
@@ -285,6 +288,7 @@ h1.fancy-title .title-gif {
     background-color: rgba(255, 245, 250, 0.8);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    margin-top: 20px; /* Add margin to create gap below the top bar */
 }
 
 /* ===== News Widget Header ===== */
