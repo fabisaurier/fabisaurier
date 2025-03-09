@@ -147,8 +147,9 @@ h1.fancy-title .title-gif {
 
 /* Left Top Bar */
 .top-bar-left {
+    height: 31px; /* Height of the left top bar */
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically center content */
     gap: 10px; /* Space between items */
     flex-shrink: 0; /* Prevent shrinking */
     white-space: nowrap; /* Prevent text from wrapping */
@@ -186,9 +187,13 @@ h1.fancy-title .title-gif {
 
 /* Middle Top Bar */
 .top-bar-middle {
+    height: 31px; /* Height of the middle top bar */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
     flex: 1; /* Take up remaining space */
     min-width: 0; /* Allow the container to shrink */
-    max-width: 500px; /* Limit width */
+    max-width: 400px; /* Limit width */
     margin: 0 20px; /* Add margin for spacing */
 }
 
@@ -255,9 +260,10 @@ h1.fancy-title .title-gif {
 
 /* Right Top Bar */
 .top-bar-right {
+    height: 31px; /* Height of the right top bar */
     display: flex;
-    align-items: center;
-    gap: 20px; /* Space between date/time and other elements */
+    align-items: center; /* Vertically center content */
+    gap: 20px; /* Space between items */
     flex-shrink: 0; /* Prevent shrinking */
     white-space: nowrap; /* Prevent text from wrapping */
 }
