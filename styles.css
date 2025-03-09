@@ -271,55 +271,55 @@ h1.fancy-title .title-gif {
     white-space: nowrap; /* Prevent text from wrapping */
 }
 
-.date-time-container {
-    display: flex; /* Use flexbox to align items horizontally */
+/* ===== Date and Time Container ===== */
+#date-time-container {
+    display: flex; /* Use flexbox for horizontal alignment */
     align-items: center; /* Vertically center the items */
-    gap: 10px; /* Add some spacing between the time and date */
-    font-size: 1.5rem; /* Adjust font size as needed */
+    gap: 10px; /* Add spacing between time and date */
+    font-size: 1.2rem; /* Adjust font size as needed */
     font-weight: bold; /* Make the text bold */
+    color: var(--text-color); /* Use global text color */
 }
 
-#main-clock {
-    margin: 0; /* Remove default margins */
-}
-
+#main-clock,
 #current-date {
     margin: 0; /* Remove default margins */
+}
 
 /* ===== Dashboard Container ===== */
 .dashboard-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Gap between top bar and widgets */
-    width: 100%;
+    gap: 20px; /* Adds spacing between rows */
+    padding: 20px; /* Adds padding inside the container */
+    background-color: rgba(255, 245, 250, 0.8); /* Match the background color */
+    border-radius: var(--border-radius); /* Rounded corners */
+    box-shadow: var(--box-shadow); /* Subtle shadow */
+    margin-top: 60px; /* Add margin to account for the fixed top bar */
 }
 
+/* ===== Dashboard Row ===== */
 .dashboard-row {
     display: flex;
-    gap: 20px;
-    width: 100%;
+    gap: 20px; /* Adds spacing between items in a row */
 }
 
+/* ===== Dashboard Item (e.g., News Widget, Shortcut Container) ===== */
+.dashboard-item {
+    flex: 1; /* Allows items to grow and fill available space */
+    background-color: rgba(255, 255, 255, 0.9); /* White background for items */
+    border-radius: var(--border-radius); /* Rounded corners */
+    box-shadow: var(--box-shadow); /* Subtle shadow */
+    padding: 15px; /* Padding inside items */
+}
 /* ===== News Widget ===== */
 .dashboard-item.news-widget {
-    flex: 1;
-    max-width: 70%;
-    padding: 15px;
-    background-color: rgba(255, 245, 250, 0.8);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    margin-top: 20px; /* Add margin to create gap below the top bar */
+    max-width: 70%; /* Limit width of the news widget */
 }
 
-/* ===== Shortcut Widget ===== */
+/* ===== Shortcut Container ===== */
 .dashboard-item.shortcut-container {
-    flex: 1;
-    max-width: 28%;
-    padding: 15px;
-    background-color: rgba(255, 245, 250, 0.8);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    margin-top: 20px; /* Add margin to create gap below the top bar */
+    max-width: 28%; /* Limit width of the shortcut container */
 }
 
 /* ===== News Widget Header ===== */
