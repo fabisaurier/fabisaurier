@@ -258,6 +258,8 @@ async function fetchNews(source) {
         }
 
         const data = await response.json();
+        console.log('Fetched data:', data); // Log the fetched data
+
         let xmlContent;
 
         if (data.contents && data.contents.startsWith('data:application/rss+xml; charset=utf-8;base64,')) {
@@ -283,6 +285,8 @@ async function fetchNews(source) {
             showError(newsWidget, 'Ungültiges Nachrichtenformat.');
             return;
         }
+
+        console.log('XML content to parse:', xmlContent); // Log the XML content
 
         // Parse the XML content
         const parser = new DOMParser();
@@ -354,12 +358,12 @@ async function fetchNews(source) {
     }
 }
 
-
 // Display a subset of news items
 function displayNewsItems() {
     const itemsToDisplay = currentNewsData.slice(0, displayedItems);
     renderNews(itemsToDisplay);
 }
+
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
