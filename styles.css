@@ -246,11 +246,22 @@ h1.fancy-title .title-gif {
     min-width: 120px; /* Constrain the width of the clock and date */
 }
 
-#main-clock, #current-date {
+/* Clock */
+#main-clock {
     font-size: 1em;
     font-weight: 500;
     color: #000;
     white-space: nowrap; /* Prevent text from wrapping */
+    /* Add custom styles for the clock here */
+}
+
+/* Date */
+#current-date {
+    font-size: 1em;
+    font-weight: 500;
+    color: #000;
+    white-space: nowrap; /* Prevent text from wrapping */
+    /* Add custom styles for the date here */
 }
 
 /* ===== Dashboard ===== */
