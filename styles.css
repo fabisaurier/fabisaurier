@@ -278,6 +278,8 @@ h1.fancy-title .title-gif {
     color: var(--text-color);
     flex-shrink: 0;
     white-space: nowrap;
+    height: 31px;
+    width: 400px
 }
 
 #main-clock,
