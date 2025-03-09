@@ -212,7 +212,7 @@ h1.fancy-title .title-gif {
 
 #search-button {
     padding: 8px 12px;
-    background-color: #967bb6; /* Lavender color for the button */
+    background-color: rgba(232, 218, 239, 0.9);
     color: white;
     border: none;
     border-radius: var(--border-radius);
