@@ -148,6 +148,11 @@ h1.fancy-title .title-gif {
     flex-shrink: 0; /* Prevent shrinking */
 }
 
+/* Make the location icon red */
+#location i.fa-location-dot {
+    color: red;
+}
+
 /* Middle Section (Search Bar) */
 .middle-section {
     flex: 1; /* Take up remaining space */
