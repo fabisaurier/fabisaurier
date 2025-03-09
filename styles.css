@@ -388,7 +388,15 @@ h1.fancy-title .title-gif {
     margin: 0;
 }
 
+@font-face {
+    font-family: 'Cooper Hewitt';
+    src: url('cooper-hewitt/cooper-hewitt-book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .news-description {
+    font-family: 'Cooper Hewitt', serif;
     font-size: 0.95em;
     color: var(--text-color);
     margin: 0;
