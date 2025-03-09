@@ -384,6 +384,8 @@ h1.fancy-title .title-gif {
     width: 100%; /* Full width of the thumbnail */
     height: 1px; /* Line thickness */
     background-color: #0077ff; /* Blue color */
+     display: block; /* Ensure the elements are visible */
+    visibility: visible; /* Ensure the elements are visible */
 }
 
 /* Outer Line Below */
