@@ -546,28 +546,20 @@ h1.fancy-title .title-gif {
 /* Podcast Thumbnail */
 .podcast-thumbnail {
     width: 100%;
-    height: 200px; /* Adjust height as needed */
+    padding-top: 100%; /* Makes the container square */
+    position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
-    position: relative;
 }
 
 .podcast-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius);
-}
-
-
-/* Podcast Title */
-.audio-player h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.4em;
-    font-weight: 600;
-    color: var(--text-color);
-    margin: 0;
-    text-align: center;
 }
 
 /* Audio Controls */
@@ -580,7 +572,7 @@ h1.fancy-title .title-gif {
     outline: none;
 }
 
-/* Custom Audio Controls (Optional) */
+/* Custom Audio Controls */
 .audio-player audio::-webkit-media-controls-panel {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius);
@@ -588,7 +580,7 @@ h1.fancy-title .title-gif {
 
 .audio-player audio::-webkit-media-controls-play-button,
 .audio-player audio::-webkit-media-controls-mute-button {
-    background-color: var(--primary-color);
+    background-color: #D9C7E2; /* Updated button color */
     border-radius: 50%;
     color: white;
 }
@@ -599,6 +591,7 @@ h1.fancy-title .title-gif {
     font-size: 0.9em;
     color: var(--text-color);
 }
+
 /* ===== Show More Button ===== */
 #show-more-button {
     display: none;
