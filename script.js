@@ -82,13 +82,8 @@ async function loadPodcast() {
             throw new Error('No audio URL found in the latest episode.');
         }
 
-        // Extract thumbnail URL (if available)
-        const thumbnailUrl = latestEpisode.querySelector('itunes\\:image')?.getAttribute('href') || 'https://via.placeholder.com/300x300';
-
         // Update the DOM
         podcastAudioElement.src = audioUrl;
-        const thumbnailElement = document.querySelector('.podcast-thumbnail img');
-        thumbnailElement.src = thumbnailUrl;
     } catch (error) {
         console.error('Error loading podcast:', error);
         const audioPlayerContainer = document.querySelector('.audio-player');
