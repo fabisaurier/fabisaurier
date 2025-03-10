@@ -43,9 +43,11 @@ let displayedItems = 10; // Number of items to display initially
 const ITEMS_PER_PAGE = 10; // Number of items to load each time "Show More" is clicked
 
 // ===== RSS Parser =====
+const parser = new RSSParser(); // Initialize the RSS Parser
+
 // Function to fetch and embed the latest podcast episode
 async function loadPodcast() {
-    const rssFeedUrl = 'https://www.deutschlandfunk.de/nachrichten-108.xml/'; // Replace with the actual RSS feed URL
+    const rssFeedUrl = 'https://www.deutschlandfunk.de/die-nachrichten-100.xml'; // Correct RSS feed URL
 
     try {
         // Fetch and parse the RSS feed
@@ -61,6 +63,11 @@ async function loadPodcast() {
         podcastAudioElement.src = audioUrl;
     } catch (error) {
         console.error('Error loading podcast:', error);
+        // Display an error message to the user
+        const audioPlayerContainer = document.querySelector('.audio-player');
+        if (audioPlayerContainer) {
+            audioPlayerContainer.innerHTML = `<p>Fehler beim Laden des Podcasts. Bitte versuchen Sie es später erneut.</p>`;
+        }
     }
 }
 
