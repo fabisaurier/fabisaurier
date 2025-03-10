@@ -28,14 +28,13 @@ const PROXY_URL = 'https://api.allorigins.win/get?url=';
 const mainClockElement = document.getElementById('main-clock');
 const dateElement = document.getElementById('current-date');
 const cityElement = document.getElementById('city');
-const weatherWidget = document.getElementById('weather-widget');
 const newsWidget = document.querySelector('.news-list');
 const tabButtons = document.querySelectorAll('.tab-button');
 const newspaperLogo = document.getElementById('newspaper-logo');
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 const showMoreButton = document.getElementById('show-more-button');
-const podcastAudioElement = document.getElementById('podcast-audio'); // Add this line
+const podcastAudioElement = document.getElementById('podcast-audio');
 
 // ===== Variables for Pagination =====
 let currentNewsData = []; // Stores all fetched news items
@@ -44,6 +43,8 @@ const ITEMS_PER_PAGE = 10; // Number of items to load each time "Show More" is c
 
 // ===== RSS Parser =====
 const parser = new RSSParser(); // Initialize the RSS Parser
+
+// ===== Functions =====
 
 // Function to fetch and embed the latest podcast episode
 async function loadPodcast() {
@@ -92,7 +93,6 @@ async function loadPodcast() {
         }
     }
 }
-// ===== Functions =====
 
 // Update the newspaper logo
 function updateNewspaperLogo(source) {
@@ -115,10 +115,10 @@ function startClock() {
 
 function updateClock() {
     const now = new Date();
-    const localTime = now.toLocaleTimeString('de-DE', { 
-        hour: '2-digit', 
-        minute: '2-digit', 
-        second: '2-digit', 
+    const localTime = now.toLocaleTimeString('de-DE', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
         timeZoneName: undefined // Remove time zone information
     });
     if (mainClockElement) {
@@ -128,11 +128,11 @@ function updateClock() {
 
 function updateDate() {
     const now = new Date();
-    const options = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
         timeZoneName: undefined // Remove time zone information
     };
     const dateString = now.toLocaleDateString('de-DE', options);
@@ -441,9 +441,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNewspaperLogo('tagesschau'); // Update the logo
 
     // Attach event listeners to tab buttons
-    const tabButtons = document.querySelectorAll('.tab-button');
-    console.log('Tab buttons:', tabButtons); // Debugging
-
     tabButtons.forEach((button) => {
         button.addEventListener('click', () => {
             console.log('Button clicked:', button.getAttribute('data-source')); // Debugging
@@ -466,5 +463,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Load the podcast when the page loads
-    loadPodcast(); // Add this line
+    loadPodcast();
 });
