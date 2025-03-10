@@ -35,11 +35,34 @@ const newspaperLogo = document.getElementById('newspaper-logo');
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 const showMoreButton = document.getElementById('show-more-button');
+const podcastAudioElement = document.getElementById('podcast-audio'); // Add this line
 
 // ===== Variables for Pagination =====
 let currentNewsData = []; // Stores all fetched news items
 let displayedItems = 10; // Number of items to display initially
 const ITEMS_PER_PAGE = 10; // Number of items to load each time "Show More" is clicked
+
+// ===== RSS Parser =====
+// Function to fetch and embed the latest podcast episode
+async function loadPodcast() {
+    const rssFeedUrl = 'https://www.deutschlandfunk.de/nachrichten-108.xml/'; // Replace with the actual RSS feed URL
+
+    try {
+        // Fetch and parse the RSS feed
+        const feed = await parser.parseURL(rssFeedUrl);
+
+        // Get the latest episode
+        const latestEpisode = feed.items[0];
+
+        // Extract the audio URL
+        const audioUrl = latestEpisode.enclosure.url;
+
+        // Embed the audio in the player
+        podcastAudioElement.src = audioUrl;
+    } catch (error) {
+        console.error('Error loading podcast:', error);
+    }
+}
 
 // ===== Functions =====
 
@@ -140,6 +163,7 @@ function fetchWeather(latitude, longitude) {
             console.error('Error fetching weather data.');
         });
 }
+
 // ===== Google Search =====
 searchButton.addEventListener('click', handleSearch);
 searchInput.addEventListener('keypress', (e) => {
@@ -412,4 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
         displayedItems += ITEMS_PER_PAGE; // Increase the number of displayed items
         displayNewsItems(); // Update the displayed items
     });
+
+    // Load the podcast when the page loads
+    loadPodcast(); // Add this line
 });
