@@ -550,13 +550,13 @@ h1.fancy-title .title-gif {
     border-radius: var(--border-radius);
     overflow: hidden;
     position: relative;
+    background-image: url('images/podcast-thumbnail.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .podcast-thumbnail img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: var(--border-radius);
+    display: none; /* Hide the <img> element if using background-image */
 }
 
 /* Podcast Title */
