@@ -389,7 +389,7 @@ async function fetchNews(source) {
                 const mediaThumbnail = item.querySelector('media\\:thumbnail, thumbnail')?.getAttribute('url');
                 const mediaContent = item.getElementsByTagNameNS('http://search.yahoo.com/mrss/', 'content')[0]?.getAttribute('url');
                 const enclosure = item.querySelector('enclosure')?.getAttribute('url');
-                thumbnailUrl = mediaThumbnail || mediaContent || enclosure || 'https://via.placeholder.com/120x80'; // Fallback image
+                thumbnailUrl = mediaThumbnail || mediaContent || enclosure || 'images/platzhalter.gif'; // Fallback image
             }
 
             // Debugging: Log the extracted thumbnail URL and relevant XML content
