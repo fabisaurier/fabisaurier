@@ -47,12 +47,15 @@ const parser = new RSSParser(); // Initialize the RSS Parser
 
 // Function to fetch and embed the latest podcast episode
 async function loadPodcast() {
-    const rssFeedUrl = 'https://www.deutschlandfunk.de/die-nachrichten-108.xml';
+    const rssFeedUrl = 'https://www.deutschlandfunk.de/nachrichten-108.xml';
     const proxyUrl = 'https://api.allorigins.win/get?url=';
 
     try {
+        console.log('Fetching RSS feed via proxy...');
         const response = await fetch(`${proxyUrl}${encodeURIComponent(rssFeedUrl)}`);
+        
         if (!response.ok) {
+            console.error('Fetch failed with status:', response.status);
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
