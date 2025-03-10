@@ -562,6 +562,16 @@ h1.fancy-title .title-gif {
     border-radius: var(--border-radius);
 }
 
+/* Podcast Title */
+.audio-player h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+    text-align: center;
+}
+
 /* Audio Controls */
 .audio-player audio {
     width: 100%;
