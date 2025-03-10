@@ -47,23 +47,45 @@ const parser = new RSSParser(); // Initialize the RSS Parser
 
 // Function to fetch and embed the latest podcast episode
 async function loadPodcast() {
-    const rssFeedUrl = 'https://www.deutschlandfunk.de/die-nachrichten-108.xml'; // Correct RSS feed URL
+    const rssFeedUrl = 'https://www.deutschlandfunk.de/die-nachrichten-108.xml';
+    const proxyUrl = 'https://api.allorigins.win/get?url='; // Use a CORS proxy
 
     try {
-        // Fetch and parse the RSS feed
-        const feed = await parser.parseURL(rssFeedUrl);
+        // Fetch the RSS feed through the proxy
+        const response = await fetch(`${proxyUrl}${encodeURIComponent(rssFeedUrl)}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const xmlContent = data.contents; // Extract the XML content from the proxy response
+
+        // Parse the XML content
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlContent, 'text/xml');
+
+        // Check for XML parsing errors
+        const parserError = xmlDoc.querySelector('parsererror');
+        if (parserError) {
+            throw new Error('Error parsing XML: ' + parserError.textContent);
+        }
 
         // Get the latest episode
-        const latestEpisode = feed.items[0];
+        const latestEpisode = xmlDoc.querySelector('item');
+        if (!latestEpisode) {
+            throw new Error('No episodes found in the RSS feed.');
+        }
 
         // Extract the audio URL
-        const audioUrl = latestEpisode.enclosure.url;
+        const audioUrl = latestEpisode.querySelector('enclosure')?.getAttribute('url');
+        if (!audioUrl) {
+            throw new Error('No audio URL found in the latest episode.');
+        }
 
         // Embed the audio in the player
         podcastAudioElement.src = audioUrl;
     } catch (error) {
         console.error('Error loading podcast:', error);
-        // Display an error message to the user
         const audioPlayerContainer = document.querySelector('.audio-player');
         if (audioPlayerContainer) {
             audioPlayerContainer.innerHTML = `<p>Fehler beim Laden des Podcasts. Bitte versuchen Sie es später erneut.</p>`;
