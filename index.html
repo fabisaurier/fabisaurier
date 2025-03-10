@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dashboard für persönliche Widgets wie Wetter, Uhrzeit und Notizen.">
-    
+
     <!-- Title -->
     <title>Dashboard</title>
-    
+
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -31,7 +31,7 @@
     <div class="main-container">
         <!-- Sidebar Navigation -->
         <nav class="sidebar" aria-label="Hauptnavigation">
-           <img src="images/taube.gif" alt="GIF" class="sidebar-gif" />
+            <img src="images/taube.gif" alt="GIF" class="sidebar-gif" />
         </nav>
 
         <!-- Content Container -->
@@ -39,19 +39,16 @@
             <!-- Top Bar -->
             <div class="top-bar">
                 <!-- Left Top Bar: Location, Temperature, Weather -->
-<div class="top-bar-left">
-    <!-- Location -->
-    <div id="location">
-        <i class="fas fa-location-dot" aria-hidden="true"></i>
-        <span id="city">Berlin</span>
-    </div>
-
-    <!-- Weather Information -->
-    <div id="weather-info">
-        <span id="temperature">18°C</span>
-        <span id="weather-condition">Sunny</span>
-    </div>
-</div>
+                <div class="top-bar-left">
+                    <div id="location">
+                        <i class="fas fa-location-dot" aria-hidden="true"></i>
+                        <span id="city">Berlin</span>
+                    </div>
+                    <div id="weather-info">
+                        <span id="temperature">18°C</span>
+                        <span id="weather-condition">Sunny</span>
+                    </div>
+                </div>
 
                 <!-- Middle Top Bar: Search Bar -->
                 <div class="top-bar-middle">
@@ -63,17 +60,15 @@
                     </div>
                 </div>
 
-               <!-- Right Top Bar: Date and Time -->
-<div class="top-bar-right">
-    <!-- Time Container -->
-    <div id="time-container">
-        <div id="main-clock"></div>
-    </div>
-    <!-- Date Container -->
-    <div id="date-container">
-        <div id="current-date"></div>
-    </div>
-</div>
+                <!-- Right Top Bar: Date and Time -->
+                <div class="top-bar-right">
+                    <div id="time-container">
+                        <div id="main-clock"></div>
+                    </div>
+                    <div id="date-container">
+                        <div id="current-date"></div>
+                    </div>
+                </div>
             </div> <!-- End of .top-bar -->
 
             <!-- Dashboard Container -->
@@ -85,14 +80,11 @@
                     <!-- News Widget -->
                     <article class="dashboard-item news-widget" aria-labelledby="news-heading">
                         <header class="news-header">
-                            <!-- Left Side: Newspaper Logo -->
                             <div class="news-header-left">
                                 <div class="newspaper-logo">
                                     <img id="newspaper-logo" src="images/tagesschau_logo.png" alt="Tagesschau Logo">
                                 </div>
                             </div>
-
-                            <!-- Right Side: Tabs -->
                             <div class="news-tabs">
                                 <button class="tab-button active" data-source="tagesschau">Tagesschau</button>
                                 <button class="tab-button" data-source="zeit">Zeit</button>
@@ -104,7 +96,6 @@
                         <div class="widget-content">
                             <div id="news-widget" lang="de">
                                 <div class="news-list">
-                                    <!-- Example News Item -->
                                     <div class="news-item">
                                         <a href="#" class="news-link" target="_blank">
                                             <div class="news-thumbnail">
@@ -118,24 +109,22 @@
                                         </a>
                                     </div>
                                 </div>
-                                <!-- Show More Button -->
                                 <button id="show-more-button" class="show-more-button">Mehr anzeigen</button>
                             </div>
                         </div>
                     </article>
 
                     <!-- Shortcut Container -->
-<article class="dashboard-item shortcut-container" aria-labelledby="shortcuts-heading">
-    <!-- Audio Player for Deutschlandfunk - Die Nachrichten -->
-    <div class="audio-player">
-    <div class="podcast-thumbnail">
-        <img src="images/dlf.jpg" alt="Podcast Thumbnail" loading="lazy">
-    </div>
-    <audio id="podcast-audio" controls>
-        Your browser does not support the audio element.
-    </audio>
-</div>
-</article>
+                    <article class="dashboard-item shortcut-container" aria-labelledby="shortcuts-heading">
+                        <div class="audio-player">
+                            <div class="podcast-thumbnail">
+                                <img src="images/dlf.jpg" alt="Podcast Thumbnail" loading="lazy">
+                            </div>
+                            <audio id="podcast-audio" controls>
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </article>
                 </section>
             </main>
         </div> <!-- End of .content-container -->
