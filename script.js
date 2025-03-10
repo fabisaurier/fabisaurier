@@ -47,7 +47,7 @@ const parser = new RSSParser(); // Initialize the RSS Parser
 
 // Function to fetch and embed the latest podcast episode
 async function loadPodcast() {
-    const rssFeedUrl = 'https://www.deutschlandfunk.de/die-nachrichten-100.xml'; // Correct RSS feed URL
+    const rssFeedUrl = 'https://www.deutschlandfunk.de/die-nachrichten-108.xml'; // Correct RSS feed URL
 
     try {
         // Fetch and parse the RSS feed
