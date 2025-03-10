@@ -562,20 +562,13 @@ h1.fancy-title .title-gif {
     gap: 8px; /* Adjust the gap between elements */
 }
 
-.title-main {
+.podcast-title {
     font-family: 'Poppins', sans-serif;
     font-size: 1em;
     font-weight: 600;
     color: var(--text-color);
-    display: block;
-}
-
-.title-sub {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9em;
-    font-weight: 400;
-    color: var(--text-color);
-    display: block;
+    text-align: left; /* Align title to the left */
+    margin-top: 8px; /* Space between audio player and title */
 }
 
 .audio-player audio {
