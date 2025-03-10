@@ -510,19 +510,27 @@ h1.fancy-title .title-gif {
     box-shadow: var(--box-shadow);
     padding: 20px;
     transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap between elements */
+}
+
+.shortcut-container .audio-player {
+    margin-top: 0; /* Ensure the player is at the top */
 }
 
 .audio-player {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row; /* Change to row to align thumbnail and audio elements side by side */
+    gap: 16px; /* Adjust the gap between thumbnail and audio elements */
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
-    width: 250px;
+    width: 100%; /* Ensure it takes full width of the container */
+    margin-bottom: 20px; /* Add some space below the player */
 }
 
 .audio-player:hover {
@@ -530,8 +538,8 @@ h1.fancy-title .title-gif {
 }
 
 .podcast-thumbnail {
-    width: 100%;
-    padding-top: 100%;
+    flex: 0 0 100px; /* Fixed width for the thumbnail */
+    height: 100px; /* Fixed height for the thumbnail */
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -545,6 +553,13 @@ h1.fancy-title .title-gif {
     height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius);
+}
+
+.audio-content {
+    flex: 1; /* Allow the audio content to take the remaining space */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Adjust the gap between elements */
 }
 
 .title-main {
