@@ -530,13 +530,14 @@ h1.fancy-title .title-gif {
 .audio-player {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px; /* Reduced gap between elements */
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    padding: 20px;
+    padding: 10px; /* Reduced padding */
     border: 1px solid rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
+    width: 250px; /* Adjust the width to make it smaller */
 }
 
 .audio-player:hover {
@@ -546,7 +547,7 @@ h1.fancy-title .title-gif {
 /* Podcast Thumbnail */
 .podcast-thumbnail {
     width: 100%;
-    padding-top: 100%; /* Makes the container square */
+    padding-top: 100%; /* Maintains the square aspect ratio */
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -562,6 +563,22 @@ h1.fancy-title .title-gif {
     border-radius: var(--border-radius);
 }
 
+.title-main {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em; /* Adjusted to a smaller size */
+    font-weight: 600;
+    color: var(--text-color);
+    display: block;
+}
+
+.title-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em; /* Slightly smaller than the main title */
+    font-weight: 400;
+    color: var(--text-color);
+    display: block;
+}
+
 /* Audio Controls */
 .audio-player audio {
     width: 100%;
@@ -570,6 +587,7 @@ h1.fancy-title .title-gif {
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(0, 0, 0, 0.1);
     outline: none;
+    margin-top: 5px; /* Reduced margin */
 }
 
 /* Custom Audio Controls */
@@ -588,9 +606,11 @@ h1.fancy-title .title-gif {
 .audio-player audio::-webkit-media-controls-current-time-display,
 .audio-player audio::-webkit-media-controls-time-remaining-display {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9em;
+    font-size: 0.8em; /* Adjusted to a smaller size */
     color: var(--text-color);
 }
+``
+
 
 /* ===== Show More Button ===== */
 #show-more-button {
