@@ -526,36 +526,28 @@ h1.fancy-title .title-gif {
     transition: transform 0.2s ease;
 }
 
-.shortcut-content {
+/* ===== Audio Player ===== */
+.audio-player {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 20px; /* Add spacing below the audio player */
 }
 
-.shortcut-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.shortcut-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.shortcut-item i {
+.audio-player h3 {
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2em;
-    color: var(--primary-color);
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
 }
 
-.shortcut-item span {
-    font-size: 0.95em;
-    color: var(--text-color);
+.audio-player audio {
+    width: 100%; /* Make the audio player full width */
+    border-radius: var(--border-radius); /* Rounded corners */
+    box-shadow: var(--box-shadow); /* Box shadow */
+    background-color: rgba(255, 255, 255, 0.9); /* Background color */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
 }
 
 /* ===== Show More Button ===== */
