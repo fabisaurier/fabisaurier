@@ -90,47 +90,45 @@ h1.fancy-title .title-gif {
 /* ===== Sidebar ===== */
 .sidebar {
     width: 200px;
-    background-color: rgba(232, 218, 239, 0.6); /* Keep the existing color */
-    backdrop-filter: blur(10px); /* Add blur effect */
+    background-color: rgba(232, 218, 239, 0.6);
+    backdrop-filter: blur(10px);
     padding: 20px;
-    border-right: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
-    box-shadow: var(--box-shadow); /* Same box shadow as content container */
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--box-shadow);
     position: fixed;
     height: calc(100vh - 70px);
     z-index: 1000;
-    border-radius: var(--border-radius); /* Optional: Add border radius */
+    border-radius: var(--border-radius);
 }
 
-/* ===== Sidebar Circle ===== */
 .sidebar::before {
-    content: ""; /* Required for pseudo-elements */
+    content: "";
     position: absolute;
-    top: 20px; /* Align with the top bar */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for perfect centering */
-    width: 50px; /* Circle width */
-    height: 50px; /* Circle height */
-    background-color: rgba(255, 255, 255, 0.7); /* Same as content container */
-    backdrop-filter: blur(10px); /* Blur effect */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
-    box-shadow: var(--box-shadow); /* Box shadow */
-    border-radius: 50%; /* Make it a circle */
-    z-index: 1; /* Ensure it's above the sidebar background */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--box-shadow);
+    border-radius: 50%;
+    z-index: 1;
 }
 
-/* ===== Sidebar GIF ===== */
 .sidebar-gif {
     position: absolute;
-    top: 20px; /* Align with the top bar */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for perfect centering */
-    width: 50px; /* Circle width */
-    height: 50px; /* Circle height */
-    border-radius: 50%; /* Make it a circle */
-    object-fit: cover; /* Ensure the GIF fits inside the circle */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
-    box-shadow: var(--box-shadow); /* Box shadow */
-    z-index: 1; /* Ensure it's above the sidebar background */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--box-shadow);
+    z-index: 1;
 }
 
 .sidebar ul {
@@ -155,6 +153,7 @@ h1.fancy-title .title-gif {
 .sidebar ul li a:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
+
 /* ===== Content Container ===== */
 .content-container {
     flex: 1;
@@ -162,7 +161,7 @@ h1.fancy-title .title-gif {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    padding-top: 55px; /* Add padding to account for the top bar height + gap */
+    padding-top: 55px;
 }
 
 /* ===== Top Bar ===== */
@@ -185,11 +184,9 @@ h1.fancy-title .title-gif {
     overflow: hidden;
 }
 
-/* Left Top Bar */
 .top-bar-left {
     height: 31px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
@@ -226,15 +223,14 @@ h1.fancy-title .title-gif {
     font-weight: 600;
 }
 
-/* Middle Top Bar */
 .top-bar-middle {
     height: 31px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 400px; /* Fixed width */
+    width: 400px;
     margin: 0 20px;
-    flex-shrink: 0; /* Prevents shrinking */
+    flex-shrink: 0;
 }
 
 .search-container {
@@ -243,7 +239,7 @@ h1.fancy-title .title-gif {
     gap: 10px;
     width: 100%;
     max-width: 100%;
-    overflow: visible; /* Allows content to overflow */
+    overflow: visible;
 }
 
 #search-input {
@@ -298,7 +294,6 @@ h1.fancy-title .title-gif {
     font-size: 1em;
 }
 
-/* Right Top Bar */
 .top-bar-right {
     height: 31px;
     display: flex;
@@ -308,33 +303,30 @@ h1.fancy-title .title-gif {
     white-space: nowrap;
 }
 
-/* ===== Time Container ===== */
 #time-container {
-    font-size: 1.1rem; /* Adjust font size as needed */
-    font-weight: bold; /* Make the text bold */
-    color: var(--text-color); /* Use global text color */
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 5px; /* Add spacing between time and date */
+    margin-right: 5px;
     height: 31px;
     width: 60px;
-    flex-shrink: 0; /* Prevents shrinking */
+    flex-shrink: 0;
 }
 
-/* ===== Date Container ===== */
 #date-container {
-    font-size: 1.1rem; /* Slightly smaller font size than time */
-    font-weight: bold; 
-    color: var(--text-color); /* Use global text color */
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 31px;
     width: 190px;
-    flex-shrink: 0; /* Prevents shrinking */
+    flex-shrink: 0;
 }
-
 
 /* ===== Dashboard Container ===== */
 .dashboard-container {
@@ -348,13 +340,11 @@ h1.fancy-title .title-gif {
     margin-top: 20px;
 }
 
-/* ===== Dashboard Row ===== */
 .dashboard-row {
     display: flex;
     gap: 20px;
 }
 
-/* ===== Dashboard Item (e.g., News Widget, Shortcut Container) ===== */
 .dashboard-item {
     flex: 1;
     background-color: rgba(255, 255, 255, 0.9);
@@ -363,14 +353,13 @@ h1.fancy-title .title-gif {
     padding: 15px;
 }
 
-/* ===== News Widget ===== */
 .dashboard-item.news-widget {
     max-width: 70%;
-    background-color: rgba(255, 245, 250, 0.8); /* Match the shortcut widget color */
+    background-color: rgba(255, 245, 250, 0.8);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .news-header {
@@ -412,18 +401,16 @@ h1.fancy-title .title-gif {
 }
 
 .tab-button.active {
-    background-color: #EADBEF; /* Change to #EADBEF when clicked */
-    color: var(--text-color); /* Keep the text color consistent */
-    border-color: #EADBEF; /* Match the border color with the background */
+    background-color: #EADBEF;
+    color: var(--text-color);
+    border-color: #EADBEF;
 }
-
 
 .tab-button:hover {
-    background-color: #EADBEF; /* Change to #FFF6FA on hover */
-    color: var(--text-color); /* Keep the text color consistent */
+    background-color: #EADBEF;
+    color: var(--text-color);
     transition: background-color 0.2s ease, color 0.2s ease;
 }
-
 
 .news-list {
     display: flex;
@@ -512,10 +499,9 @@ h1.fancy-title .title-gif {
     text-overflow: ellipsis;
 }
 
-/* ===== Shortcut Container ===== */
 .dashboard-item.shortcut-container {
     max-width: 28%;
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .shortcut-container {
@@ -526,28 +512,26 @@ h1.fancy-title .title-gif {
     transition: transform 0.2s ease;
 }
 
-/* ===== Audio Player ===== */
 .audio-player {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Reduced gap between elements */
+    gap: 8px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    padding: 10px; /* Reduced padding */
+    padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
-    width: 250px; /* Adjust the width to make it smaller */
+    width: 250px;
 }
 
 .audio-player:hover {
     transform: translateY(-2px);
 }
 
-/* Podcast Thumbnail */
 .podcast-thumbnail {
     width: 100%;
-    padding-top: 100%; /* Maintains the square aspect ratio */
+    padding-top: 100%;
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -565,7 +549,7 @@ h1.fancy-title .title-gif {
 
 .title-main {
     font-family: 'Poppins', sans-serif;
-    font-size: 1em; /* Adjusted to a smaller size */
+    font-size: 1em;
     font-weight: 600;
     color: var(--text-color);
     display: block;
@@ -573,13 +557,12 @@ h1.fancy-title .title-gif {
 
 .title-sub {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.9em; /* Slightly smaller than the main title */
+    font-size: 0.9em;
     font-weight: 400;
     color: var(--text-color);
     display: block;
 }
 
-/* Audio Controls */
 .audio-player audio {
     width: 100%;
     border-radius: var(--border-radius);
@@ -587,10 +570,9 @@ h1.fancy-title .title-gif {
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(0, 0, 0, 0.1);
     outline: none;
-    margin-top: 5px; /* Reduced margin */
+    margin-top: 5px;
 }
 
-/* Custom Audio Controls */
 .audio-player audio::-webkit-media-controls-panel {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: var(--border-radius);
@@ -598,7 +580,7 @@ h1.fancy-title .title-gif {
 
 .audio-player audio::-webkit-media-controls-play-button,
 .audio-player audio::-webkit-media-controls-mute-button {
-    background-color: #D9C7E2; /* Updated button color */
+    background-color: #D9C7E2;
     border-radius: 50%;
     color: white;
 }
@@ -606,11 +588,9 @@ h1.fancy-title .title-gif {
 .audio-player audio::-webkit-media-controls-current-time-display,
 .audio-player audio::-webkit-media-controls-time-remaining-display {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.8em; /* Adjusted to a smaller size */
+    font-size: 0.8em;
     color: var(--text-color);
 }
-``
-
 
 /* ===== Show More Button ===== */
 #show-more-button {
