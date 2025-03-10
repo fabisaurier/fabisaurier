@@ -115,16 +115,23 @@
                     </article>
 
                     <!-- Shortcut Container -->
-                    <article class="dashboard-item shortcut-container" aria-labelledby="shortcuts-heading">
-                        <div class="audio-player">
-                            <div class="podcast-thumbnail">
-                                <img src="images/dlf.jpg" alt="Podcast Thumbnail" loading="lazy">
-                            </div>
-                            <audio id="podcast-audio" controls>
-                                Your browser does not support the audio element.
-                            </audio>
-                        </div>
-                    </article>
+<article class="dashboard-item shortcut-container" aria-labelledby="shortcuts-heading">
+    <div class="audio-player">
+        <!-- Thumbnail on the left -->
+        <div class="podcast-thumbnail">
+            <img src="images/dlf.jpg" alt="Podcast Thumbnail" loading="lazy">
+        </div>
+        <!-- Audio content on the right -->
+        <div class="audio-content">
+            <!-- Audio player at the top -->
+            <audio id="podcast-audio" controls>
+                Your browser does not support the audio element.
+            </audio>
+            <!-- Podcast title beneath the audio player -->
+            <span class="podcast-title">Dlf - Die Nachrichten</span>
+        </div>
+    </div>
+</article>
                 </section>
             </main>
         </div> <!-- End of .content-container -->
