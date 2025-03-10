@@ -51,19 +51,13 @@ async function loadPodcast() {
     const proxyUrl = 'https://api.allorigins.win/get?url=';
 
     try {
-        console.log('Fetching RSS feed via proxy...');
         const response = await fetch(`${proxyUrl}${encodeURIComponent(rssFeedUrl)}`);
-        
         if (!response.ok) {
-            console.error('Fetch failed with status:', response.status);
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const data = await response.json();
-        console.log('Proxy response:', data); // Log the proxy response
-
-        const xmlContent = data.contents; // Extract the XML content
-        console.log('XML content:', xmlContent); // Log the XML content
+        const xmlContent = data.contents;
 
         if (!xmlContent.startsWith('<')) {
             throw new Error('Invalid XML content: Start tag expected');
@@ -82,12 +76,19 @@ async function loadPodcast() {
             throw new Error('No episodes found in the RSS feed.');
         }
 
+        // Extract audio URL
         const audioUrl = latestEpisode.querySelector('enclosure')?.getAttribute('url');
         if (!audioUrl) {
             throw new Error('No audio URL found in the latest episode.');
         }
 
+        // Extract thumbnail URL (if available)
+        const thumbnailUrl = latestEpisode.querySelector('itunes\\:image')?.getAttribute('href') || 'https://via.placeholder.com/300x300';
+
+        // Update the DOM
         podcastAudioElement.src = audioUrl;
+        const thumbnailElement = document.querySelector('.podcast-thumbnail img');
+        thumbnailElement.src = thumbnailUrl;
     } catch (error) {
         console.error('Error loading podcast:', error);
         const audioPlayerContainer = document.querySelector('.audio-player');
@@ -96,7 +97,6 @@ async function loadPodcast() {
         }
     }
 }
-
 // ===== Functions =====
 
 // Update the newspaper logo
